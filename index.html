@@ -1225,7 +1225,7 @@
                 <li>Remove the microSD card from the Pi.</li>
                 <li>Insert the prepared replacement card.</li>
                 <li>Turn the system on and allow extra time for the first boot.</li>
-                <li>Check SSH or the Bluetooth app, then verify camera, SSD, time zone, RTC, and capture interval.</li>
+                <li>Check SSH or the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">Bluetooth app</a>, then verify camera, SSD, time zone, RTC, and capture interval.</li>
                 <li>Take and inspect test images before deployment.</li>
               </ol>
             </div>
@@ -1240,7 +1240,7 @@
                 <li>Check the camera USB cable at the Pi.</li>
                 <li>Unscrew the black rear cap of the camera housing carefully and check the USB-C end is fully
                   inserted.</li>
-                <li>Test camera detection in the AMI Bluetooth App or using the command line and SSH:</li>
+                <li>Test camera detection in the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or using the command line and SSH:</li>
               </ol>
               <div class="cmd"><code>ls /dev/video0</code><button class="copy">Copy</button></div>
               <div class="cmd"><code>ls -l /dev/v4l/by-id/</code><button class="copy">Copy</button></div>
@@ -1255,7 +1255,7 @@
                 <li>If necessary, test the long USB cable with another known-good USB device, then test the camera using
                   another
                   known-good USB-A to USB-C lead. This will help determine if the issue is with the cable or the camera.</li>
-                <li>If the camera is detected but images remain grey, inspect the Motion log (downloadable via the AMI Bluetooth App) and camera-device path.
+                <li>                If the camera is detected but images remain grey, inspect the Motion log (downloadable via the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a>) and camera-device path.
                 </li>
               </ol>
             </div>
@@ -1298,10 +1298,10 @@
             <summary>No images are taken, even though the Pi, lights, and SSD appear on</summary>
             <div class="faq-content">
               <ol>
-                <li>Confirm the camera is detected in the AMI Bluetooth App or in ther termianl with <code>ls /dev/video0</code>.</li>
-                <li>Confirm the SSD and mount point in the AMI Bluetooth App or in the terminal with <code>lsblk</code>.</li>
+                <li>Confirm the camera is detected in the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or in the terminal with <code>ls /dev/video0</code>.</li>
+                <li>Confirm the SSD and mount point in the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or in the terminal with <code>lsblk</code>.</li>
                 <li>Start image capture with <code>sudo motion</code> in the terminal.</li>
-                <li>Inspect the image folder and the Motion/camera log (downloadable from the AMI Bluetooth App or using the steps below in the terminal).</li>
+                <li>Inspect the image folder and the Motion/camera log (downloadable from the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or using the steps below in the terminal).</li>
               </ol>
               <div class="cmd"><code>ls /media/pi/PiImages</code><button class="copy">Copy</button></div>
               <div class="cmd"><code>tail -n 100 /var/log/motion/motion.log</code><button class="copy">Copy</button>
@@ -1356,7 +1356,7 @@
             <summary>The SSD is empty or no new photographs appear</summary>
             <div class="faq-content">
               <ol>
-                <li>Check whether the SSD is recognised in the AMI Bluetooth App.</li>
+                <li>Check whether the SSD is recognised in the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a>.</li>
                 <li>Turn the relay to OFF OFF before reseating the SSD.</li>
                 <li>Try a blue USB port and another known-good USB cable/port.</li>
                 <li>Connect by SSH and run:</li>
@@ -1405,7 +1405,7 @@
           <details class="faq">
             <summary>How do I copy the Motion log to a Windows laptop?</summary>
             <div class="faq-content">
-              <p>Use the AMI Bluetooth App or the command matching your terminal while connected via an ethernet cable.</p>
+              <p>Use the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or the command matching your terminal while connected via an ethernet cable.</p>
               <h3>Command Prompt</h3>
               <div class="cmd">
                 <code>scp pi@raspberrypi.local:/var/log/motion/motion.log C:/Users/YourUsername/Downloads/</code><button
@@ -1428,7 +1428,7 @@
                   battery
                   state.</li>
                 <li>Check free SSD space and whether the SSD remained mounted.</li>
-                <li>Inspect <code>/var/log/motion/motion.log</code> around the final image time (downloadable from the AMI Bluetooth App or using an ethernet cable and SSH).</li>
+                <li>Inspect <code>/var/log/motion/motion.log</code> around the final image time (downloadable from the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or using an ethernet cable and SSH).</li>
                 <li>Check for intermittent camera disconnects and loose USB cables.</li>
                 <li>Check UPS/watchdog shutdowns, low main-battery voltage and solar charging.</li>
                 <li>Substitute known-good SSD, camera cable, or software microSD one at a time.</li>
@@ -1445,7 +1445,7 @@
             <summary>Image timestamps are wrong</summary>
             <div class="faq-content">
               <ol>
-                <li>Connect using the AMI Bluetooth App or the command line over SSH and check time and timezone. If using the command line:</li>
+                <li>Connect using the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or the command line over SSH and check time and timezone. If using the command line:</li>
               </ol>
               <div class="cmd"><code>timedatectl</code><button class="copy">Copy</button></div>
               <ol start="2">
@@ -1460,10 +1460,10 @@
               </ol>
               <div class="cmd"><code>sudo hwclock -r</code><button class="copy">Copy</button></div>
               <ol start="5">
-                <li> After confirming the time is correct in the AMI Bluetooth App or the command line, power down for several minutes, restart and check whether time was retained. If not, reseat the RTC
+                <li> After confirming the time is correct in the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or the command line, power down for several minutes, restart and check whether time was retained. If not, reseat the RTC
                   and
                   replace its CR1220 coin cell.</li>
-                <li>Also set the separate timer relay clock. The Pi RTC and timer relay are independent.</li>
+                <li>Also set the separate <a href="https://docs.rs-online.com/8558/0900766b815859bb.pdf" target="_blank" rel="noopener noreferrer">timer relay clock</a>. The Pi RTC and timer relay are independent.</li>
               </ol>
             </div>
           </details>
@@ -1486,23 +1486,23 @@
             </div>
           </details>
           <details class="faq">
-            <summary>The timer relay displays bL0C and buttons do not work</summary>
+            <summary>The <a href="https://docs.rs-online.com/8558/0900766b815859bb.pdf" target="_blank" rel="noopener noreferrer">timer relay</a> displays bL0C and buttons do not work</summary>
             <div class="faq-content">
               <p>The keypad lock is active.</p>
               <ol>
                 <li>Press the <b>clock</b> and <b>PR</b> keys simultaneously for at least three seconds.</li>
                 <li>Look for <b>ULoC</b> on the display.</li>
-                <li>Check the relay clock and programmed ON/OFF events after unlocking.</li>
+                <li>Check the <a href="https://docs.rs-online.com/8558/0900766b815859bb.pdf" target="_blank" rel="noopener noreferrer">relay clock and programmed ON/OFF events</a> after unlocking.</li>
               </ol>
             </div>
           </details>
           <details class="faq">
-            <summary>How do I set a basic overnight schedule?</summary>
+            <summary>How do I set a basic <a href="https://docs.rs-online.com/8558/0900766b815859bb.pdf" target="_blank" rel="noopener noreferrer">overnight schedule</a>?</summary>
             <div class="faq-content">
               <ol>
                 <li>Hold <b>Clock</b> and use <b>D+</b>, <b>H+</b> and <b>M+</b> to set current day, hour and minute.
                 </li>
-                <li>Press <b>PR</b> to programme ON. Select survey days with D+, then set hour and minute.</li>
+                <li>Press <b>PR</b> to programme ON. Select survey days with D+, then set hour and minute using the <a href="https://docs.rs-online.com/8558/0900766b815859bb.pdf" target="_blank" rel="noopener noreferrer">relay instructions</a>.</li>
                 <li>Press PR again for OFF. If operation crosses midnight, the OFF day is the following day. For ON
                   Monday/Wednesday/Friday, OFF is Tuesday/Thursday/Saturday.</li>
                 <li>Press Clock to return.</li>
@@ -1533,7 +1533,7 @@
         <section class="group">
           <h2>Bluetooth app and field configuration</h2>
           <details class="faq">
-            <summary>The AMI-System does not appear in the Bluetooth app</summary>
+            <summary>The AMI-System does not appear in the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">Bluetooth app</a></summary>
             <div class="faq-content">
               <ol>
                 <li>Confirm this AMI-System has a Bluetooth-enabled software image. Not every
@@ -1544,18 +1544,18 @@
                 <li>If Ethernet works but Bluetooth does not, suspect an old or incorrect microSD image.</li>
                 <li>If neither works, troubleshoot power and boot before app connectivity.</li>
               </ol>
-              <p>The Bluetooth app cannot connect to an unpowered Pi.</p>
+              <p>The <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">Bluetooth app</a> cannot connect to an unpowered Pi.</p>
             </div>
           </details>
           <details class="faq">
-            <summary>How can I use the Bluetooth app to obtain the camera log?</summary>
+            <summary>How can I use the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">Bluetooth app</a> to obtain the camera log?</summary>
             <div class="faq-content">
               <ol>
-                <li>Power the AMI-System and connect to it in the AMI Bluetooth app.</li>
+                <li>Power the AMI-System and connect to it in the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth app</a>.</li>
                 <li>Open the verbose or diagnostics section.</li>
                 <li>Scroll to the camera/Motion log control and download the log.</li>
                 <li>Save the file with the AMI-System ID, site and date.</li>
-                <li>If the Bluetooth app is not working, the software image may be older. Use SSH/SCP or fit an approved updated
+                <li>If the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">Bluetooth app</a> is not working, the software image may be older. Use SSH/SCP or fit an approved updated
                   microSD
                   card.</li>
               </ol>
@@ -1635,7 +1635,7 @@
               <ol>
                 <li>Visual inspection: dry, sealed, no corrosion, cables secure.</li>
                 <li>Battery and solar: correct polarity, matched charge, green/expected controller status.</li>
-                <li>Timer: correct local time, schedule and AUTO state.</li>
+                <li>Timer: correct local time, <a href="https://docs.rs-online.com/8558/0900766b815859bb.pdf" target="_blank" rel="noopener noreferrer">schedule</a> and AUTO state.</li>
                 <li>Pi: boots, stable LEDs, SSH or app access.</li>
                 <li>Watchdog: slow normal flash and safe shutdown when main power is removed.</li>
                 <li>RTC: correct time retained over a power-off test.</li>
@@ -1658,7 +1658,7 @@
                 <li>Battery voltages and SunSaver indicator states</li>
                 <li>Timer display and state</li>
                 <li>Pi and watchdog LED videos showing repeated patterns</li>
-                <li>Screenshot from th AMI Bluetooth App or outputs from <code>timedatectl</code>, <code>lsblk</code>, <code>ls /dev/video0</code> and
+                <li>Screenshot from the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or outputs from <code>timedatectl</code>, <code>lsblk</code>, <code>ls /dev/video0</code> and
                   <code>ls -l /dev/v4l/by-id/</code> collected via SSH / command line.
                 </li>
                 <li>Motion/camera log and exact timestamp of the last good image</li>
