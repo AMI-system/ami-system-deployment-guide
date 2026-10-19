@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <base target="_blank" />
     <title>AMI-System Deployment Guide</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
@@ -376,7 +377,11 @@
           <h3 class="subsection" id="1-4-connecting-to-the-pi">Connecting to the Raspberry Pi</h3>
           <p>
             The simplest way to use the Raspberry Pi is to use the
-            <a href="https://ami-system.github.io/ami-app-bluetooth-lite/">AMI Bluetooth App</a>
+            <a
+              href="https://ami-system.github.io/ami-app-bluetooth-lite/"
+              rel="noopener noreferrer"
+              >AMI Bluetooth App</a
+            >
             on an Android phone when the AMI-System is powered on. After connecting, you can use it to:
 
             <ol class="manual-list">
@@ -389,77 +394,80 @@
         </section>
         <section class="manual-section">
           <h3 class="subsection" id="1-7-setting-the-timer-relay">Setting the Timer Relay</h3>
+            Find the complete manual for the timer relay in the
+            <a
+              href="https://docs.rs-online.com/8558/0900766b815859bb.pdf"
+              rel="noopener noreferrer"
+              >manufacturer's documentation</a
+            >.
+            Instructions for the most common settings are provided below.
+          </p>
           <h3 class="subsubsection" id="1-7-1-set-time-on-timer-relay">
             Set Time on Timer Relay
           </h3>
           <p>
-            Find the complete manual for the timer relay in the <a href="https://docs.rs-online.com/8558/0900766b815859bb.pdf">manufacturer's documentation</a>.
-            Instructions for the most common settings are provided below.
-          </p>
-          <ul class="manual-list">
+          <ol class="manual-list">
             <li>
               Press the clock key and the MAN key simultaneously to toggle
-              between 12/24 hour clock
-            </li>
-          </ul>
-          <p>mode.</p>
-          <ul class="manual-list">
-            <li>
-              Keep the Clock key pressed and then press the D+ key to set day.
+              between 12/24-hour clock mode.
             </li>
             <li>
-              Keep the Clock key pressed, then press the H+ key to set hour.
+              Keep the Clock key pressed and then press the D+ key to set the
+              day.
             </li>
-            <li>00-23 in 24-hour mode</li>
-            <li>01-12 in 12-hour mode</li>
             <li>
-              Keep the Clock key pressed, then press M+ key to set minutes.
+              Keep the Clock key pressed, then press the H+ key to set the
+              hour.
+              <ol type="a" class="manual-list">
+                <li>00–23 in 24-hour mode.</li>
+                <li>01–12 in 12-hour mode.</li>
+              </ol>
             </li>
-            <li>Click the MAN button to get back to the main screen.</li>
-          </ul>
+            <li>
+              Keep the Clock key pressed, then press the M+ key to set the
+              minutes.
+            </li>
+            <li>Click the MAN button to return to the main screen.</li>
+          </ol>
 
           <h3 class="subsubsection" id="1-7-2-set-a-schedule">Set a Schedule</h3>
-          <ul class="manual-list">
-            <li>Press PR to set the schedule for when AMI-System will turn ON</li>
-            <li>Press D+ stepwise for day selection as given below.</li>
-            <li>MO TU WE TH FR SA SU (All week days)</li>
-            <li>MO TU WE TH FR SA (Exclude Sunday)</li>
-            <li>MO TU WE TH FR (Exclude Weekends)</li>
-            <li>MO TU WE TH SU (Exclude Friday &amp; Saturday)</li>
-            <li>SA SU (Only Weekends)</li>
-            <li>FR SA (Only Weekends)</li>
-            <li>TU WE TH FR SA SU (Exclude any single day)</li>
-            <li>MO/TU/WE/TH/FR/SA/SU (Include Single day)</li>
-            <li>MO WE FR (Exclude Alternate day)</li>
-            <li>TU TH SA (Exclude Alternate day)</li>
+          <ol class="manual-list">
+            <li>Press PR to set the schedule for when AMI-System will turn ON.</li>
             <li>
-              Press H+ to edit and increment the hour. Use MAN(-) key to
+              Press D+ stepwise for day selection as given below.
+              <ol type="a" class="manual-list">
+                <li>MO TU WE TH FR SA SU (All weekdays).</li>
+                <li>MO TU WE TH FR SA (Exclude Sunday).</li>
+                <li>MO TU WE TH FR (Exclude Weekends).</li>
+                <li>MO TU WE TH (Exclude Friday &amp; Saturday).</li>
+                <li>SA SU (Only Weekends).</li>
+                <li>FR SA (Only Friday &amp; Saturday).</li>
+                <li>TU WE TH FR SA SU (Exclude any single day).</li>
+                <li>MO/TU/WE/TH/FR/SA/SU (Include Single day).</li>
+                <li>MO WE FR (Exclude Alternate day).</li>
+                <li>TU TH SA (Exclude Alternate day).</li>
+              </ol>
+            </li>
+            <li>
+              Press H+ to edit and increment the hour. Use the MAN(-) key to
               decrement hours.
             </li>
-            <li>Press PR to set the schedule for when AMI-System will turn OFF</li>
+            <li>Press PR to set the schedule for when AMI-System will turn OFF.</li>
             <li>
               Press D+ stepwise, as above, for day selection. Please note that
-              the OFF day will be the
+              the OFF day will be the day after the ON day as it passes 00:00.
+              For example, if the ON schedule is MO WE FR, the OFF schedule
+              should be TU TH SA.
             </li>
-          </ul>
-
-          <p>
-            day after the ON day as it passes 00:00. Eg. If the ON schedule is
-            MO WE FR, the OFF schedule should be TU TH SA.
-          </p>
-          <ul class="manual-list">
             <li>Press H+ to set the hour.</li>
             <li>Press the clock button to set the schedule.</li>
             <li>
-              Press MAN(-) to set AMI-System to OFF OFF until you set the AMI-System up in the
-              field, where you will
+              Press MAN(-) to set AMI-System to OFF OFF until you set the
+              AMI-System up in the field, where you will need to set it to AUTO
+              OFF. Note: This will say AUTO ON if you are currently within the
+              programmed ON period.
             </li>
-          </ul>
-
-          <p>
-            need to set it to AUTO OFF. Note: This will say AUTO ON if you are
-            currently within the programmed ON period.
-          </p>
+          </ol>
         </section>
         <section class="manual-section" id="setup">
           <h2 class="manual-section-heading">Set-up</h2>
