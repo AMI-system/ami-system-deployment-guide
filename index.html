@@ -168,7 +168,7 @@
                         <a href="#7-1-1-power">Power</a>
                       </li>
                       <li class="toc-detail">
-                        <a href="#7-1-2-lepiled">LepiLED</a>
+                        <a href="#7-1-2-lepiled">LepiLED/UV-light</a>
                       </li>
                     </ul>
                   </details>
@@ -720,7 +720,7 @@
               Turn on the AMI-System at the timer relay.
               <ol type="a">
                 <li>Check that the red light on the timer relay comes on.</li>
-                <li>Check that the LepiLED (UV light) comes on.</li>
+                <li>Check that the LepiLED/UV-light comes on.</li>
                 <li>Turn the timer relay back to <code>AUTO OFF</code>.</li>
               </ol>
             </li>
@@ -756,7 +756,7 @@
               solar panels/mains power source.
             </li>
             <li>
-              Check that the LepiLED is working by pressing <code>MAN(-)</code>
+              Check that the LepiLED/UV-light is working by pressing <code>MAN(-)</code>
               until the screen displays <code>ON ON</code>.
               Remember to return it to <code>AUTO OFF</code> by continuing to
               press <code>MAN(-)</code>.
@@ -876,7 +876,7 @@
           <h3 class="subsection" id="7-1-hardware">Hardware</h3>
           <h3 class="subsubsection" id="7-1-1-power">Power</h3>
           <p>
-            If the raspberry pi is not turning on and the timer relay light is
+            If the Raspberry Pi is not turning on and the timer relay light is
             not on, there might be a problem with the power source, connection
             or fuse.
           </p>
@@ -918,27 +918,22 @@
               </ul>
             </li>
           </ul>
-          <h3 class="subsubsection" id="connecting-the-terminal-block-and-the-watchdog">
-            Connecting the Terminal Block and the Watchdog
-          </h3>
-          <h3 class="subsubsection" id="7-1-2-lepiled">LepiLED</h3>
+          <h3 class="subsubsection" id="7-1-2-lepiled">LepiLED/UV-light</h3>
           <p>
-            If the LepiLED or ring lights are not turning on, you should check
+            If the LepiLED/UV-light or ring lights are not turning on, you should check
             the connections at the back of the camera/lighting box. You can do
             this by carefully unscrewing the gland and seeing if any of the
-            wires are slack, especially the larger black cable which is a USB C
+            wires are slack, especially the larger black cable which is a USB-C
             cable connecting the camera. This can be plugged back in, if it has
-            come loose. You should also check that the USB C cable and the two
+            come loose. You should also check that the USB-C cable and the two
             wires connecting the camera and lights are securely connected to the
-            Raspberry pi in the electronics box.
+            Raspberry Pi in the electronics box.
           </p>
           <h3 class="subsection" id="7-2-software">Software</h3>
           <h3 class="subsubsection" id="7-2-1-camera">Camera</h3>
           <p>
             If the images are grey, and it says unable to connect, make sure
-            that the camera USB C cable is connected properly. If the problem
-            persists, revise the camera instructions in the Assembly section
-            and make sure you are writing the correct camera ID.
+            that the camera USB-C cable is connected properly.
           </p>
           <h3 class="subsubsection" id="7-2-2-time-date">Time/Date</h3>
           <p>
@@ -948,7 +943,7 @@
           <h3 class="subsubsection" id="7-2-3-hard-drive-ssd">SSD</h3>
           <p>
             In the scenario where the AMI-System is turned on and the SSD is not
-            connected, or the PI, for some reason, does not detect the drive,
+            connected, or the Raspberry Pi, for some reason, does not detect the drive,
             the system will save images to the SD card rather than the SSD. To
             fix this we need to check if images have been saved to the SD card
             and remove them, and then check that we can get the SSD connected
