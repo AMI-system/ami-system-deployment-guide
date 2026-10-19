@@ -232,6 +232,15 @@ footer {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+.toc li.toc-detail > a {
+  display: flex;
+  align-items: flex-start;
+}
+.toc li.toc-detail > a::before {
+  display: block;
+  flex: 0 0 2.6em;
+  margin-right: 0.25em;
+}
 .toc li.toc-sub > details > summary::before {
   color: #d9efc9;
 }

@@ -693,7 +693,7 @@
             id="2-5-checks-in-field-before-you-leave-the-ami-system-please-check-the-following"
           >
             Checks in Field: Before You Leave the AMI-System, Please Check the
-            Following:
+            Following
           </h3>
           <ol class="manual-list">
             <li>
@@ -945,8 +945,6 @@
             If the timestamps on the images are wrong, revise the instructions
             about setting the Real Time Clock.
           </p>
-        </section>
-        <section class="manual-section">
           <h3 class="subsubsection" id="7-2-3-hard-drive-ssd">Hard Drive (SSD)</h3>
           <p>
             In the scenario where the AMI-System trap is turned on and the SSD is not
@@ -954,171 +952,8 @@
             the system will save images to the SD card rather than the SSD. To
             fix this we need to check if images have been saved to the SD card
             and remove them, and then check that we can get the SSD connected
-            properly. These instructions will take you through these steps.
+            properly.
           </p>
-          <ul class="manual-list">
-            <li>Make sure the Pi is turned off and unplug the SSD.</li>
-            <li>
-              Switch on the AMI-System and connect it to your laptop using an
-              ethernet cable (plug
-            </li>
-          </ul>
-
-          <li>
-            one end of the cable into the port on the Pi, and the other end into
-            the port on your
-          </li>
-          <p>laptop).</p>
-          <ul class="manual-list">
-            <li>
-              On your laptop, open the command prompt by pressing the Windows
-              key + R. In the Run
-            </li>
-          </ul>
-          <p>window that opens, type 'cmd' and click 'ok'.</p>
-          <ul class="manual-list">
-            <li>
-              A terminal will open where you need to type: ssh
-              pi@raspberrypi.local
-            </li>
-            <li>
-              Press enter and then type the password: "Nature17" (it probably
-              won't appear as you
-            </li>
-          </ul>
-
-          <p>type it).</p>
-          <ul class="manual-list">
-            <li>
-              Press enter again and you will see the following welcome screen:
-            </li>
-            <li>
-              Stop the motion software using the command: sudo pkill motion
-            </li>
-            <li>Check whether a '/media/pi/PiImages' folder exists:</li>
-            <li>
-              Do this by attempting to run the command: ls /media/pi/PiImages
-            </li>
-            <li>
-              If the command is successful, it will show you the contents of
-              that directory. So
-            </li>
-          </ul>
-
-          <p>
-            this indicates that the directory has been incorrectly created on
-            the SD card.
-          </p>
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/page-23-image-058.png" alt="" loading="lazy" />
-            </figure>
-            <figure class="figure">
-              <img src="assets/page-23-image-059.png" alt="" loading="lazy" />
-            </figure>
-          </div>
-        </section>
-        <section class="manual-section">
-          <ul class="manual-list">
-            <li>
-              If the command is not successful, it will show you an error
-              message
-            </li>
-          </ul>
-          <p>
-            something like: cannot access '/media/pi/PiImages ': No such file or
-            directory
-          </p>
-          <ul class="manual-list">
-            <li>
-              If the directory exists and has files in it, you need to create a
-              backup of these image files
-            </li>
-          </ul>
-          <p>
-            by copying the contents of this directory and pasting the files in a
-            folder on your laptop desktop for you to save for later.
-          </p>
-          <ul class="manual-list">
-            <li>
-              To do this, open another terminal on your laptop (keep the other
-              one connected
-            </li>
-          </ul>
-          <p>
-            to the Pi open) by repeating step 3 from above. This will open a 2nd
-            terminal window.
-          </p>
-          <ul class="manual-list">
-            <li>
-              Here, you need to run: scp -r
-              pi@raspberrypi.local:/media/pi/PiImages
-            </li>
-          </ul>
-          <p>&lt;path_to_where_you_want_to_backup_files&gt;</p>
-          <ul class="manual-list">
-            <li>
-              Replace the &lt;path_to_where_you_want_to_backup_files&gt; with
-              the
-            </li>
-          </ul>
-          <p>
-            actual path to where you want to save the files. This will look
-            something like: C:\Users\&lt;username&gt;\Documents\
-          </p>
-          <ul class="manual-list">
-            <li>
-              Once you are happy you have backed-up the files, and know where to
-              access them on
-            </li>
-          </ul>
-          <p>
-            your laptop, you then need to delete the directory on the Pi. Go
-            back to the original terminal (where you are connected to the Pi)
-            and run: sudo rm -rf /media/pi/PiImages
-          </p>
-          <ul class="manual-list">
-            <li>
-              You can now close all the terminals and switch off the Pi using
-              the timer relay.
-            </li>
-            <li>Confirm the SSD is working:</li>
-            <li>
-              Plug SSD into your laptop (not the Pi) and see if you can access
-              it.
-            </li>
-            <li>
-              Also check the name – right click on it, select 'Format...', and
-              check the “Volume label” is “PiImages”:
-            </li>
-          </ul>
-          <ul class="manual-list">
-            <li>
-              Ensure the Pi to completely OFF and then plug in the SSD card.
-            </li>
-          </ul>
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/page-24-image-060.png" alt="" loading="lazy" />
-            </figure>
-            <figure class="figure">
-              <img src="assets/page-24-image-061.png" alt="" loading="lazy" />
-            </figure>
-          </div>
-        </section>
-        <section class="manual-section">
-          <ul class="manual-list">
-            <li>
-              Turn on the Pi and then run: lsblk to see if has automatically
-              mounted – the
-            </li>
-          </ul>
-          <p>MOUNTPOINT for sda1 should show as /media/pi/PiImages</p>
-          <div class="figure-grid">
-            <figure class="figure">
-              <img src="assets/page-25-image-062.png" alt="" loading="lazy" />
-            </figure>
-          </div>
         </section>
       </div>
     </main>
