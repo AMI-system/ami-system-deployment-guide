@@ -245,7 +245,8 @@ footer {
 .toc a.toc-leaf::before {
   content: "";
   display: block;
-  flex: 0 0 1.1em;
+  flex: 0 0 1.1rem;
+  margin-right: 0.25em;
 }
 .toc > ul > li > a.toc-leaf {
   padding-top: 11px;
@@ -256,6 +257,7 @@ footer {
   font-size: 0.9rem;
   font-weight: 700;
   color: #dbe8d4;
+  padding-left: calc(1.1rem + 10px - 0.25em);
 }
 .toc li.toc-detail > a.toc-leaf {
   font-size: 0.8rem;
@@ -280,7 +282,7 @@ footer {
 .toc details > summary::before {
   content: "▸";
   display: block;
-  flex: 0 0 1.1em;
+  flex: 0 0 1.1rem;
   color: var(--accent);
   transition: transform 0.15s ease;
 }
@@ -291,6 +293,15 @@ footer {
   display: block;
   flex: 1;
   min-width: 0;
+}
+.toc li.toc-sub > details > summary > a {
+  display: flex;
+  align-items: flex-start;
+}
+.toc li.toc-sub > details > summary > a::before {
+  display: block;
+  flex: 0 0 auto;
+  margin-right: 0.25em;
 }
 .toc a {
   border: 0;
@@ -367,12 +378,118 @@ footer {
   margin-top: 0.35em;
   padding-left: 0.2em;
 }
+.content {
+  counter-reset: major-section;
+}
+.manual-section-heading {
+  counter-increment: major-section;
+  counter-reset: subsection;
+}
+.manual-section-heading::before {
+  content: counter(major-section) ". ";
+}
+.manual-section h3.subsection {
+  counter-increment: subsection;
+  counter-reset: subsubsection;
+}
+.manual-section h3.subsection::before {
+  content: counter(major-section) "." counter(subsection) " ";
+}
+.manual-section h3.subsubsection {
+  counter-increment: subsubsection;
+}
+.manual-section h3.subsubsection::before {
+  content:
+    counter(major-section) "." counter(subsection) "." counter(subsubsection) " ";
+}
+.manual-section h3.subsubsection {
+  margin-left: 1.25rem;
+  color: #b8dca4;
+  font-size: 1.08rem;
+  border-left: 2px solid var(--line);
+  padding-left: 0.8rem;
+}
+.toc > ul {
+  counter-reset: toc-major;
+}
+.toc > ul > li.toc-major {
+  counter-increment: toc-major;
+  counter-reset: toc-sub;
+}
+.toc > ul > li.toc-major > details > summary > a::before,
+.toc > ul > li.toc-major > a::before {
+  content: counter(toc-major) ". ";
+}
+.toc > ul > li.toc-major > details > ul > li.toc-sub {
+  counter-increment: toc-sub;
+  counter-reset: toc-detail;
+}
+.toc > ul > li.toc-major > details > ul > li.toc-sub > a::before,
+.toc > ul > li.toc-major > details > ul > li.toc-sub > details > summary > a::before {
+  content: counter(toc-major) "." counter(toc-sub) " ";
+}
+.toc > ul > li.toc-major > details > ul > li.toc-sub > details > ul > li.toc-detail {
+  counter-increment: toc-detail;
+}
+.toc > ul > li.toc-major > details > ul > li.toc-sub > details > ul > li.toc-detail > a::before {
+  content:
+    counter(toc-major) "." counter(toc-sub) "." counter(toc-detail) " ";
+}
 .manual-list {
   margin: 0.7em 0 1.1em;
   padding-left: 2em;
 }
 .manual-list .manual-list-item {
   padding-left: 0.35em;
+}
+.equipment-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+.equipment-card {
+  margin: 0;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid #d7e0dc;
+  border-radius: 12px;
+  background: #f8fbf9;
+  color: #1d2a24;
+  box-shadow: 0 6px 18px #16352a14;
+}
+.equipment-card h4 {
+  margin: 0 0 0.85rem;
+  color: #23634d;
+  font-size: 1.15rem;
+}
+.equipment-card label {
+  display: grid;
+  grid-template-columns: 1.2rem 1fr;
+  gap: 0.45rem;
+  align-items: start;
+  cursor: pointer;
+}
+.equipment-card input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin: 0.25rem 0 0;
+  accent-color: #23634d;
+}
+.checklist {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.checklist li {
+  display: block;
+}
+.checklist li::before {
+  content: none;
+}
+.equipment-notes {
+  font-size: 0.9rem;
 }
 @media (max-width: 850px) {
   .layout {
