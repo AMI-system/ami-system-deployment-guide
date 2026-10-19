@@ -189,6 +189,7 @@ footer {
   top: 88px;
   max-height: calc(100vh - 112px);
   overflow-y: auto;
+  margin-top: 24px;
   padding: 20px;
   background: linear-gradient(160deg, #101a0d, #0a0f09);
   box-shadow: 0 12px 35px #0008;
@@ -509,6 +510,7 @@ footer {
     position: relative;
     top: auto;
     max-height: 360px;
+    margin-top: 0;
   }
   .toc ul {
     columns: 2;
