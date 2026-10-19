@@ -995,7 +995,7 @@
         <section class="group">
           <h2>Power, batteries, solar and fuses</h2>
           <details class="faq">
-            <summary>Nothing turns on: no timer light, no LepiLED and no Raspberry Pi lights</summary>
+            <summary>Nothing turns on: no timer light, no LepiLED/UV-light, and no Raspberry Pi lights</summary>
             <div class="faq-content">
               <h3>Likely causes</h3>
               <ul>
@@ -1012,7 +1012,7 @@
                   appropriate socket.</li>
                 <li>Check the beige/brown Output 1+ fuse “door” is fully closed and contains an intact fuse. Check the
                   inline
-                  fuse in the red battery cable.</li>
+                  fuse in the red battery cable - the metal wire inside the plastic should be a continious U-shape.</li>
                 <li>Read the SunSaver indicators. No battery light can mean the battery is not connected; red indicates
                   low or
                   empty battery. A red solar indicator indicates a solar-side error.</li>
@@ -1021,7 +1021,7 @@
                   battery input, controller load output, timer output and electronics-box input. The first point where
                   voltage
                   disappears isolates the faulty section.</li>
-                <li>Do not use a non-contact AC detector pen. The AMI uses low-voltage direct current and such a pen may
+                <li>Do not use a non-contact AC detector pen. The AMI-System uses low-voltage direct current and such a pen may
                   not
                   detect it.</li>
               </ol>
@@ -1096,7 +1096,8 @@
             <div class="faq-content">
               <ol>
                 <li>Turn the relay OFF OFF and disconnect battery power.</li>
-                <li>Open the fuse holder and inspect the fuse. An inline fuse has failed if its internal U-shaped
+                <li>Open the fuse holders and inspect the fuse. You can test a cylindircal fuse from the brown/beige holder with a multimeter in resistance/continuity mode.
+                  A battery inline fuse has failed if its internal U-shaped
                   conductor is
                   broken.</li>
                 <li>Replace only with the same known type and rating.</li>
@@ -1109,9 +1110,9 @@
           </details>
         </section>
         <section class="group">
-          <h2>Raspberry Pi, watchdog and connections</h2>
+          <h2>Raspberry Pi, watchdog/UPS, and connections</h2>
           <details class="faq">
-            <summary>The Raspberry Pi has no lights, but the LepiLED or ring light works</summary>
+            <summary>The Raspberry Pi has no lights, but the LepiLED/UV-light or ring light works</summary>
             <div class="faq-content">
               <h3>Isolation test</h3>
               <ol>
@@ -1167,12 +1168,12 @@
               <ol>
                 <li>Record a clear video long enough to identify the repeated pattern.</li>
                 <li>Check whether the microSD card is fully inserted.</li>
-                <li>Try a known-good AMI microSD card or re-image a spare card with the approved AMI operating-system
+                <li>Try a known-good AMI-System microSD card or re-image a spare card with the approved AMI-System operating-system
                   image.
                 </li>
-                <li>If the behaviour changes when the RTC is attached, stop and check whether “RTC” truly means the
+                <li>If the behaviour changes when the RTC is attached, stop and check. (“RTC” means the
                   small blue
-                  clock board. A shorted accessory can suppress power.</li>
+                  clock board.) A shorted accessory can suppress power.</li>
                 <li>If the Pi still shows a fault using a known-good power supply and microSD card, the Pi itself may
                   require
                   replacement.</li>
@@ -1183,7 +1184,7 @@
             <summary>No HDMI picture appears on the monitor</summary>
             <div class="faq-content">
               <ol>
-                <li>Do not assume the Pi has failed. Some AMIs repeatedly failed to display over HDMI while otherwise
+                <li>Do not assume the Pi has failed. Some AMI-Systems repeatedly failed to display over HDMI while otherwise
                   working.
                 </li>
                 <li>Connect the HDMI lead before powering the Pi.</li>
@@ -1197,14 +1198,14 @@
             <summary>How do I connect by Ethernet and SSH?</summary>
             <div class="faq-content">
               <ol>
-                <li>Connect an Ethernet cable between the AMI Pi and laptop.</li>
-                <li>Turn the AMI to ON ON and wait for the Pi to boot.</li>
+                <li>Connect an Ethernet cable between the AMI-System Pi and laptop.</li>
+                <li>Turn the AMI-System to ON ON and wait for the Pi to boot.</li>
                 <li>Open Command Prompt, PowerShell or Terminal.</li>
               </ol>
               <div class="cmd"><code>ssh pi@raspberrypi.local</code><button class="copy">Copy</button></div>
               <ol start="4">
                 <li>Accept the host prompt if shown.</li>
-                <li>Enter the AMI password supplied with the unit. No characters will appear while typing.</li>
+                <li>Enter the AMI-System password supplied with the unit. No characters will appear while typing.</li>
               </ol>
               <p>If you typed <code>raspberry.local</code>, correct it to <code>raspberrypi.local</code>. If the host
                 still
@@ -1216,7 +1217,7 @@
           <details class="faq">
             <summary>How do I replace or upgrade the Raspberry Pi OS microSD card?</summary>
             <div class="faq-content">
-              <div class="stop"><b>Important:</b> use only an approved AMI image intended for this hardware version.
+              <div class="stop"><b>Important:</b> use only an approved AMI-System image intended for this hardware version.
                 Keep the
                 original card labelled and untouched as a rollback.</div>
               <ol>
@@ -1224,18 +1225,14 @@
                 <li>Remove the microSD card from the Pi.</li>
                 <li>Insert the prepared replacement card.</li>
                 <li>Turn the system on and allow extra time for the first boot.</li>
-                <li>Check SSH or the Bluetooth app, then verify camera, SSD, time zone, RTC and capture interval.</li>
+                <li>Check SSH or the Bluetooth app, then verify camera, SSD, time zone, RTC, and capture interval.</li>
                 <li>Take and inspect test images before deployment.</li>
               </ol>
-              <p>A replacement software image resolved at least one case where an AMI would not take scheduled
-                photographs.
-                <span class="review">Review</span> Image provenance and version should be confirmed internally.
-              </p>
             </div>
           </details>
         </section>
         <section class="group">
-          <h2>Camera, ring light and LepiLED</h2>
+          <h2>Camera, ring light, and LepiLED/UV-light</h2>
           <details class="faq">
             <summary>Images are grey or the camera says it cannot connect</summary>
             <div class="faq-content">
@@ -1243,13 +1240,13 @@
                 <li>Check the camera USB cable at the Pi.</li>
                 <li>Unscrew the black rear cap of the camera housing carefully and check the USB-C end is fully
                   inserted.</li>
-                <li>Test camera detection:</li>
+                <li>Test camera detection in the AMI Bluetooth App or using the command line and SSH:</li>
               </ol>
               <div class="cmd"><code>ls /dev/video0</code><button class="copy">Copy</button></div>
               <div class="cmd"><code>ls -l /dev/v4l/by-id/</code><button class="copy">Copy</button></div>
               <ul>
                 <li>If the device exists, the Pi detects a camera.</li>
-                <li>If “No such file or directory” appears, suspect the cable, connector or camera.</li>
+                <li>If the AMI Bleutooth App says "No Camera" or “No such file or directory” appears on the command line, suspect the cable, connector, or camera.</li>
               </ul>
               <ol start="4">
                 <li>Plug the camera USB lead into a laptop. If the laptop recognises a Logitech camera, the camera and
@@ -1257,8 +1254,8 @@
                   path are at least partly functional.</li>
                 <li>If necessary, test the long USB cable with another known-good USB device, then test the camera using
                   another
-                  known-good USB-A to USB-C lead.</li>
-                <li>If the camera is detected but images remain grey, inspect the Motion log and camera-device path.
+                  known-good USB-A to USB-C lead. This will help determine if the issue is with the cable or the camera.</li>
+                <li>If the camera is detected but images remain grey, inspect the Motion log (downloadable via the AMI Bluetooth App) and camera-device path.
                 </li>
               </ol>
             </div>
@@ -1268,7 +1265,7 @@
             <div class="faq-content">
               <p>The ring light is powered by separate wires, not by the camera USB cable.</p>
               <ol>
-                <li>Set OFF OFF and inspect the red/black or brown/blue light wires in the electronics-box screw
+                <li>Set the timer relay to OFF OFF and inspect the red/black or brown/blue light wires in the electronics-box screw
                   terminals.</li>
                 <li>Gently tug each wire to confirm it is clamped.</li>
                 <li>Inspect the cable along its whole route for animal bites, crushing or water damage.</li>
@@ -1281,36 +1278,36 @@
             </div>
           </details>
           <details class="faq">
-            <summary>The LepiLED attractive UV light does not turn on</summary>
+            <summary>The LepiLED / attractive UV light does not turn on</summary>
             <div class="faq-content">
               <ol>
-                <li>Set the relay briefly to ON ON and check whether the timer output light is on.</li>
+                <li>Set the relay briefly to ON ON and check whether the timer relay output light is on.</li>
                 <li>Check the LepiLED cable gland is tight and dry.</li>
                 <li>With power isolated, verify the blue/black neutral wire and brown/red positive wire are firmly
                   clamped to
                   their intended terminals.</li>
                 <li>Inspect the external light and cable for bites, impact or water ingress.</li>
-                <li>If other loads work and the LepiLED does not, record voltage at the light output only if trained to
-                  do so.
+                <li>If other loads work and the LepiLED/UV-light does not, record voltage at the light output using a multimeter. If voltage is present, the LepiLED/UV-light may be faulty. If no voltage is present, check the
+                  wiring.</li>
                 </li>
                 <li>Return to AUTO mode after testing.</li>
               </ol>
             </div>
           </details>
           <details class="faq">
-            <summary>No images are taken, even though the Pi, lights and SSD appear on</summary>
+            <summary>No images are taken, even though the Pi, lights, and SSD appear on</summary>
             <div class="faq-content">
               <ol>
-                <li>Confirm the camera is detected with <code>ls /dev/video0</code>.</li>
-                <li>Confirm the SSD and mount point with <code>lsblk</code>.</li>
-                <li>Start image capture with <code>sudo motion</code>.</li>
-                <li>Inspect the image folder and the Motion log.</li>
+                <li>Confirm the camera is detected in the AMI Bluetooth App or in ther termianl with <code>ls /dev/video0</code>.</li>
+                <li>Confirm the SSD and mount point in the AMI Bluetooth App or in the terminal with <code>lsblk</code>.</li>
+                <li>Start image capture with <code>sudo motion</code> in the terminal.</li>
+                <li>Inspect the image folder and the Motion/camera log (downloadable from the AMI Bluetooth App or using the steps below in the terminal).</li>
               </ol>
               <div class="cmd"><code>ls /media/pi/PiImages</code><button class="copy">Copy</button></div>
               <div class="cmd"><code>tail -n 100 /var/log/motion/motion.log</code><button class="copy">Copy</button>
               </div>
               <ol start="5">
-                <li>If hardware checks pass but capture never starts, replace the AMI software microSD card with a
+                <li>If hardware checks pass but capture never starts, replace the AMI-System software microSD card with a
                   known-good
                   approved image.</li>
               </ol>
@@ -1319,7 +1316,7 @@
           <details class="faq">
             <summary>Motion detection does not trigger when I wave in front of the board</summary>
             <div class="faq-content">
-              <p>Most AMIs are intended to take pictures at fixed intervals. Many do not use motion-triggered capture
+              <p>Most AMI-Systems are intended to take pictures at fixed intervals. Many do not use motion-triggered capture
                 because
                 pixel-change detection can generate an unmanageably large number of images, especially in the tropics.
               </p>
@@ -1337,8 +1334,8 @@
               <ol>
                 <li>Place text and several colours on the landing board at the normal focal distance.</li>
                 <li>Allow several images after startup. The first few can be blurry while settings take effect.</li>
-                <li>Inspect focus, colour, exposure, evenness of illumination and timestamp.</li>
-                <li>Only change camera settings if test images are inadequate; AMIs with different camera/light
+                <li>Inspect focus, colour, exposure, evenness of illumination, and timestamp.</li>
+                <li>Only change camera settings if test images are inadequate; AMI-Systems with different camera/light
                   combinations may
                   legitimately have different settings.</li>
                 <li>Open the settings script:</li>
@@ -1359,7 +1356,8 @@
             <summary>The SSD is empty or no new photographs appear</summary>
             <div class="faq-content">
               <ol>
-                <li>Turn OFF OFF before reseating the SSD.</li>
+                <li>Check whether the SSD is recognised in the AMI Bluetooth App.</li>
+                <li>Turn the relay to OFF OFF before reseating the SSD.</li>
                 <li>Try a blue USB port and another known-good USB cable/port.</li>
                 <li>Connect by SSH and run:</li>
               </ol>
@@ -1407,7 +1405,7 @@
           <details class="faq">
             <summary>How do I copy the Motion log to a Windows laptop?</summary>
             <div class="faq-content">
-              <p>Use the command matching your terminal.</p>
+              <p>Use the AMI Bluetooth App or the command matching your terminal while connected via an ethernet cable.</p>
               <h3>Command Prompt</h3>
               <div class="cmd">
                 <code>scp pi@raspberrypi.local:/var/log/motion/motion.log C:/Users/YourUsername/Downloads/</code><button
@@ -1423,18 +1421,18 @@
             </div>
           </details>
           <details class="faq">
-            <summary>The AMI stops taking images part-way through the night</summary>
+            <summary>The AMI-System stops taking images part-way through the night</summary>
             <div class="faq-content">
               <ol>
                 <li>Check whether the whole system lost power: compare the final image time with timer schedule and
                   battery
                   state.</li>
                 <li>Check free SSD space and whether the SSD remained mounted.</li>
-                <li>Inspect <code>/var/log/motion/motion.log</code> around the final image time.</li>
+                <li>Inspect <code>/var/log/motion/motion.log</code> around the final image time (downloadable from the AMI Bluetooth App or using an ethernet cable and SSH).</li>
                 <li>Check for intermittent camera disconnects and loose USB cables.</li>
                 <li>Check UPS/watchdog shutdowns, low main-battery voltage and solar charging.</li>
-                <li>Substitute known-good SSD, camera cable or software microSD one at a time.</li>
-                <li>Do not assume the cause from the symptom alone. Similar cases were associated with power, storage
+                <li>Substitute known-good SSD, camera cable, or software microSD one at a time.</li>
+                <li>Do not assume the cause from the symptom alone. Similar cases were associated with power, storage,
                   and
                   software issues.</li>
               </ol>
@@ -1442,12 +1440,12 @@
           </details>
         </section>
         <section class="group">
-          <h2>Time, RTC and timer schedule</h2>
+          <h2>Time, RTC, and timer schedule</h2>
           <details class="faq">
             <summary>Image timestamps are wrong</summary>
             <div class="faq-content">
               <ol>
-                <li>Connect over SSH and check:</li>
+                <li>Connect using the AMI Bluetooth App or the command line over SSH and check time and timezone. If using the command line:</li>
               </ol>
               <div class="cmd"><code>timedatectl</code><button class="copy">Copy</button></div>
               <ol start="2">
@@ -1462,7 +1460,7 @@
               </ol>
               <div class="cmd"><code>sudo hwclock -r</code><button class="copy">Copy</button></div>
               <ol start="5">
-                <li>Power down for several minutes, restart and check whether time was retained. If not, reseat the RTC
+                <li> After confirming the time is correct in the AMI Bluetooth App or the command line, power down for several minutes, restart and check whether time was retained. If not, reseat the RTC
                   and
                   replace its CR1220 coin cell.</li>
                 <li>Also set the separate timer relay clock. The Pi RTC and timer relay are independent.</li>
@@ -1480,7 +1478,7 @@
                   orientation.</li>
                 <li>Do not offset the six-pin connector.</li>
                 <li>Reinstall the coin cell and any removed battery with correct polarity.</li>
-                <li>Boot, set time, run <code>sudo hwclock -w</code>, then test time retention.</li>
+                <li>Boot, set time, run <code>sudo hwclock -w</code> (if using the command line), then test time retention.</li>
               </ol>
               <div class="stop"><b>Stop:</b> if pins are bent, the RTC becomes hot, or attaching it prevents the Pi
                 powering up.
@@ -1520,7 +1518,7 @@
           <details class="faq">
             <summary>What image interval should I use?</summary>
             <div class="faq-content">
-              <p>Fixed-interval capture is normal. One-minute intervals have been used for large AMIs. Ten-second
+              <p>Fixed-interval capture is normal. One-minute intervals have been used for most AMI-Systems. Ten-second
                 capture can
                 create excessive data, and motion capture can be substantially more intensive.</p>
               <ul>
@@ -1535,11 +1533,11 @@
         <section class="group">
           <h2>Bluetooth app and field configuration</h2>
           <details class="faq">
-            <summary>The AMI does not appear in the Bluetooth app</summary>
+            <summary>The AMI-System does not appear in the Bluetooth app</summary>
             <div class="faq-content">
               <ol>
-                <li>Confirm this AMI has a Bluetooth-enabled software image and hardware configuration. Not every
-                  historical AMI
+                <li>Confirm this AMI-System has a Bluetooth-enabled software image. Not every
+                  historical AMI-System
                   does.</li>
                 <li>Confirm the Pi is powered and has completed booting.</li>
                 <li>Move within a few metres, enable Bluetooth, use a compatible browser/device and rescan.</li>
@@ -1553,22 +1551,21 @@
             <summary>How can I use the Bluetooth app to obtain the camera log?</summary>
             <div class="faq-content">
               <ol>
-                <li>Power the AMI and connect to it in the approved AMI Bluetooth app.</li>
+                <li>Power the AMI-System and connect to it in the AMI Bluetooth app.</li>
                 <li>Open the verbose or diagnostics section.</li>
                 <li>Scroll to the camera/Motion log control and download the log.</li>
-                <li>Save the file with the AMI ID, site and date.</li>
-                <li>If the control is absent, the software image may be older. Use SSH/SCP or fit an approved updated
+                <li>Save the file with the AMI-System ID, site and date.</li>
+                <li>If the Bluetooth app is not working, the software image may be older. Use SSH/SCP or fit an approved updated
                   microSD
                   card.</li>
               </ol>
-              <p><span class="review">Review</span> App layout can vary by image version.</p>
             </div>
           </details>
         </section>
         <section class="group">
           <h2>Water, wildlife and environmental damage</h2>
           <details class="faq">
-            <summary>There is water, condensation, rust or mould inside a box</summary>
+            <summary>There is water, condensation, rust, or mould inside a box</summary>
             <div class="faq-content">
               <div class="stop"><b>Do not power wet electronics.</b> Disconnect batteries, move the unit to a dry
                 controlled
@@ -1576,7 +1573,7 @@
               <ol>
                 <li>Photograph water tracks, corrosion and cable-gland condition.</li>
                 <li>Remove standing water and allow thorough drying.</li>
-                <li>Inspect Pi, microSD, watchdog, 18650 cell, RTC, timer, fuses and cable connections for corrosion.
+                <li>Inspect Pi, microSD, watchdog, 18650 cell, RTC, timer, fuses, and cable connections for corrosion.
                 </li>
                 <li>Replace visibly damaged cells. Do not recharge swollen, rusty or leaking lithium-ion cells.</li>
                 <li>Test Pi and watchdog separately with a power bank only after fully dry.</li>
@@ -1590,11 +1587,11 @@
           <details class="faq">
             <summary>Ants or other insects are nesting in the system</summary>
             <div class="faq-content">
-              <ol>
+              <p>Ants and other insects can cause significant damage to electronic systems by creating nests, chewing through cables, and introducing moisture and debris.</p>
                 <li>Power down and disconnect batteries.</li>
                 <li>Move the unit away from sensitive habitat before cleaning, following local biosecurity rules.</li>
                 <li>Remove nesting material without spraying chemicals onto electronics.</li>
-                <li>Inspect glands, lid seals and cable entries for gaps.</li>
+                <li>Inspect glands, lid seals, and cable entries for gaps.</li>
                 <li>Check wiring and battery terminals for damage or conductive debris.</li>
                 <li>Replace seals/desiccant and monitor after redeployment.</li>
               </ol>
@@ -1627,16 +1624,13 @@
                 <li>Record the change because board material can affect image consistency and potentially insect
                   response.</li>
               </ol>
-              <p><span class="review">Review</span> The effect of alternative board materials or paint on attraction and
-                image
-                analysis was not established in the source discussions.</p>
             </div>
           </details>
         </section>
         <section class="group">
           <h2>Pre-deployment and escalation</h2>
           <details class="faq">
-            <summary>What complete test should I run before returning an AMI to the field?</summary>
+            <summary>What complete test should I run before returning an AMI-System to the field?</summary>
             <div class="faq-content">
               <ol>
                 <li>Visual inspection: dry, sealed, no corrosion, cables secure.</li>
@@ -1646,7 +1640,7 @@
                 <li>Watchdog: slow normal flash and safe shutdown when main power is removed.</li>
                 <li>RTC: correct time retained over a power-off test.</li>
                 <li>Camera: detected, test images clear and correctly coloured.</li>
-                <li>Lights: LepiLED and ring light stable.</li>
+                <li>Lights: LepiLED/UV-light and ring light stable.</li>
                 <li>SSD: detected, labelled PiImages, mounted at <code>/media/pi/PiImages</code>.</li>
                 <li>Capture: several correctly timed images stored on SSD.</li>
                 <li>Data: copy and open sample images on another computer.</li>
@@ -1658,16 +1652,16 @@
             <summary>What information should I collect before asking for technical help?</summary>
             <div class="faq-content">
               <ul>
-                <li>AMI serial number, manufacturing year and site</li>
+                <li>AMI-System serial number, manufacturing year and site</li>
                 <li>Clear overview photos of battery box and electronics box</li>
                 <li>Close-ups of all terminal wiring, fuses and cable glands</li>
                 <li>Battery voltages and SunSaver indicator states</li>
                 <li>Timer display and state</li>
                 <li>Pi and watchdog LED videos showing repeated patterns</li>
-                <li>Outputs from <code>timedatectl</code>, <code>lsblk</code>, <code>ls /dev/video0</code> and
-                  <code>ls -l /dev/v4l/by-id/</code>
+                <li>Screenshot from th AMI Bluetooth App or outputs from <code>timedatectl</code>, <code>lsblk</code>, <code>ls /dev/video0</code> and
+                  <code>ls -l /dev/v4l/by-id/</code> collected via SSH / command line.
                 </li>
-                <li>Motion log and exact timestamp of the last good image</li>
+                <li>Motion/camera log and exact timestamp of the last good image</li>
                 <li>What was changed immediately before failure</li>
                 <li>Whether known-good parts have been substituted, one at a time</li>
               </ul>
@@ -1677,7 +1671,7 @@
             <summary>When should I stop field troubleshooting and replace a component or electronics box?</summary>
             <div class="faq-content">
               <ul>
-                <li>Visible water damage, corrosion, overheating or burnt wiring</li>
+                <li>Visible water damage, corrosion, overheating, or burnt wiring</li>
                 <li>Repeated fuse failure</li>
                 <li>Incorrect polarity or suspected direct 12 V exposure to 5 V electronics</li>
                 <li>Pi fails from a known-good supply and card</li>
