@@ -1,576 +1,544 @@
 <!doctype html>
 <html lang="en-GB">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-    <title>AMI-System Deployment Guide</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <header class="hero">
-      <div class="wrap">
-        <div class="eyebrow">AMI-System</div>
-        <h1>AMI-System Deployment Guide</h1>
-      </div>
-    </header>
-    <main class="wrap layout">
-      <aside class="toc" aria-label="Manual contents">
-        <strong>Contents</strong>
-        <ul>
-          <li class="toc-major">
-            <details>
-              <summary><a href="#assembly">Assembly</a></summary>
-              <ul>
-                <li class="toc-sub">
-                  <a href="#1-1-assembling-the-ami-system" class="toc-leaf"
-                    >Assembling the AMI-System</a
-                  >
-                </li>
-                <li class="toc-sub">
-                  <a
-                    href="#1-2-connecting-camera-and-light-ring"
-                    class="toc-leaf"
-                    >Connecting Camera and Light Ring</a
-                  >
-                </li>
-                <li class="toc-sub">
-                  <a
-                    href="#1-3-connecting-to-power-benchtop-and-or-battery-box"
-                    class="toc-leaf"
-                    >Connecting to Power – Benchtop and/or Battery Box</a
-                  >
-                </li>
-                <li class="toc-sub">
-                  <a href="#1-4-connecting-to-the-pi" class="toc-leaf"
-                    >Connecting to the Raspberry Pi</a
-                  >
-                </li>
-                <li class="toc-sub">
-                  <details>
-                    <summary><a href="#1-7-setting-the-timer-relay">Setting the Timer Relay</a></summary>
-                    <ul>
-                      <li class="toc-detail">
-                        <a href="#1-7-1-set-time-on-timer-relay">Set Time on Timer Relay</a>
-                      </li>
-                      <li class="toc-detail">
-                        <a href="#1-7-2-set-a-schedule">Set a Schedule</a>
-                      </li>
-                    </ul>
-                  </details>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li class="toc-major">
-            <details>
-              <summary><a href="#setup">Set-up</a></summary>
-              <ul>
-                <li class="toc-sub">
-                  <a href="#2-1-checks-before-deployment" class="toc-leaf"
-                    >Checks Before Deployment</a
-                  >
-                </li>
-                <li class="toc-sub">
-                  <a href="#2-2-equipment-list" class="toc-leaf"
-                    >Equipment List</a
-                  >
-                </li>
-                <li class="toc-sub">
-                  <details>
-                    <summary><a href="#2-3-solar-panel-set-up">Solar Panel Set-up</a></summary>
-                    <ul>
-                      <li class="toc-detail">
-                        <a href="#2-3-1-put-together-solar-rigging">Put Together Solar Rigging</a>
-                      </li>
-                      <li class="toc-detail">
-                        <a href="#2-3-2-attach-solar-panels-to-rigging">Attach Solar Panels to Rigging</a>
-                      </li>
-                    </ul>
-                  </details>
-                </li>
-                <li class="toc-sub">
-                  <details>
-                    <summary>
-                      <a href="#2-4-ami-set-up">AMI-System Set-up</a>
-                    </summary>
-                    <ul>
-                      <li class="toc-detail">
-                        <a
-                          href="#2-4-1-screw-ami-to-box-and-connect-should-be-done-before-connecting-to-power"
-                          >Screw AMI-System to Box and Connect (Should Be Done
-                          Before Connecting to Power)</a
-                        >
-                      </li>
-                      <li class="toc-detail">
-                        <a href="#2-4-2-connect-batteries">Connect Batteries</a>
-                      </li>
-                      <li class="toc-detail">
-                        <a href="#2-4-3-connect-solar-panels">Connect Solar Panels</a>
-                      </li>
-                    </ul>
-                  </details>
-                </li>
-                <li class="toc-sub">
-                  <a
-                    href="#2-5-checks-in-field-before-you-leave-the-ami-system-please-check-the-following"
-                    class="toc-leaf"
-                    >Checks in Field: Before You Leave the AMI-System, Please
-                    Check the Following</a
-                  >
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li class="toc-major">
-            <details>
-              <summary><a href="#maintenance">Maintenance</a></summary>
-              <ul>
-                <li class="toc-sub">
-                  <a href="#4-1-check-the-ami-system" class="toc-leaf"
-                    >Check the AMI-System</a
-                  >
-                </li>
-                <li class="toc-sub">
-                  <a href="#4-2-changing-the-ssd-hard-drive" class="toc-leaf"
-                    >Changing the SSD</a
-                  >
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li class="toc-major">
-            <details>
-              <summary><a href="#takedown">Take-down</a></summary>
-              <ul>
-                <li class="toc-sub">
-                  <a href="#6-1-in-the-field" class="toc-leaf"
-                    >In the Field</a
-                  >
-                </li>
-                <li class="toc-sub">
-                  <a href="#6-2-storage" class="toc-leaf">Storage</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li class="toc-major">
-            <details>
-              <summary>
-                <a href="#troubleshooting">Troubleshooting</a>
-              </summary>
-              <ul>
-                <li class="toc-sub">
-                  <details>
-                    <summary><a href="#7-1-hardware">Hardware</a></summary>
-                    <ul>
-                      <li class="toc-detail">
-                        <a href="#7-1-1-power">Power</a>
-                      </li>
-                      <li class="toc-detail">
-                        <a href="#7-1-2-lepiled">LepiLED/UV-light</a>
-                      </li>
-                    </ul>
-                  </details>
-                </li>
-                <li class="toc-sub">
-                  <details>
-                    <summary><a href="#7-2-software">Software</a></summary>
-                    <ul>
-                      <li class="toc-detail">
-                        <a href="#7-2-1-camera">Camera</a>
-                      </li>
-                      <li class="toc-detail">
-                        <a href="#7-2-2-time-date">Time/Date</a>
-                      </li>
-                      <li class="toc-detail">
-                        <a href="#7-2-3-hard-drive-ssd"
-                          >SSD</a
-                        >
-                      </li>
-                    </ul>
-                  </details>
-                </li>
-                <li class="toc-sub">
-                  <a href="#5-3-faq" class="toc-leaf">FAQ</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-      </aside>
-      <div class="content">
-        <section class="manual-section">
-          <!-- <h2 class="manual-title">AMI-System Deployment Guide</h2> -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <title>AMI-System Deployment Guide</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">AMI-System</div>
+      <h1>AMI-System Deployment Guide</h1>
+    </div>
+  </header>
+  <main class="wrap layout">
+    <aside class="toc" aria-label="Manual contents">
+      <strong>Contents</strong>
+      <ul>
+        <li class="toc-major">
+          <details>
+            <summary><a href="#assembly">Assembly</a></summary>
+            <ul>
+              <li class="toc-sub">
+                <a href="#1-1-assembling-the-ami-system" class="toc-leaf">Assembling the AMI-System</a>
+              </li>
+              <li class="toc-sub">
+                <a href="#1-2-connecting-camera-and-light-ring" class="toc-leaf">Connecting Camera and Light Ring</a>
+              </li>
+              <li class="toc-sub">
+                <a href="#1-3-connecting-to-power-benchtop-and-or-battery-box" class="toc-leaf">Connecting to Power –
+                  Benchtop and/or Battery Box</a>
+              </li>
+              <li class="toc-sub">
+                <a href="#1-4-connecting-to-the-pi" class="toc-leaf">Connecting to the Raspberry Pi</a>
+              </li>
+              <li class="toc-sub">
+                <details>
+                  <summary><a href="#1-7-setting-the-timer-relay">Setting the Timer Relay</a></summary>
+                  <ul>
+                    <li class="toc-detail">
+                      <a href="#1-7-1-set-time-on-timer-relay">Set Time on Timer Relay</a>
+                    </li>
+                    <li class="toc-detail">
+                      <a href="#1-7-2-set-a-schedule">Set a Schedule</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </details>
+        </li>
+        <li class="toc-major">
+          <details>
+            <summary><a href="#setup">Set-up</a></summary>
+            <ul>
+              <li class="toc-sub">
+                <a href="#2-1-checks-before-deployment" class="toc-leaf">Checks Before Deployment</a>
+              </li>
+              <li class="toc-sub">
+                <a href="#2-2-equipment-list" class="toc-leaf">Equipment List</a>
+              </li>
+              <li class="toc-sub">
+                <details>
+                  <summary><a href="#2-3-solar-panel-set-up">Solar Panel Set-up</a></summary>
+                  <ul>
+                    <li class="toc-detail">
+                      <a href="#2-3-1-put-together-solar-rigging">Put Together Solar Rigging</a>
+                    </li>
+                    <li class="toc-detail">
+                      <a href="#2-3-2-attach-solar-panels-to-rigging">Attach Solar Panels to Rigging</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li class="toc-sub">
+                <details>
+                  <summary>
+                    <a href="#2-4-ami-set-up">AMI-System Set-up</a>
+                  </summary>
+                  <ul>
+                    <li class="toc-detail">
+                      <a href="#2-4-1-screw-ami-to-box-and-connect-should-be-done-before-connecting-to-power">Screw
+                        AMI-System to Box and Connect (Should Be Done
+                        Before Connecting to Power)</a>
+                    </li>
+                    <li class="toc-detail">
+                      <a href="#2-4-2-connect-batteries">Connect Batteries</a>
+                    </li>
+                    <li class="toc-detail">
+                      <a href="#2-4-3-connect-solar-panels">Connect Solar Panels</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li class="toc-sub">
+                <a href="#2-5-checks-in-field-before-you-leave-the-ami-system-please-check-the-following"
+                  class="toc-leaf">Checks in Field: Before You Leave the AMI-System, Please
+                  Check the Following</a>
+              </li>
+            </ul>
+          </details>
+        </li>
+        <li class="toc-major">
+          <details>
+            <summary><a href="#maintenance">Maintenance</a></summary>
+            <ul>
+              <li class="toc-sub">
+                <a href="#4-1-check-the-ami-system" class="toc-leaf">Check the AMI-System</a>
+              </li>
+              <li class="toc-sub">
+                <a href="#4-2-changing-the-ssd-hard-drive" class="toc-leaf">Changing the SSD</a>
+              </li>
+            </ul>
+          </details>
+        </li>
+        <li class="toc-major">
+          <details>
+            <summary><a href="#takedown">Take-down</a></summary>
+            <ul>
+              <li class="toc-sub">
+                <a href="#6-1-in-the-field" class="toc-leaf">In the Field</a>
+              </li>
+              <li class="toc-sub">
+                <a href="#6-2-storage" class="toc-leaf">Storage</a>
+              </li>
+            </ul>
+          </details>
+        </li>
+        <li class="toc-major">
+          <details>
+            <summary>
+              <a href="#troubleshooting">Troubleshooting</a>
+            </summary>
+            <ul>
+              <li class="toc-sub">
+                <details>
+                  <summary><a href="#7-1-hardware">Hardware</a></summary>
+                  <ul>
+                    <li class="toc-detail">
+                      <a href="#7-1-1-power">Power</a>
+                    </li>
+                    <li class="toc-detail">
+                      <a href="#7-1-2-lepiled">LepiLED/UV-light</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li class="toc-sub">
+                <details>
+                  <summary><a href="#7-2-software">Software</a></summary>
+                  <ul>
+                    <li class="toc-detail">
+                      <a href="#7-2-1-camera">Camera</a>
+                    </li>
+                    <li class="toc-detail">
+                      <a href="#7-2-2-time-date">Time/Date</a>
+                    </li>
+                    <li class="toc-detail">
+                      <a href="#7-2-3-hard-drive-ssd">SSD</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li class="toc-sub">
+                <a href="#5-3-faq" class="toc-leaf">FAQ</a>
+              </li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </aside>
+    <div class="content">
+      <section class="manual-section">
+        <!-- <h2 class="manual-title">AMI-System Deployment Guide</h2> -->
+        <div class="figure-grid">
+          <figure class="figure">
+            <img src="assets/page-01-image-000.png" alt="" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="manual-section" id="assembly">
+        <h2 class="manual-section-heading">Assembly</h2>
+        <h3 class="subsection" id="1-1-assembling-the-ami-system">
+          Assembling the AMI-System
+        </h3>
+        <figure class="figure-set">
           <div class="figure-grid">
             <figure class="figure">
-              <img src="assets/page-01-image-000.png" alt="" loading="lazy" />
+              <img src="assets/page-04-image-001.png" alt="" loading="lazy" />
             </figure>
           </div>
-        </section>
-
-        <section class="manual-section" id="assembly">
-          <h2 class="manual-section-heading">Assembly</h2>
-          <h3 class="subsection" id="1-1-assembling-the-ami-system">
-            Assembling the AMI-System
-          </h3>
-          <figure class="figure-set">
-            <div class="figure-grid">
-              <figure class="figure">
-                <img src="assets/page-04-image-001.png" alt="" loading="lazy" />
-              </figure>
-            </div>
-            <figcaption class="figure-caption">
-              ILLUSTRATION OF AN ASSEMBLED AMI-SYSTEM
-            </figcaption>
-          </figure>
-          <figure class="figure-set">
-            <div class="figure-grid">
-              <figure class="figure">
-                <img src="assets/page-05-image-002.png" alt="" loading="lazy" />
-              </figure>
-              <figure class="figure">
-                <img src="assets/page-05-image-004.png" alt="" loading="lazy" />
-              </figure>
-              <figure class="figure">
-                <img src="assets/page-05-image-006.png" alt="" loading="lazy" />
-              </figure>
-              <figure class="figure">
-                <img src="assets/page-05-image-008.png" alt="" loading="lazy" />
-              </figure>
-            </div>
-            <figcaption class="figure-caption">
-              CONSTRUCTING AMI-SYSTEM OUT OF THE BOX
-            </figcaption>
-          </figure>
-
-          <h3 class="subsection" id="1-2-connecting-camera-and-light-ring">
-            Connecting Camera and Light Ring
-          </h3>
-          <figure class="figure-set">
-            <div class="figure-grid">
-              <figure class="figure">
-                <img src="assets/page-06-image-010.png" alt="" loading="lazy" />
-              </figure>
-              <figure class="figure">
-                <img src="assets/page-06-image-011.png" alt="" loading="lazy" />
-              </figure>
-              <figure class="figure">
-                <img src="assets/page-06-image-013.png" alt="" loading="lazy" />
-              </figure>
-            </div>
-            <figcaption class="figure-caption">WIRING INSTRUCTIONS</figcaption>
-          </figure>
-          <p>
-            The camera and lighting cables can be seen the figure above. They are
-            coming out of the end of the protective conduit from the back of the
-            camera box. To thread and connect the cables into the electronics
-            box and connect the conduit to the box, please follow the steps
-            below:
-          </p>
-          <ol class="manual-list">
-            <li>
-              Following the cable coming out of the back of the camera box,
-              unscrew and remove the thin black plastic conduit connector nut
-              (step 1 in the figure).
-            </li>
-            <li>
-              Thread the USB and power cables through the hole in the
-              electronics box (step 2 in the figure).
-            </li>
-            <li>
-              Push the conduit and connector as far into the hole (same as step
-              2) as it will go, then replace the nut removed in step 1, passing
-              it over the USB and power cables, then screwing it onto the
-              conduit connecting until tight, this should be slightly more than
-              hand tight so use a spanner (step 3 in the figure).
-            </li>
-            <li>Connect the USB into the port shown in the figure (step 4 in the figure).</li>
-            <li>
-              If your AMI-System has a black voltage regulator on the right, then
-              you need to connect the black and red exposed wire to the upper
-              right terminal of the voltage regulator (step 5 in the figure). To
-              do this use a small flathead screwdriver to unscrew the screw on
-              the front of the terminal. Place the metal part of the wires in
-              the holes - black wire into the left (0V) slot and red wire into
-              the right (+Vo) slot - then screw tight again. Once tightened give
-              the wire a light tug to check it is securely in place.
-              If your AMI-System does not have a voltage regulator, then connect
-              the black and red exposed wires to a black and a red terminal block
-              at the bottom-centre of the electronics box instead.
-            </li>
-            <li>
-              To connect the LepiLED or UV-light tube (depending on the AMI-System you have):
-              <ol type="a" class="manual-list">
-                <li>
-                  Feed the LepiLED/UV-light cable through the gland on the right side of
-                  the electronics box.
-                </li>
-                <li>
-                  Screw the nut on the inside of the box to tighten. Also screw
-                  the cap on the outside of the box tight.
-                </li>
-                <li>
-                  Connect the brown and blue wires to the right-hand side of the
-                  bottom red and black terminal block. Blue neutral wire into
-                  black terminal, brown live wire into red terminal. To do this
-                  use a small flathead screwdriver to unscrew the screw on the
-                  front of the terminal block. Place the metal part of the black
-                  wire in the hole on the right side of the terminal block and
-                  then screw tight again, once tightened give the wires a light
-                  tug to check they are securely in place. Note this step can be
-                  fiddly.
-                </li>
-              </ol>
-            </li>
-          </ol>
-
-          <h3 class="subsection" id="1-3-connecting-to-power-benchtop-and-or-battery-box">
-            Connecting to Power – Benchtop and/or Battery Box
-          </h3>
-          <figure class="figure-set">
-            <div class="figure-grid">
-              <figure class="figure">
-                <img src="assets/page-07-image-015.png" alt="" loading="lazy" />
-              </figure>
-            </div>
-            <figcaption class="figure-caption">
-              ANNOTATED IMAGE OF TERMINALS ON THE DIN RAIL IN THE BATTERY BOX
-            </figcaption>
-          </figure>
-          <ol class="manual-list">
-            <li>
-              A cable extends from the bottom of the electronics box and
-              terminates in two wires: one brown and one blue.
-              <ol type="a" class="manual-list">
-                <li>
-                  If using the battery box, these should be passed through the
-                  hole in the back of the battery box and connected to the DIN
-                  rail mounted terminals, labelled Output 1+ (brown cable into
-                  beige plastic terminal which will have to be flipped up) and
-                  Output 1- (blue cable into black plastic terminal, see  figure).
-                  Fasten using a small flat head screwdriver.
-                </li>
-                <li>
-                  If using a benchtop power supply or a 12 V wall plug, connect the terminal wires -
-                  brown to the positive output terminal (usually red), blue to
-                  negative output terminal (usually black). The power supply
-                  should be set to just above 12 V (e.g. 12.5 V) and just above
-                  2 A (e.g. 2.5 A). If using a 12 V wall plug, it should be rated at 2.5 A or more.
-                </li>
-              </ol>
-            </li>
-            <li>
-              To turn the system on, press the <code>MAN(-)</code> key until
-              the text at the bottom of the screen says <code>ON ON</code>.
-            </li>
-            <li>
-              To turn the system off, press the <code>MAN(-)</code> until the
-              text reads <code>OFF OFF</code>.
-            </li>
-          </ol>
-          <p><b>Note:</b> When the AMI-System
-            is in the field, set it to <code>AUTO OFF</code>, so that it
-            follows the program. When it turns on at the set times, it will
-            read <code>AUTO ON</code>. Therefore, if you are deploying the
-            AMI-System when it is scheduled to be on, you will be setting it
-            to <code>AUTO ON</code> (there will be no option for
-            <code>AUTO OFF</code>).
-          </p>
-
-          <h3 class="subsection" id="1-4-connecting-to-the-pi">Connecting to the Raspberry Pi</h3>
-          <p>
-            The Raspberry Pi is the computer that controls the AMI-System. It
-            is located in the electronics box at the back of the AMI-System.
-            Ensure that a microSD card is inserted into the left of the Raspberry Pi.
-            The microSD card contains the operating system and software for the AMI-System.
-            The Raspberry Pi is powered by the electronics box, so it will turn on when the AMI-System is turned on.
-          </p>
-          <p>
-            The simplest way to use the Raspberry Pi is to use the
-            <a
-              href="https://ami-system.github.io/ami-app-bluetooth-lite/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >AMI Bluetooth App</a
-            >
-            on an Android phone when the AMI-System is powered on. After connecting, you can use it to:
-
-            <ol class="manual-list">
-              <li>Check if camera and SSD are connected,</li>
-              <li>Check if it is taking pictures,</li>
-              <li>Check the time and date and set it if necessary (do this at least once after setting the system up),</li>
-              <li>Check the SSD's storage space, and</li>
-              <li>To set the interval in which pictures are taken (the default is 10 seconds, but we recommend to change this to 60 seconds).</li>
-            </ol>
-              <b>Note:</b> If your AMI-System runs older software, it may not support the AMI Bluetooth App.
-              In this case, update the software first.
-            </p>
-
-          <h3 class="subsection" id="1-7-setting-the-timer-relay">Setting the Timer Relay</h3>
-          <p>
-            Find the complete manual for the timer relay in the
-            <a
-              href="https://docs.rs-online.com/8558/0900766b815859bb.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              >manufacturer's documentation</a
-            >.
-            Instructions for the most common settings are provided below.
-          </p>
-          <h3 class="subsubsection" id="1-7-1-set-time-on-timer-relay">
-            Set Time on Timer Relay
-          </h3>
-          <ol class="manual-list">
-            <li>
-              Press the <code>Clock</code> key and the <code>MAN</code> key simultaneously to toggle
-              between 12/24-hour clock mode.
-            </li>
-            <li>
-              Keep the <code>Clock</code> key pressed and then press the <code>D+</code> key to set the
-              day.
-            </li>
-            <li>
-              Keep the <code>Clock</code> key pressed, then press the <code>H+</code> key to set the
-              hour.
-              <ol type="a" class="manual-list">
-                <li><code>00–23</code> in <code>24-hour</code> mode.</li>
-                <li><code>01–12</code> in <code>12-hour</code> mode.</li>
-              </ol>
-            </li>
-            <li>
-              Keep the <code>Clock</code> key pressed, then press the <code>M+</code> key to set the
-              minutes.
-            </li>
-            <li>Click the <code>MAN</code> button to return to the main screen.</li>
-          </ol>
-
-          <h3 class="subsubsection" id="1-7-2-set-a-schedule">Set a Schedule</h3>
-          <ol class="manual-list">
-            <li>Press <code>PR</code> to set the schedule for when AMI-System will turn <code>ON</code>.</li>
-            <li>
-              Press <code>D+</code> stepwise for day selection as given below.
-              <ol type="a" class="manual-list">
-                <li><code>MO TU WE TH FR SA SU</code> (All weekdays).</li>
-                <li><code>MO TU WE TH FR SA   </code> (Exclude Sunday).</li>
-                <li><code>MO TU WE TH FR      </code> (Exclude Weekends).</li>
-                <li><code>MO TU WE TH         </code> (Exclude Friday &amp; Saturday).</li>
-                <li><code>               SA SU</code> (Only Weekends).</li>
-                <li><code>            FR SA   </code> (Only Friday &amp; Saturday).</li>
-                <li><code>   TU WE TH FR SA SU</code> (Exclude any single day).</li>
-                <li><code>MO/TU/WE/TH/FR/SA/SU</code> (Include Single day).</li>
-                <li><code>MO    WE    FR      </code> (Exclude Alternate day).</li>
-                <li><code>   TU    TH    SA   </code> (Exclude Alternate day).</li>
-              </ol>
-            </li>
-            <li>
-              Press <code>H+</code> to edit and increment the hour. Use the <code>MAN(-)</code> key to
-              decrement hours.
-            </li>
-            <li>Press <code>PR</code> to set the schedule for when AMI-System will turn <code>OFF</code>.</li>
-            <li>
-              Press <code>D+</code> stepwise, as above, for day selection.
-              Please note that the <code>OFF</code> day will be the day after
-              the <code>ON</code> day as it passes <code>00:00</code>. For
-              example, if the <code>ON</code> schedule is
-              <code>MO WE FR</code>, the <code>OFF</code> schedule should be
-              <code>TU TH SA</code>.
-            </li>
-            <li>Press <code>H+</code> to set the hour.</li>
-            <li>Press the <code>Clock</code> button to set the schedule.</li>
-            <li>
-              Press <code>MAN(-)</code> to set AMI-System to <code>OFF OFF</code>
-              until you set the AMI-System up in the field, where you will need
-              to set it to <code>AUTO OFF</code>. <b>Note:</b> This will say
-              <code>AUTO ON</code> if you are currently within the programmed
-              <code>ON</code> period.
-            </li>
-          </ol>
-        </section>
-        <section class="manual-section" id="setup">
-          <h2 class="manual-section-heading">Set-up</h2>
-          <h3 class="subsection" id="2-1-checks-before-deployment">
-            Checks Before Deployment
-          </h3>
-          <ol class="manual-list">
-            <li>
-              Check that everything within the grey electronics box at the back
-              of the AMI-System is plugged in and all wires are secure. The box
-              should include:
-              <ol type="i">
-                <li>SSD,</li>
-                <li>MicroSD card inserted into the left of theRaspberry Pi,</li>
-                <li>Watchdog/UPS battery (18650 lithium-ion battery), and</li>
-                <li>RTC battery (CR1220 button battery)</li>
-              </ol>
-            </li>
-            <li>Check that solar cables are crimped, ready for use.</li>
-            <li>Ensure that all openings and glands are properly sealed. If not, apply sealing, e.g., silicon or hot glue, to ensure weatherproofing.</li>
-          </ol>
-
-          <figure class="figure-set">
-            <div class="figure-grid">
-              <figure class="figure">
-                <img src="assets/page-13-image-054.png" alt="" loading="lazy" />
-              </figure>
-            </div>
-            <figcaption class="figure-caption">
-              THE INTERIOR OF THE ELECTRONICS BOX
-            </figcaption>
-          </figure>
-
-          <h3 class="subsection" id="2-2-equipment-list">Equipment List</h3>
-          <div class="equipment-cards">
-            <section class="equipment-card">
-              <h4>General</h4>
-              <ul class="checklist">
-                <li><label><input type="checkbox" />Copy of this guide</label></li>
-                <li><label><input type="checkbox" />Scissors</label></li>
-                <li><label><input type="checkbox" />Pliers</label></li>
-                <li><label><input type="checkbox" />Matting</label></li>
-                <li><label><input type="checkbox" />Pins to secure matting</label></li>
-                <li><label><input type="checkbox" />Hex (Allen) keys</label></li>
-                <li><label><input type="checkbox" />Glue gun or silicon sealant</label></li>
-                <li><label><input type="checkbox" />Multimeter</label></li>
-                <li><label><input type="checkbox" />Transport trolley, if needed</label></li>
-                <li><label><input type="checkbox" />Solar panel connector wrench</label></li>
-                <li><label><input type="checkbox" />Small, flat-head screwdriver</label></li>
-                <li><label><input type="checkbox" />13 mm socket wrench</label></li>
-                <li><label><input type="checkbox" />Labels for SSD</label></li>
-                <li><label><input type="checkbox" />Permanent marker</label></li>
-                <li><label><input type="checkbox" />Tape</label></li>
-                <li><label><input type="checkbox" />Spare glands/caps, etc.</label></li>
-              </ul>
-            </section>
-            <section class="equipment-card">
-              <h4>AMI-System</h4>
-              <ul class="checklist">
-                <li><label><input type="checkbox" />AMI-System</label></li>
-                <li><label><input type="checkbox" />2x fully charged 12 V batteries*</label></li>
-                <li><label><input type="checkbox" />Wires to connect batteries to battery box</label></li>
-                <li><label><input type="checkbox" />Washers and nuts for batteries</label></li>
-                <li><label><input type="checkbox" />4x screws and washers (rubber and metal)</label></li>
-                <li><label><input type="checkbox" />1x female solar connector</label></li>
-                <li><label><input type="checkbox" />White board</label></li>
-                <li><label><input type="checkbox" />Clips for white board</label></li>
-                <li><label><input type="checkbox" />Bag of desiccants for electronics box</label></li>
-                <li><label><input type="checkbox" />Battery (Zarges) box</label></li>
-              </ul>
-            </section>
-            <section class="equipment-card">
-              <h4>Solar</h4>
-              <ul class="checklist">
-                <li><label><input type="checkbox" />Solar panels**</label></li>
-                <li><label><input type="checkbox" />Rigging for solar panels</label></li>
-                <li><label><input type="checkbox" />Conduit for solar cables</label></li>
-                <li><label><input type="checkbox" />Velcro/zip ties to tie up wires</label></li>
-                <li><label><input type="checkbox" />Pegs to secure rigging</label></li>
-                <li><label><input type="checkbox" />1x male solar connector</label></li>
-                <li><label><input type="checkbox" />Hammer</label></li>
-              </ul>
-            </section>
+          <figcaption class="figure-caption">
+            ILLUSTRATION OF AN ASSEMBLED AMI-SYSTEM
+          </figcaption>
+        </figure>
+        <figure class="figure-set">
+          <div class="figure-grid">
+            <figure class="figure">
+              <img src="assets/page-05-image-002.png" alt="" loading="lazy" />
+            </figure>
+            <figure class="figure">
+              <img src="assets/page-05-image-004.png" alt="" loading="lazy" />
+            </figure>
+            <figure class="figure">
+              <img src="assets/page-05-image-006.png" alt="" loading="lazy" />
+            </figure>
+            <figure class="figure">
+              <img src="assets/page-05-image-008.png" alt="" loading="lazy" />
+            </figure>
           </div>
-          <div class="equipment-notes">
+          <figcaption class="figure-caption">
+            CONSTRUCTING AMI-SYSTEM OUT OF THE BOX
+          </figcaption>
+        </figure>
+
+        <h3 class="subsection" id="1-2-connecting-camera-and-light-ring">
+          Connecting Camera and Light Ring
+        </h3>
+        <figure class="figure-set">
+          <div class="figure-grid">
+            <figure class="figure">
+              <img src="assets/page-06-image-010.png" alt="" loading="lazy" />
+            </figure>
+            <figure class="figure">
+              <img src="assets/page-06-image-011.png" alt="" loading="lazy" />
+            </figure>
+            <figure class="figure">
+              <img src="assets/page-06-image-013.png" alt="" loading="lazy" />
+            </figure>
+          </div>
+          <figcaption class="figure-caption">WIRING INSTRUCTIONS</figcaption>
+        </figure>
+        <p>
+          The camera and lighting cables can be seen the figure above. They are
+          coming out of the end of the protective conduit from the back of the
+          camera box. To thread and connect the cables into the electronics
+          box and connect the conduit to the box, please follow the steps
+          below:
+        </p>
+        <ol class="manual-list">
+          <li>
+            Following the cable coming out of the back of the camera box,
+            unscrew and remove the thin black plastic conduit connector nut
+            (step 1 in the figure).
+          </li>
+          <li>
+            Thread the USB and power cables through the hole in the
+            electronics box (step 2 in the figure).
+          </li>
+          <li>
+            Push the conduit and connector as far into the hole (same as step
+            2) as it will go, then replace the nut removed in step 1, passing
+            it over the USB and power cables, then screwing it onto the
+            conduit connecting until tight, this should be slightly more than
+            hand tight so use a spanner (step 3 in the figure).
+          </li>
+          <li>Connect the USB into the port shown in the figure (step 4 in the figure).</li>
+          <li>
+            If your AMI-System has a black voltage regulator on the right, then
+            you need to connect the black and red exposed wire to the upper
+            right terminal of the voltage regulator (step 5 in the figure). To
+            do this use a small flathead screwdriver to unscrew the screw on
+            the front of the terminal. Place the metal part of the wires in
+            the holes - black wire into the left (0V) slot and red wire into
+            the right (+Vo) slot - then screw tight again. Once tightened give
+            the wire a light tug to check it is securely in place.
+            If your AMI-System does not have a voltage regulator, then connect
+            the black and red exposed wires to a black and a red terminal block
+            at the bottom-centre of the electronics box instead.
+          </li>
+          <li>
+            To connect the LepiLED or UV-light tube (depending on the AMI-System you have):
+            <ol type="a" class="manual-list">
+              <li>
+                Feed the LepiLED/UV-light cable through the gland on the right side of
+                the electronics box.
+              </li>
+              <li>
+                Screw the nut on the inside of the box to tighten. Also screw
+                the cap on the outside of the box tight.
+              </li>
+              <li>
+                Connect the brown and blue wires to the right-hand side of the
+                bottom red and black terminal block. Blue neutral wire into
+                black terminal, brown live wire into red terminal. To do this
+                use a small flathead screwdriver to unscrew the screw on the
+                front of the terminal block. Place the metal part of the black
+                wire in the hole on the right side of the terminal block and
+                then screw tight again, once tightened give the wires a light
+                tug to check they are securely in place. Note this step can be
+                fiddly.
+              </li>
+            </ol>
+          </li>
+        </ol>
+
+        <h3 class="subsection" id="1-3-connecting-to-power-benchtop-and-or-battery-box">
+          Connecting to Power – Benchtop and/or Battery Box
+        </h3>
+        <figure class="figure-set">
+          <div class="figure-grid">
+            <figure class="figure">
+              <img src="assets/page-07-image-015.png" alt="" loading="lazy" />
+            </figure>
+          </div>
+          <figcaption class="figure-caption">
+            ANNOTATED IMAGE OF TERMINALS ON THE DIN RAIL IN THE BATTERY BOX
+          </figcaption>
+        </figure>
+        <ol class="manual-list">
+          <li>
+            A cable extends from the bottom of the electronics box and
+            terminates in two wires: one brown and one blue.
+            <ol type="a" class="manual-list">
+              <li>
+                If using the battery box, these should be passed through the
+                hole in the back of the battery box and connected to the DIN
+                rail mounted terminals, labelled Output 1+ (brown cable into
+                beige plastic terminal which will have to be flipped up) and
+                Output 1- (blue cable into black plastic terminal, see figure).
+                Fasten using a small flat head screwdriver.
+              </li>
+              <li>
+                If using a benchtop power supply or a 12 V wall plug, connect the terminal wires -
+                brown to the positive output terminal (usually red), blue to
+                negative output terminal (usually black). The power supply
+                should be set to just above 12 V (e.g. 12.5 V) and just above
+                2 A (e.g. 2.5 A). If using a 12 V wall plug, it should be rated at 2.5 A or more.
+              </li>
+            </ol>
+          </li>
+          <li>
+            To turn the system on, press the <code>MAN(-)</code> key until
+            the text at the bottom of the screen says <code>ON ON</code>.
+          </li>
+          <li>
+            To turn the system off, press the <code>MAN(-)</code> until the
+            text reads <code>OFF OFF</code>.
+          </li>
+        </ol>
+        <p><b>Note:</b> When the AMI-System
+          is in the field, set it to <code>AUTO OFF</code>, so that it
+          follows the program. When it turns on at the set times, it will
+          read <code>AUTO ON</code>. Therefore, if you are deploying the
+          AMI-System when it is scheduled to be on, you will be setting it
+          to <code>AUTO ON</code> (there will be no option for
+          <code>AUTO OFF</code>).
+        </p>
+
+        <h3 class="subsection" id="1-4-connecting-to-the-pi">Connecting to the Raspberry Pi</h3>
+        <p>
+          The Raspberry Pi is the computer that controls the AMI-System. It
+          is located in the electronics box at the back of the AMI-System.
+          Ensure that a microSD card is inserted into the left of the Raspberry Pi.
+          The microSD card contains the operating system and software for the AMI-System.
+          The Raspberry Pi is powered by the electronics box, so it will turn on when the AMI-System is turned on.
+        </p>
+        <p>
+          The simplest way to use the Raspberry Pi is to use the
+          <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI
+            Bluetooth App</a>
+          on an Android phone when the AMI-System is powered on. After connecting, you can use it to:
+
+        <ol class="manual-list">
+          <li>Check if camera and SSD are connected,</li>
+          <li>Check if it is taking pictures,</li>
+          <li>Check the time and date and set it if necessary (do this at least once after setting the system up),</li>
+          <li>Check the SSD's storage space, and</li>
+          <li>To set the interval in which pictures are taken (the default is 10 seconds, but we recommend to change
+            this to 60 seconds).</li>
+        </ol>
+        <b>Note:</b> If your AMI-System runs older software, it may not support the AMI Bluetooth App.
+        In this case, update the software first.
+        </p>
+
+        <h3 class="subsection" id="1-7-setting-the-timer-relay">Setting the Timer Relay</h3>
+        <p>
+          Find the complete manual for the timer relay in the
+          <a href="https://docs.rs-online.com/8558/0900766b815859bb.pdf" target="_blank"
+            rel="noopener noreferrer">manufacturer's documentation</a>.
+          Instructions for the most common settings are provided below.
+        </p>
+        <h3 class="subsubsection" id="1-7-1-set-time-on-timer-relay">
+          Set Time on Timer Relay
+        </h3>
+        <ol class="manual-list">
+          <li>
+            Press the <code>Clock</code> key and the <code>MAN</code> key simultaneously to toggle
+            between 12/24-hour clock mode.
+          </li>
+          <li>
+            Keep the <code>Clock</code> key pressed and then press the <code>D+</code> key to set the
+            day.
+          </li>
+          <li>
+            Keep the <code>Clock</code> key pressed, then press the <code>H+</code> key to set the
+            hour.
+            <ol type="a" class="manual-list">
+              <li><code>00–23</code> in <code>24-hour</code> mode.</li>
+              <li><code>01–12</code> in <code>12-hour</code> mode.</li>
+            </ol>
+          </li>
+          <li>
+            Keep the <code>Clock</code> key pressed, then press the <code>M+</code> key to set the
+            minutes.
+          </li>
+          <li>Click the <code>MAN</code> button to return to the main screen.</li>
+        </ol>
+
+        <h3 class="subsubsection" id="1-7-2-set-a-schedule">Set a Schedule</h3>
+        <ol class="manual-list">
+          <li>Press <code>PR</code> to set the schedule for when AMI-System will turn <code>ON</code>.</li>
+          <li>
+            Press <code>D+</code> stepwise for day selection as given below.
+            <ol type="a" class="manual-list">
+              <li><code>MO TU WE TH FR SA SU</code> (All weekdays).</li>
+              <li><code>MO TU WE TH FR SA   </code> (Exclude Sunday).</li>
+              <li><code>MO TU WE TH FR      </code> (Exclude Weekends).</li>
+              <li><code>MO TU WE TH         </code> (Exclude Friday &amp; Saturday).</li>
+              <li><code>               SA SU</code> (Only Weekends).</li>
+              <li><code>            FR SA   </code> (Only Friday &amp; Saturday).</li>
+              <li><code>   TU WE TH FR SA SU</code> (Exclude any single day).</li>
+              <li><code>MO/TU/WE/TH/FR/SA/SU</code> (Include Single day).</li>
+              <li><code>MO    WE    FR      </code> (Exclude Alternate day).</li>
+              <li><code>   TU    TH    SA   </code> (Exclude Alternate day).</li>
+            </ol>
+          </li>
+          <li>
+            Press <code>H+</code> to edit and increment the hour. Use the <code>MAN(-)</code> key to
+            decrement hours.
+          </li>
+          <li>Press <code>PR</code> to set the schedule for when AMI-System will turn <code>OFF</code>.</li>
+          <li>
+            Press <code>D+</code> stepwise, as above, for day selection.
+            Please note that the <code>OFF</code> day will be the day after
+            the <code>ON</code> day as it passes <code>00:00</code>. For
+            example, if the <code>ON</code> schedule is
+            <code>MO WE FR</code>, the <code>OFF</code> schedule should be
+            <code>TU TH SA</code>.
+          </li>
+          <li>Press <code>H+</code> to set the hour.</li>
+          <li>Press the <code>Clock</code> button to set the schedule.</li>
+          <li>
+            Press <code>MAN(-)</code> to set AMI-System to <code>OFF OFF</code>
+            until you set the AMI-System up in the field, where you will need
+            to set it to <code>AUTO OFF</code>. <b>Note:</b> This will say
+            <code>AUTO ON</code> if you are currently within the programmed
+            <code>ON</code> period.
+          </li>
+        </ol>
+      </section>
+      <section class="manual-section" id="setup">
+        <h2 class="manual-section-heading">Set-up</h2>
+        <h3 class="subsection" id="2-1-checks-before-deployment">
+          Checks Before Deployment
+        </h3>
+        <ol class="manual-list">
+          <li>
+            Check that everything within the grey electronics box at the back
+            of the AMI-System is plugged in and all wires are secure. The box
+            should include:
+            <ol type="i">
+              <li>SSD,</li>
+              <li>MicroSD card inserted into the left of theRaspberry Pi,</li>
+              <li>Watchdog/UPS battery (18650 lithium-ion battery), and</li>
+              <li>RTC battery (CR1220 button battery)</li>
+            </ol>
+          </li>
+          <li>Check that solar cables are crimped, ready for use.</li>
+          <li>Ensure that all openings and glands are properly sealed. If not, apply sealing, e.g., silicon or hot glue,
+            to ensure weatherproofing.</li>
+        </ol>
+
+        <figure class="figure-set">
+          <div class="figure-grid">
+            <figure class="figure">
+              <img src="assets/page-13-image-054.png" alt="" loading="lazy" />
+            </figure>
+          </div>
+          <figcaption class="figure-caption">
+            THE INTERIOR OF THE ELECTRONICS BOX
+          </figcaption>
+        </figure>
+
+        <h3 class="subsection" id="2-2-equipment-list">Equipment List</h3>
+        <div class="equipment-cards">
+          <section class="equipment-card">
+            <h4>General</h4>
+            <ul class="checklist">
+              <li><label><input type="checkbox" />Copy of this guide</label></li>
+              <li><label><input type="checkbox" />Scissors</label></li>
+              <li><label><input type="checkbox" />Pliers</label></li>
+              <li><label><input type="checkbox" />Matting</label></li>
+              <li><label><input type="checkbox" />Pins to secure matting</label></li>
+              <li><label><input type="checkbox" />Hex (Allen) keys</label></li>
+              <li><label><input type="checkbox" />Glue gun or silicon sealant</label></li>
+              <li><label><input type="checkbox" />Multimeter</label></li>
+              <li><label><input type="checkbox" />Transport trolley, if needed</label></li>
+              <li><label><input type="checkbox" />Solar panel connector wrench</label></li>
+              <li><label><input type="checkbox" />Small, flat-head screwdriver</label></li>
+              <li><label><input type="checkbox" />13 mm socket wrench</label></li>
+              <li><label><input type="checkbox" />Labels for SSD</label></li>
+              <li><label><input type="checkbox" />Permanent marker</label></li>
+              <li><label><input type="checkbox" />Tape</label></li>
+              <li><label><input type="checkbox" />Spare glands/caps, etc.</label></li>
+            </ul>
+          </section>
+          <section class="equipment-card">
+            <h4>AMI-System</h4>
+            <ul class="checklist">
+              <li><label><input type="checkbox" />AMI-System</label></li>
+              <li><label><input type="checkbox" />2x fully charged 12 V batteries*</label></li>
+              <li><label><input type="checkbox" />Wires to connect batteries to battery box</label></li>
+              <li><label><input type="checkbox" />Washers and nuts for batteries</label></li>
+              <li><label><input type="checkbox" />4x screws and washers (rubber and metal)</label></li>
+              <li><label><input type="checkbox" />1x female solar connector</label></li>
+              <li><label><input type="checkbox" />White board</label></li>
+              <li><label><input type="checkbox" />Clips for white board</label></li>
+              <li><label><input type="checkbox" />Bag of desiccants for electronics box</label></li>
+              <li><label><input type="checkbox" />Battery (Zarges) box</label></li>
+            </ul>
+          </section>
+          <section class="equipment-card">
+            <h4>Solar</h4>
+            <ul class="checklist">
+              <li><label><input type="checkbox" />Solar panels**</label></li>
+              <li><label><input type="checkbox" />Rigging for solar panels</label></li>
+              <li><label><input type="checkbox" />Conduit for solar cables</label></li>
+              <li><label><input type="checkbox" />Velcro/zip ties to tie up wires</label></li>
+              <li><label><input type="checkbox" />Pegs to secure rigging</label></li>
+              <li><label><input type="checkbox" />1x male solar connector</label></li>
+              <li><label><input type="checkbox" />Hammer</label></li>
+            </ul>
+          </section>
+        </div>
+        <div class="equipment-notes">
           <p>
             *Recommended: 120 Ah 12 V Absorbed Glass Mat (AGM) Lead Acid deep
             cycle or Marine Lead Acid Battery.
@@ -580,508 +548,1208 @@
             Max
             open circuit voltage (Voc) 25 V, max short circuit current (Isc) 25 A.
           </p>
-          </div>
-          <h3 class="subsection" id="2-3-solar-panel-set-up">Solar Panel Set-up</h3>
-          <h3 class="subsubsection" id="2-3-1-put-together-solar-rigging">
-            Put Together Solar Rigging
-          </h3>
-          <ul class="manual-list">
-            <li>
-              Clear an area large enough to contain the solar panels and AMI-System.
-            </li>
-            <li>
-              Lay down the matting and pin it down, use a hammer if needed.
-            </li>
-            <li>[Add own instructions for solar rigging set up]</li>
-          </ul>
-          <h3 class="subsubsection" id="2-3-2-attach-solar-panels-to-rigging">
-            Attach Solar Panels to Rigging
-          </h3>
-          <ul class="manual-list">
-            <li>[Add own instructions]</li>
-          </ul>
-          <h3 class="subsection" id="2-4-ami-set-up">AMI-System Set-up</h3>
-          <h3 class="subsubsection"
-            id="2-4-1-screw-ami-to-box-and-connect-should-be-done-before-connecting-to-power"
-          >
-            Screw AMI-System to Box and Connect (Should Be Done Before
-            Connecting to Power)
-          </h3>
-          <ol class="manual-list">
-            <li>
-              The feet of the AMI-System have screw holes. Put the
-              AMI-System on the lid of the box and line up the holes in the
-              AMI-System feet with the holes in the metal box lid.
-            </li>
-            <li>
-              Use a black rubber washer, followed by the silver metal washer and
-              screw to attach the AMI-System to the box using the ¼ inch Allen key.
-              Having a battery in the battery box while completing this step is
-              helpful because it acts as a counterweight.
-            </li>
-            <li>
-              The wire coming out of the back of the AMI-System, with blue and
-              brown ends, should have conduit and a conduit connector nut.
-              Unscrew the nut and feed the wires through the hole at the back of
-              the battery box.
-            </li>
-            <li>
-              Once through, screw the nut back tightly on the inside of the box,
-              securing the wires in position.
-            </li>
-            <li>
-              Inside the metal box, attach the blue and brown wires to the
-              ‘LOAD’ fuses. Flip up the “door” of the brown (+1) terminal and
-              loosen the screw with the small flathead screwdriver. Insert the
-              brown wire into the brown terminal (+1) and tighten the screw until
-              the wire is secure. Repeat with the blue wire in the black (-1)
-              terminal.
-            </li>
-            <li>Attach the white landing board to the back board of the AMI-System with clips.</li>
-          </ol>
-          <p>
-            <b>Note:</b> If the fuse head is lifted up, the power is disconnected.
-          </p>
+        </div>
+        <h3 class="subsection" id="2-3-solar-panel-set-up">Solar Panel Set-up</h3>
+        <h3 class="subsubsection" id="2-3-1-put-together-solar-rigging">
+          Put Together Solar Rigging
+        </h3>
+        <ul class="manual-list">
+          <li>
+            Clear an area large enough to contain the solar panels and AMI-System.
+          </li>
+          <li>
+            Lay down the matting and pin it down, use a hammer if needed.
+          </li>
+          <li>[Add own instructions for solar rigging set up]</li>
+        </ul>
+        <h3 class="subsubsection" id="2-3-2-attach-solar-panels-to-rigging">
+          Attach Solar Panels to Rigging
+        </h3>
+        <ul class="manual-list">
+          <li>[Add own instructions]</li>
+        </ul>
+        <h3 class="subsection" id="2-4-ami-set-up">AMI-System Set-up</h3>
+        <h3 class="subsubsection" id="2-4-1-screw-ami-to-box-and-connect-should-be-done-before-connecting-to-power">
+          Screw AMI-System to Box and Connect (Should Be Done Before
+          Connecting to Power)
+        </h3>
+        <ol class="manual-list">
+          <li>
+            The feet of the AMI-System have screw holes. Put the
+            AMI-System on the lid of the box and line up the holes in the
+            AMI-System feet with the holes in the metal box lid.
+          </li>
+          <li>
+            Use a black rubber washer, followed by the silver metal washer and
+            screw to attach the AMI-System to the box using the ¼ inch Allen key.
+            Having a battery in the battery box while completing this step is
+            helpful because it acts as a counterweight.
+          </li>
+          <li>
+            The wire coming out of the back of the AMI-System, with blue and
+            brown ends, should have conduit and a conduit connector nut.
+            Unscrew the nut and feed the wires through the hole at the back of
+            the battery box.
+          </li>
+          <li>
+            Once through, screw the nut back tightly on the inside of the box,
+            securing the wires in position.
+          </li>
+          <li>
+            Inside the metal box, attach the blue and brown wires to the
+            ‘LOAD’ fuses. Flip up the “door” of the brown (+1) terminal and
+            loosen the screw with the small flathead screwdriver. Insert the
+            brown wire into the brown terminal (+1) and tighten the screw until
+            the wire is secure. Repeat with the blue wire in the black (-1)
+            terminal.
+          </li>
+          <li>Attach the white landing board to the back board of the AMI-System with clips.</li>
+        </ol>
+        <p>
+          <b>Note:</b> If the fuse head is lifted up, the power is disconnected.
+        </p>
+        <div class="figure-grid">
+          <figure class="figure">
+            <img src="assets/page-17-image-055.png" alt="" loading="lazy" />
+          </figure>
+        </div>
+        <figcaption class="figure-caption">
+          CONDUIT CONNECTOR NUT
+        </figcaption>
+
+        <h3 class="subsubsection" id="2-4-2-connect-batteries">Connect Batteries</h3>
+        <ol class="manual-list">
+          <li>
+            Connect the battery wires to the batteries. The red wire goes to
+            the positive terminal and the black wire to the negative terminal.
+            Put the washer on first, followed by the metal loop at the end of
+            the battery wire, another washer, and finally the nut. Tighten
+            with the 13 mm socket. It is safer to complete the negative
+            terminal first.
+          </li>
+          <li>Repeat with the second battery.</li>
+          <li>Place the two batteries in the aluminium battery box, facing the same way.</li>
+          <li>
+            Connect the battery wires to the wires leading to the SunSaver via
+            the brown connectors.
+          </li>
+          <li>The battery status LED on the SunSaver should turn green.</li>
+        </ol>
+        <h3 class="subsubsection" id="2-4-3-connect-solar-panels">Connect Solar Panels</h3>
+        <ol class="manual-list">
+          <li>
+            The two solar panels will each have a male and female terminal.
+            Connect the two female terminals with a female connector and the
+            two male terminals with a male connector.
+          </li>
+          <li>
+            Add conduit to the two black cables, together or separately. Mark
+            the positive and negative ends before adding the conduit, or use a
+            multimeter to identify them.
+          </li>
+          <li>
+            Connect the two black cables to the solar panels via the female and
+            male connectors.
+          </li>
+          <li>
+            Pass the two black cables, ending in naked wires, through the grey
+            glands on the side of the battery box.
+          </li>
+          <li>
+            Connect the wires to the ‘SOLAR’ fuses on the DIN rail by
+            loosening the screw with the flathead screwdriver and inserting
+            the wire into the terminal. Connect the positive end to the +1
+            output and the negative end to the -1 output. Tighten the screws
+            until the wires are secure.
+          </li>
+          <li>
+            Use Velcro or cable ties to secure loose wires and cables to the
+            metal pole of the solar rig.
+          </li>
+          <li>
+            If the system is working, a green light should appear in the
+            AMI-System box to show that the batteries are connected and fully
+            charged.
+          </li>
+        </ol>
+        <h3 class="subsection" id="2-5-checks-in-field-before-you-leave-the-ami-system-please-check-the-following">
+          Checks in Field: Before You Leave the AMI-System, Please Check the
+          Following
+        </h3>
+        <ol class="manual-list">
+          <li>
+            Within the battery box, check the solar status light on the
+            SunSaver DL.
+            <ol type="a">
+              <li>
+                If there is no colour, but it flickers every 5 seconds, it is
+                not charging and has not been connected properly.
+              </li>
+              <li>If it is solid green, with occasional flickers, it is charging.</li>
+              <li>If it is red, there is an error.</li>
+            </ol>
+          </li>
+          <li>
+            Check the battery status lights on the SunSaver DL.
+            <ol type="a">
+              <li>If it is green, the battery is full or nearly full.</li>
+              <li>If it is yellow, the battery is half full.</li>
+              <li>If it is red, the battery is low (flashing) or empty (solid).</li>
+            </ol>
+          </li>
+          <li>
+            Turn on the AMI-System at the timer relay.
+            <ol type="a">
+              <li>Check that the red light on the timer relay comes on.</li>
+              <li>Check that the LepiLED/UV-light comes on.</li>
+              <li>Use the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank"
+                  rel="noopener noreferrer">AMI Bluetooth App</a>
+                on an Android phone to check if camera and SSD are functioning correctly, time and timezone of the
+                AMI-System are correct, and the AMI-System is taking pictures.</li>
+              <li>Turn the timer relay back to <code>AUTO OFF</code>.</li>
+            </ol>
+          </li>
+        </ol>
+
+        <figure class="figure-set">
           <div class="figure-grid">
             <figure class="figure">
-              <img src="assets/page-17-image-055.png" alt="" loading="lazy" />
+              <img src="assets/page-18-image-056.png" alt="" loading="lazy" />
             </figure>
           </div>
           <figcaption class="figure-caption">
-            CONDUIT CONNECTOR NUT
+            BATTERY WITH BATTERY WIRES
           </figcaption>
+        </figure>
+      </section>
+      <section class="manual-section" id="maintenance">
+        <h2 class="manual-section-heading">
+          Maintenance
+        </h2>
+        <h3 class="subsection" id="4-1-check-the-ami-system">Check the AMI-System</h3>
+        <ol class="manual-list">
+          <li>Check that the timer relay is reading the correct time.</li>
+          <li>Clean the solar panels to remove any dirt and leaves.</li>
+          <li>Clean the white board with water, if dirt builds up.</li>
+          <li>
+            Check inside the grey box at the back of the AMI-System and inside the
+            main aluminium box for water ingress and insects to ensure it is
+            still fully sealed.
+          </li>
+          <li>
+            Check there is no damage to the wires between the AMI-System and the
+            solar panels/mains power source.
+          </li>
+          <li>
+            Check that the LepiLED/UV-light is working by pressing <code>MAN(-)</code>
+            until the screen displays <code>ON ON</code>.
+            Remember to return it to <code>AUTO OFF</code> by continuing to
+            press <code>MAN(-)</code>.
+          </li>
+          <li>Replace the desiccant bag in the battery box, if needed.</li>
+        </ol>
+        <h3 class="subsection" id="4-2-changing-the-ssd-hard-drive">
+          Changing the SSD
+        </h3>
+        <p>
+          Every few weeks, you will need to
+          change the SSD. You can change it less often if needed, but you
+          this will increase the amount of data to be uploaded. The SSD
+          is located above the timer relay and plugged into the Raspberry Pi.
+        </p>
+        <ol class="manual-list">
+          <li>
+            You can only change the SSD when the system is switched off.
+            Therefore, check on the timer relay that it is on
+            <code>AUTO OFF</code>.
+            <ol type="a">
+              <li>
+                If not, please turn the system by pressing <code>MAN(-)</code>
+                until the screen displays <code>OFF OFF</code> and wait until
+                the lights on the Raspberry Pi stop flashing.
+              </li>
+            </ol>
+          </li>
+          <li>
+            Unplug the SSD from the Raspberry Pi and plug it into your
+            computer. Open the folder containing the images and check that it
+            has been populated and that the images look correct. Check the
+            following:
+            <ol type="a">
+              <li>Are the images lit evenly?</li>
+              <li>Are images in focus?</li>
+              <li>
+                Are there any obstructions that you would be able to remove?
+                For example, long pieces of grass.
+              </li>
+              <li>Is the metadata correct? Have the pictures been taken at the right time?</li>
+            </ol>
+          </li>
+          <li>Bring back the SSD for data upload.</li>
+          <li>Plug in an empty SSD into the AMI-System.</li>
+          <li>Make sure all SSDs have been correctly labelled.</li>
+        </ol>
+      </section>
+      <section class="manual-section" id="takedown">
+        <h2 class="manual-section-heading">Take-down</h2>
+        <h3 class="subsection" id="6-1-in-the-field">In the Field</h3>
+        <ol class="manual-list">
+          <li>
+            Turn off the AMI-System on the timer relay by pressing
+            <code>MAN(-)</code> until it reads <code>OFF OFF</code>.
+          </li>
+          <li>Remove and label the SSD.</li>
+          <li>Open the aluminium battery box and unplug the batteries.</li>
+          <li>
+            Unscrew the solar wires from the terminals on the DIN rail with a
+            flat-headed screwdriver and pull the wires out of the battery box.
+          </li>
+          <li>
+            Unscrew the wires connecting the AMI-System to the battery box using a
+            flat-headed screwdriver.
+            <ol type="a">
+              <li>
+                The brown load fuse will need to be flipped up to gain access
+                to the correct screw.
+              </li>
+              <li>
+                Pull the wires out of the battery box. A conduit connector nut
+                on the inside of the battery box will need to be unscrewed first.
+              </li>
+            </ol>
+          </li>
+          <li>
+            Using the allen key to undo the screws attaching the AMI-System to the
+            top of the battery box. This must be done with care, as the
+            AMI-System can easily fall to the ground as the last screw is removed.
+          </li>
+          <li>Remove the batteries from the battery box.</li>
+          <li>
+            Before removing the solar panels from the rigging, unlatch the 2x
+            female connectors and 2x male connectors. Use the plastic wrench
+            usually provided with solar connectors, or tweezers.
+          </li>
+          <li>Remove the solar panels.</li>
+          <li>Take down the rigging and matting.</li>
+        </ol>
 
-        <h3 class="subsubsection" id="2-4-2-connect-batteries">Connect Batteries</h3>
-          <ol class="manual-list">
-            <li>
-              Connect the battery wires to the batteries. The red wire goes to
-              the positive terminal and the black wire to the negative terminal.
-              Put the washer on first, followed by the metal loop at the end of
-              the battery wire, another washer, and finally the nut. Tighten
-              with the 13 mm socket. It is safer to complete the negative
-              terminal first.
-            </li>
-            <li>Repeat with the second battery.</li>
-            <li>Place the two batteries in the aluminium battery box, facing the same way.</li>
-            <li>
-              Connect the battery wires to the wires leading to the SunSaver via
-              the brown connectors.
-            </li>
-            <li>The battery status LED on the SunSaver should turn green.</li>
-          </ol>
-          <h3 class="subsubsection" id="2-4-3-connect-solar-panels">Connect Solar Panels</h3>
-          <ol class="manual-list">
-            <li>
-              The two solar panels will each have a male and female terminal.
-              Connect the two female terminals with a female connector and the
-              two male terminals with a male connector.
-            </li>
-            <li>
-              Add conduit to the two black cables, together or separately. Mark
-              the positive and negative ends before adding the conduit, or use a
-              multimeter to identify them.
-            </li>
-            <li>
-              Connect the two black cables to the solar panels via the female and
-              male connectors.
-            </li>
-            <li>
-              Pass the two black cables, ending in naked wires, through the grey
-              glands on the side of the battery box.
-            </li>
-            <li>
-              Connect the wires to the ‘SOLAR’ fuses on the DIN rail by
-              loosening the screw with the flathead screwdriver and inserting
-              the wire into the terminal. Connect the positive end to the +1
-              output and the negative end to the -1 output. Tighten the screws
-              until the wires are secure.
-            </li>
-            <li>
-              Use Velcro or cable ties to secure loose wires and cables to the
-              metal pole of the solar rig.
-            </li>
-            <li>
-              If the system is working, a green light should appear in the
-              AMI-System box to show that the batteries are connected and fully
-              charged.
-            </li>
-          </ol>
-          <h3 class="subsection"
-            id="2-5-checks-in-field-before-you-leave-the-ami-system-please-check-the-following"
-          >
-            Checks in Field: Before You Leave the AMI-System, Please Check the
-            Following
-          </h3>
-          <ol class="manual-list">
-            <li>
-              Within the battery box, check the solar status light on the
-              SunSaver DL.
-              <ol type="a">
-                <li>
-                  If there is no colour, but it flickers every 5 seconds, it is
-                  not charging and has not been connected properly.
+        <h3 class="subsection" id="6-2-storage">Storage</h3>
+        <ol class="manual-list">
+          <li>The AMI-Systems should be stored indoors and upright.</li>
+          <li>
+            Remove the watchdog/UPS battery from the electronics box at the back
+            of the AMI-System. Charge if needed.
+          </li>
+          <li>
+            Check the charge (voltage V) and capacity (ampere-hours Ah) of the
+            car batteries.
+            <ol type="a">
+              <li>Charge if needed.</li>
+              <li>
+                Recondition if needed (under 60% of original Ah). If it is
+                below 50% Ah and reconditioning does not improve this, the
+                battery cannot be used to power the AMI-System.
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+      <section class="manual-section" id="troubleshooting">
+        <h2 class="manual-section-heading" id="troubleshooting">
+          Troubleshooting
+        </h2>
+        <h3 class="subsection" id="7-1-hardware">Hardware</h3>
+        <h3 class="subsubsection" id="7-1-1-power">Power</h3>
+        <p>
+          If the Raspberry Pi is not turning on and the timer relay light is
+          not on, there might be a problem with the power source, connection
+          or fuse.
+        </p>
+        <ul class="manual-list">
+          <li>
+            <strong>Connections:</strong> Check that all connections are
+            secure, especially the stepdown cable connecting the terminal
+            block and the watchdog/UPS.
+          </li>
+          <li>
+            <strong>Fuse:</strong> Check that the “door” on the beige
+            <code>Output 1+</code> terminal in the battery box is tightly
+            closed and holds a fuse when flipped up. Replace a missing or
+            blown fuse using one of the spares in the plastic pocket attached
+            to the SunSaver 20L.
+          </li>
+          <li>
+            <strong>Power source:</strong> Within the battery box, inspect
+            the SunSaver 20L.
+            <ul>
+              <li>
+                If the battery status LED is red, the battery is empty or low.
+                If there is no light, the battery has not been connected
+                properly.
+              </li>
+              <li>
+                If the solar-panel status LED is red, either flashing or
+                solid, there is an error with the panels.
+              </li>
+              <li>
+                If all status LEDs are green but the Raspberry Pi remains off,
+                use a multimeter to find where power is interrupted. Test the
+                solar, battery, and load circuits.
+              </li>
+              <li>
+                Check that the solar wires lead to the correct terminals:
+                positive to <code>1+</code> and negative to <code>1-</code>.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3 class="subsubsection" id="7-1-2-lepiled">LepiLED/UV-light</h3>
+        <p>
+          If the LepiLED/UV-light or ring lights are not turning on, you should check
+          the connections at the back of the camera/lighting box. You can do
+          this by carefully unscrewing the gland and seeing if any of the
+          wires are slack, especially the larger black cable which is a USB-C
+          cable connecting the camera. This can be plugged back in, if it has
+          come loose. You should also check that the USB-C cable and the two
+          wires connecting the camera and lights are securely connected to the
+          Raspberry Pi in the electronics box.
+        </p>
+        <h3 class="subsection" id="7-2-software">Software</h3>
+        <h3 class="subsubsection" id="7-2-1-camera">Camera</h3>
+        <p>
+          If the images are grey, and it says unable to connect, make sure
+          that the camera USB-C cable is connected properly.
+        </p>
+        <h3 class="subsubsection" id="7-2-2-time-date">Time/Date</h3>
+        <p>
+          If the timestamps on the images are wrong, revise the instructions
+          about setting the Real Time Clock.
+        </p>
+        <h3 class="subsubsection" id="7-2-3-hard-drive-ssd">SSD</h3>
+        <p>
+          In the scenario where the AMI-System is turned on and the SSD is not
+          connected, or the Raspberry Pi, for some reason, does not detect the drive,
+          the system will save images to the SD card rather than the SSD. To
+          fix this we need to check if images have been saved to the SD card
+          and remove them, and then check that we can get the SSD connected
+          properly.
+        </p>
+        <h3 class="subsection" id="5-3-faq">FAQ</h3>
+        <p>
+          Find common symptoms and solutions below. Start with what you can see, follow the checks in order, and stop
+          where a trained technician is required.
+        </p>
+        <div class="faq-controls" aria-label="FAQ controls">
+          <input id="faq-search" class="faq-search" type="search"
+            placeholder="Search symptoms, e.g. grey images, no power, SSD, bL0C..."
+            aria-label="Search troubleshooting topics" />
+          <button class="faq-button" id="faq-expand" type="button">Expand results</button>
+          <button class="faq-button faq-button-secondary" id="faq-collapse" type="button">Collapse all</button>
+        </div>
+        <p id="faq-status" class="faq-status">Showing all troubleshooting topics.</p>
+        <section class="group">
+          <h2>Start here</h2>
+          <details class="faq">
+            <summary>Five-minute first check: what should I inspect before deeper troubleshooting?</summary>
+            <div class="faq-content">
+              <h3>Materials</h3>
+              <div class="materials">
+                <ul>
+                  <li>Phone or camera for photographs</li>
+                  <li>Small flat-head screwdriver</li>
+                  <li>Ethernet cable and laptop</li>
+                  <li>Two-lead digital multimeter with DC voltage mode, if available</li>
+                  <li>Dry cloth; replacement fuses only if their rating is known</li>
+                </ul>
+              </div>
+              <h3>Steps</h3>
+              <ol>
+                <li>Look for water, corrosion, loose plugs, chewed cables, insects, mould or burnt components. Do not
+                  power
+                  visibly wet or damaged electronics.</li>
+                <li>Check the big batteries are connected with red to positive and black to negative. Check all terminal
+                  nuts
+                  are tight.</li>
+                <li>Inspect the fuse in the beige/brown output holder in the battery box and the small fuse holder in
+                  the red
+                  battery lead. A fuse can fail even on a new unit.</li>
+                <li>Set the timer relay temporarily to <b>ON ON</b>. Note whether its red output light, the LepiLED,
+                  camera
+                  ring, watchdog LED and Raspberry Pi LEDs operate.</li>
+                <li>Record exactly what works. A component-by-component record is more useful than “the AMI is broken”.
                 </li>
-                <li>If it is solid green, with occasional flickers, it is charging.</li>
-                <li>If it is red, there is an error.</li>
+                <li>After testing, return the timer to <b>AUTO OFF</b>, or <b>AUTO ON</b> if currently inside the
+                  programmed
+                  survey period.</li>
               </ol>
-            </li>
-            <li>
-              Check the battery status lights on the SunSaver DL.
-              <ol type="a">
-                <li>If it is green, the battery is full or nearly full.</li>
-                <li>If it is yellow, the battery is half full.</li>
-                <li>If it is red, the battery is low (flashing) or empty (solid).</li>
-              </ol>
-            </li>
-            <li>
-              Turn on the AMI-System at the timer relay.
-              <ol type="a">
-                <li>Check that the red light on the timer relay comes on.</li>
-                <li>Check that the LepiLED/UV-light comes on.</li>
-                <li>Use the <a
-              href="https://ami-system.github.io/ami-app-bluetooth-lite/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >AMI Bluetooth App</a
-            >
-            on an Android phone to check if camera and SSD are functioning correctly, time and timezone of the AMI-System are correct, and the AMI-System is taking pictures.</li>
-                <li>Turn the timer relay back to <code>AUTO OFF</code>.</li>
-              </ol>
-            </li>
-          </ol>
-
-          <figure class="figure-set">
-            <div class="figure-grid">
-              <figure class="figure">
-                <img src="assets/page-18-image-056.png" alt="" loading="lazy" />
-              </figure>
+              <p><span class="review">Review</span> AMI builds differ. Compare your electronics box with your own unit
+                rather
+                than assuming every photograph in an older manual matches.</p>
             </div>
-            <figcaption class="figure-caption">
-              BATTERY WITH BATTERY WIRES
-            </figcaption>
-          </figure>
-        </section>
-        <section class="manual-section" id="maintenance">
-          <h2 class="manual-section-heading">
-            Maintenance
-          </h2>
-          <h3 class="subsection" id="4-1-check-the-ami-system">Check the AMI-System</h3>
-          <ol class="manual-list">
-            <li>Check that the timer relay is reading the correct time.</li>
-            <li>Clean the solar panels to remove any dirt and leaves.</li>
-            <li>Clean the white board with water, if dirt builds up.</li>
-            <li>
-              Check inside the grey box at the back of the AMI-System and inside the
-              main aluminium box for water ingress and insects to ensure it is
-              still fully sealed.
-            </li>
-            <li>
-              Check there is no damage to the wires between the AMI-System and the
-              solar panels/mains power source.
-            </li>
-            <li>
-              Check that the LepiLED/UV-light is working by pressing <code>MAN(-)</code>
-              until the screen displays <code>ON ON</code>.
-              Remember to return it to <code>AUTO OFF</code> by continuing to
-              press <code>MAN(-)</code>.
-            </li>
-            <li>Replace the desiccant bag in the battery box, if needed.</li>
-          </ol>
-          <h3 class="subsection" id="4-2-changing-the-ssd-hard-drive">
-            Changing the SSD
-          </h3>
-          <p>
-            Every few weeks, you will need to
-            change the SSD. You can change it less often if needed, but you
-            this will increase the amount of data to be uploaded. The SSD
-            is located above the timer relay and plugged into the Raspberry Pi.
-          </p>
-          <ol class="manual-list">
-            <li>
-              You can only change the SSD when the system is switched off.
-              Therefore, check on the timer relay that it is on
-              <code>AUTO OFF</code>.
-              <ol type="a">
-                <li>
-                  If not, please turn the system by pressing <code>MAN(-)</code>
-                  until the screen displays <code>OFF OFF</code> and wait until
-                  the lights on the Raspberry Pi stop flashing.
-                </li>
-              </ol>
-            </li>
-            <li>
-              Unplug the SSD from the Raspberry Pi and plug it into your
-              computer. Open the folder containing the images and check that it
-              has been populated and that the images look correct. Check the
-              following:
-              <ol type="a">
-                <li>Are the images lit evenly?</li>
-                <li>Are images in focus?</li>
-                <li>
-                  Are there any obstructions that you would be able to remove?
-                  For example, long pieces of grass.
-                </li>
-                <li>Is the metadata correct? Have the pictures been taken at the right time?</li>
-              </ol>
-            </li>
-            <li>Bring back the SSD for data upload.</li>
-            <li>Plug in an empty SSD into the AMI-System.</li>
-            <li>Make sure all SSDs have been correctly labelled.</li>
-          </ol>
-        </section>
-        <section class="manual-section" id="takedown">
-          <h2 class="manual-section-heading">Take-down</h2>
-          <h3 class="subsection" id="6-1-in-the-field">In the Field</h3>
-          <ol class="manual-list">
-            <li>
-              Turn off the AMI-System on the timer relay by pressing
-              <code>MAN(-)</code> until it reads <code>OFF OFF</code>.
-            </li>
-            <li>Remove and label the SSD.</li>
-            <li>Open the aluminium battery box and unplug the batteries.</li>
-            <li>
-              Unscrew the solar wires from the terminals on the DIN rail with a
-              flat-headed screwdriver and pull the wires out of the battery box.
-            </li>
-            <li>
-              Unscrew the wires connecting the AMI-System to the battery box using a
-              flat-headed screwdriver.
-              <ol type="a">
-                <li>
-                  The brown load fuse will need to be flipped up to gain access
-                  to the correct screw.
-                </li>
-                <li>
-                  Pull the wires out of the battery box. A conduit connector nut
-                  on the inside of the battery box will need to be unscrewed first.
-                </li>
-              </ol>
-            </li>
-            <li>
-              Using the allen key to undo the screws attaching the AMI-System to the
-              top of the battery box. This must be done with care, as the
-              AMI-System can easily fall to the ground as the last screw is removed.
-            </li>
-            <li>Remove the batteries from the battery box.</li>
-            <li>
-              Before removing the solar panels from the rigging, unlatch the 2x
-              female connectors and 2x male connectors. Use the plastic wrench
-              usually provided with solar connectors, or tweezers.
-            </li>
-            <li>Remove the solar panels.</li>
-            <li>Take down the rigging and matting.</li>
-          </ol>
-
-          <h3 class="subsection" id="6-2-storage">Storage</h3>
-          <ol class="manual-list">
-            <li>The AMI-Systems should be stored indoors and upright.</li>
-            <li>
-              Remove the watchdog/UPS battery from the electronics box at the back
-              of the AMI-System. Charge if needed.
-            </li>
-            <li>
-              Check the charge (voltage V) and capacity (ampere-hours Ah) of the
-              car batteries.
-              <ol type="a">
-                <li>Charge if needed.</li>
-                <li>
-                  Recondition if needed (under 60% of original Ah). If it is
-                  below 50% Ah and reconditioning does not improve this, the
-                  battery cannot be used to power the AMI-System.
-                </li>
-              </ol>
-            </li>
-          </ol>
-        </section>
-        <section class="manual-section" id="troubleshooting">
-          <h2 class="manual-section-heading" id="troubleshooting">
-            Troubleshooting
-          </h2>
-          <h3 class="subsection" id="7-1-hardware">Hardware</h3>
-          <h3 class="subsubsection" id="7-1-1-power">Power</h3>
-          <p>
-            If the Raspberry Pi is not turning on and the timer relay light is
-            not on, there might be a problem with the power source, connection
-            or fuse.
-          </p>
-          <ul class="manual-list">
-            <li>
-              <strong>Connections:</strong> Check that all connections are
-              secure, especially the stepdown cable connecting the terminal
-              block and the watchdog/UPS.
-            </li>
-            <li>
-              <strong>Fuse:</strong> Check that the “door” on the beige
-              <code>Output 1+</code> terminal in the battery box is tightly
-              closed and holds a fuse when flipped up. Replace a missing or
-              blown fuse using one of the spares in the plastic pocket attached
-              to the SunSaver 20L.
-            </li>
-            <li>
-              <strong>Power source:</strong> Within the battery box, inspect
-              the SunSaver 20L.
+          </details>
+          <details class="faq">
+            <summary>What do OFF OFF, ON ON, AUTO OFF and AUTO ON mean?</summary>
+            <div class="faq-content">
               <ul>
-                <li>
-                  If the battery status LED is red, the battery is empty or low.
-                  If there is no light, the battery has not been connected
-                  properly.
-                </li>
-                <li>
-                  If the solar-panel status LED is red, either flashing or
-                  solid, there is an error with the panels.
-                </li>
-                <li>
-                  If all status LEDs are green but the Raspberry Pi remains off,
-                  use a multimeter to find where power is interrupted. Test the
-                  solar, battery, and load circuits.
-                </li>
-                <li>
-                  Check that the solar wires lead to the correct terminals:
-                  positive to <code>1+</code> and negative to <code>1-</code>.
-                </li>
+                <li><b>OFF OFF:</b> manually forced off. Use before handling SSDs or wiring.</li>
+                <li><b>ON ON:</b> manually forced on. Use briefly for tests.</li>
+                <li><b>AUTO OFF:</b> automatic schedule enabled and currently outside an ON period.</li>
+                <li><b>AUTO ON:</b> automatic schedule enabled and currently inside an ON period.</li>
               </ul>
-            </li>
-          </ul>
-          <h3 class="subsubsection" id="7-1-2-lepiled">LepiLED/UV-light</h3>
-          <p>
-            If the LepiLED/UV-light or ring lights are not turning on, you should check
-            the connections at the back of the camera/lighting box. You can do
-            this by carefully unscrewing the gland and seeing if any of the
-            wires are slack, especially the larger black cable which is a USB-C
-            cable connecting the camera. This can be plugged back in, if it has
-            come loose. You should also check that the USB-C cable and the two
-            wires connecting the camera and lights are securely connected to the
-            Raspberry Pi in the electronics box.
-          </p>
-          <h3 class="subsection" id="7-2-software">Software</h3>
-          <h3 class="subsubsection" id="7-2-1-camera">Camera</h3>
-          <p>
-            If the images are grey, and it says unable to connect, make sure
-            that the camera USB-C cable is connected properly.
-          </p>
-          <h3 class="subsubsection" id="7-2-2-time-date">Time/Date</h3>
-          <p>
-            If the timestamps on the images are wrong, revise the instructions
-            about setting the Real Time Clock.
-          </p>
-          <h3 class="subsubsection" id="7-2-3-hard-drive-ssd">SSD</h3>
-          <p>
-            In the scenario where the AMI-System is turned on and the SSD is not
-            connected, or the Raspberry Pi, for some reason, does not detect the drive,
-            the system will save images to the SD card rather than the SSD. To
-            fix this we need to check if images have been saved to the SD card
-            and remove them, and then check that we can get the SSD connected
-            properly.
-          </p>
-          <h3 class="subsection" id="5-3-faq">FAQ</h3>
-          <p class="faq-intro">
-            A symptom-led guide for ecologists and field teams. Start with what you can see, follow the checks in order, and stop where a trained technician is required.
-          </p>
-          <div class="faq-controls" aria-label="FAQ controls">
-            <button class="faq-button" id="faq-expand" type="button">Expand results</button>
-            <button class="faq-button faq-button-secondary" id="faq-collapse" type="button">Collapse all</button>
-            <input id="faq-search" class="faq-search" type="search" placeholder="Search symptoms, e.g. grey images, no power, SSD, bL0C..." aria-label="Search troubleshooting topics" />
-          </div>
-          <p id="faq-status" class="faq-status">Showing all troubleshooting topics.</p><section class="group"><h2>Start here</h2>
-<details class="faq"><summary>Five-minute first check: what should I inspect before deeper troubleshooting?</summary><div class="faq-content"><h3>Materials</h3><div class="materials"><ul><li>Phone or camera for photographs</li><li>Small flat-head screwdriver</li><li>Ethernet cable and laptop</li><li>Two-lead digital multimeter with DC voltage mode, if available</li><li>Dry cloth; replacement fuses only if their rating is known</li></ul></div><h3>Steps</h3><ol><li>Look for water, corrosion, loose plugs, chewed cables, insects, mould or burnt components. Do not power visibly wet or damaged electronics.</li><li>Check the big batteries are connected with red to positive and black to negative. Check all terminal nuts are tight.</li><li>Inspect the fuse in the beige/brown output holder in the battery box and the small fuse holder in the red battery lead. A fuse can fail even on a new unit.</li><li>Set the timer relay temporarily to <b>ON ON</b>. Note whether its red output light, the LepiLED, camera ring, watchdog LED and Raspberry Pi LEDs operate.</li><li>Record exactly what works. A component-by-component record is more useful than “the AMI is broken”.</li><li>After testing, return the timer to <b>AUTO OFF</b>, or <b>AUTO ON</b> if currently inside the programmed survey period.</li></ol><p><span class="review">Review</span> AMI builds differ. Compare your electronics box with your own unit rather than assuming every photograph in an older manual matches.</p></div></details>
-<details class="faq"><summary>What do OFF OFF, ON ON, AUTO OFF and AUTO ON mean?</summary><div class="faq-content"><ul><li><b>OFF OFF:</b> manually forced off. Use before handling SSDs or wiring.</li><li><b>ON ON:</b> manually forced on. Use briefly for tests.</li><li><b>AUTO OFF:</b> automatic schedule enabled and currently outside an ON period.</li><li><b>AUTO ON:</b> automatic schedule enabled and currently inside an ON period.</li></ul><p>Press <b>MAN(-)</b> repeatedly to cycle states. Do not leave a deployed system in ON ON unless continuous operation is intentional.</p></div></details>
-</section>
-<section class="group"><h2>Power, batteries, solar and fuses</h2>
-<details class="faq"><summary>Nothing turns on: no timer light, no LepiLED and no Raspberry Pi lights</summary><div class="faq-content"><h3>Likely causes</h3><ul><li>Disconnected or exhausted main batteries</li><li>Open, missing or blown output fuse</li><li>Loose battery, solar-controller or load wiring</li><li>Timer relay not supplying the electronics box</li></ul><h3>Steps</h3><ol><li>Set the relay to OFF OFF.</li><li>Check red battery leads are on positive terminals and black leads on negative terminals. Tighten with the appropriate socket.</li><li>Check the beige/brown Output 1+ fuse “door” is fully closed and contains an intact fuse. Check the inline fuse in the red battery cable.</li><li>Read the SunSaver indicators. No battery light can mean the battery is not connected; red indicates low or empty battery. A red solar indicator indicates a solar-side error.</li><li>With a two-lead multimeter in DC voltage mode, measure progressively from battery terminals, controller battery input, controller load output, timer output and electronics-box input. The first point where voltage disappears isolates the faulty section.</li><li>Do not use a non-contact AC detector pen. The AMI uses low-voltage direct current and such a pen may not detect it.</li></ol><div class="stop"><b>Stop:</b> if polarity is unclear, wires are burnt, or a fuse blows again after replacement. Repeated fuse failure indicates an unresolved fault.</div></div></details>
-<details class="faq"><summary>The solar charger says “charging”, but the batteries stay empty</summary><div class="faq-content"><ol><li>Clean leaves, dirt and grime from both solar panels.</li><li>Check for dense shade and seasonal changes in the sun path. A location that is bright enough to see may still be far too shaded for useful charging.</li><li>Confirm both panels and their parallel connectors are intact and the positive and negative leads reach the correct solar terminals.</li><li>Check battery voltage. Around 12 V can indicate a deeply depleted nominal 12 V lead-acid battery; while charging, a full battery may show around 14 V.</li><li>If batteries have remained fully discharged for a long period, their capacity may have deteriorated. Charge and capacity-test them off-site, or substitute known-good matched batteries.</li><li>For reliable operation, relocate panels to a sunnier position if cleaning and wiring checks do not restore charging.</li></ol><p><span class="review">Review</span> Exact voltage interpretation depends on battery chemistry, load and charging state.</p></div></details>
-<details class="faq"><summary>Can I deploy with one car battery? What battery type should I use?</summary><div class="faq-content"><ul><li>One nominal 12 V battery can be adequate for a short bench test, but is not the preferred field arrangement for repeated overnight operation.</li><li>Marine, leisure, camping or deep-cycle AGM lead-acid batteries tolerate repeated charge and discharge better than ordinary starter batteries.</li><li>The manual recommends two fully charged 12 V batteries, typically around 120 Ah each.</li><li>If charging one battery off-site, charge the paired battery to a similar state before reconnecting. A large state-of-charge difference can cause a high equalisation current and may blow a fuse.</li><li>Use a charger suitable for the actual battery chemistry and rating.</li></ul></div></details>
-<details class="faq"><summary>The timer relay flickers or the whole system starts and immediately dies</summary><div class="faq-content"><ol><li>Suspect very low main-battery voltage first. Check both batteries and the SunSaver battery indicator.</li><li>Check that the load fuse holder is closed and cables cannot move in their terminals.</li><li>Check the black and red input wires between the lower terminal area and the watchdog/UPS.</li><li>Power the Raspberry Pi and watchdog separately from a suitable USB power bank only as a brief isolation test. If each works alone, suspect the 12 V to 5 V power path or its cable.</li><li>If a watchdog has a temperature probe, overheating is possible but was considered an unusual cause. Allow the enclosure and probe to cool before retesting.</li></ol></div></details>
-<details class="faq"><summary>A fuse is blown, missing, or its brown/beige holder is broken</summary><div class="faq-content"><ol><li>Turn the relay OFF OFF and disconnect battery power.</li><li>Open the fuse holder and inspect the fuse. An inline fuse has failed if its internal U-shaped conductor is broken.</li><li>Replace only with the same known type and rating.</li><li>If the DIN-rail holder itself is broken, some boxes contain an unused spare holder labelled for another output. Swap only if you are competent and preserve polarity and terminal positions.</li><li>After reconnection, power up briefly and watch for heating or immediate fuse failure.</li></ol></div></details>
-</section>
-<section class="group"><h2>Raspberry Pi, watchdog and connections</h2>
-<details class="faq"><summary>The Raspberry Pi has no lights, but the LepiLED or ring light works</summary><div class="faq-content"><h3>Isolation test</h3><ol><li>Confirm the timer relay red output light is on. If it is off, troubleshoot the battery box and relay first.</li><li>Inspect the 12 V to 5 V step-down cable and connections to the watchdog/UPS.</li><li>With all main power isolated, briefly power the Pi by its normal USB power input from a suitable power bank. If its LEDs remain off, suspect the Pi.</li><li>Briefly power the watchdog/UPS by its supported USB input. If its LED remains off, suspect the watchdog.</li><li>If Pi and watchdog each work separately, suspect the step-down cable or power-path wiring.</li><li>If a second AMI is available, swapping one known-good component at a time can isolate the fault. Label everything and never swap multiple parts simultaneously.</li></ol></div></details>
-<details class="faq"><summary>How do I interpret the watchdog/UPS green LED?</summary><div class="faq-content"><ul><li><b>About once per second:</b> normal self-test indication.</li><li><b>Rapidly, about five times per second:</b> hardware error.</li><li><b>No flashing:</b> no power, powered down state, or fundamental fault.</li><li><b>Solid:</b> can indicate the watchdog has reset the Pi.</li></ul><p>The LED pattern is diagnostic evidence, not absolute proof. A cable that appears intact can still have no electrical continuity.</p></div></details>
-<details class="faq"><summary>The watchdog turns the Raspberry Pi off shortly after startup</summary><div class="faq-content"><ol><li>Check the main battery supply reaches the watchdog continuously.</li><li>Check and, if necessary, charge or substitute the 18650 backup cell.</li><li>Inspect the step-down cable for broken continuity, even if it looks undamaged.</li><li>Check the watchdog LED pattern.</li><li>If the unit has a temperature sensor and has been heated by direct sun, cool it and retest.</li></ol><p>The watchdog is intended to shut down the Pi safely when main power disappears or its backup battery becomes too low.</p></div></details>
-<details class="faq"><summary>The Raspberry Pi red LED flashes or shows an unusual blink pattern</summary><div class="faq-content"><ol><li>Record a clear video long enough to identify the repeated pattern.</li><li>Check whether the microSD card is fully inserted.</li><li>Try a known-good AMI microSD card or re-image a spare card with the approved AMI operating-system image.</li><li>If the behaviour changes when the RTC is attached, stop and check whether “RTC” truly means the small blue clock board. A shorted accessory can suppress power.</li><li>If the Pi still shows a fault using a known-good power supply and microSD card, the Pi itself may require replacement.</li></ol></div></details>
-<details class="faq"><summary>No HDMI picture appears on the monitor</summary><div class="faq-content"><ol><li>Do not assume the Pi has failed. Some AMIs repeatedly failed to display over HDMI while otherwise working.</li><li>Connect the HDMI lead before powering the Pi.</li><li>Check the Pi power LED and microSD card.</li><li>Prefer Ethernet and SSH for configuration.</li><li>Low supply voltage can affect peripherals such as HDMI before the rest of the system stops.</li></ol></div></details>
-<details class="faq"><summary>How do I connect by Ethernet and SSH?</summary><div class="faq-content"><ol><li>Connect an Ethernet cable between the AMI Pi and laptop.</li><li>Turn the AMI to ON ON and wait for the Pi to boot.</li><li>Open Command Prompt, PowerShell or Terminal.</li></ol><div class="cmd"><code>ssh pi@raspberrypi.local</code><button class="copy">Copy</button></div><ol start="4"><li>Accept the host prompt if shown.</li><li>Enter the AMI password supplied with the unit. No characters will appear while typing.</li></ol><p>If you typed <code>raspberry.local</code>, correct it to <code>raspberrypi.local</code>. If the host still cannot be resolved, check Pi power and the Ethernet connection. Organisational network restrictions may also interfere.</p></div></details>
-<details class="faq"><summary>How do I replace or upgrade the Raspberry Pi OS microSD card?</summary><div class="faq-content"><div class="stop"><b>Important:</b> use only an approved AMI image intended for this hardware version. Keep the original card labelled and untouched as a rollback.</div><ol><li>Set the timer relay to OFF OFF and wait until all Pi activity has stopped.</li><li>Remove the microSD card from the Pi.</li><li>Insert the prepared replacement card.</li><li>Turn the system on and allow extra time for the first boot.</li><li>Check SSH or the Bluetooth app, then verify camera, SSD, time zone, RTC and capture interval.</li><li>Take and inspect test images before deployment.</li></ol><p>A replacement software image resolved at least one case where an AMI would not take scheduled photographs. <span class="review">Review</span> Image provenance and version should be confirmed internally.</p></div></details>
-</section>
-<section class="group"><h2>Camera, ring light and LepiLED</h2>
-<details class="faq"><summary>Images are grey or the camera says it cannot connect</summary><div class="faq-content"><ol><li>Check the camera USB cable at the Pi.</li><li>Unscrew the black rear cap of the camera housing carefully and check the USB-C end is fully inserted.</li><li>Test camera detection:</li></ol><div class="cmd"><code>ls /dev/video0</code><button class="copy">Copy</button></div><div class="cmd"><code>ls -l /dev/v4l/by-id/</code><button class="copy">Copy</button></div><ul><li>If the device exists, the Pi detects a camera.</li><li>If “No such file or directory” appears, suspect the cable, connector or camera.</li></ul><ol start="4"><li>Plug the camera USB lead into a laptop. If the laptop recognises a Logitech camera, the camera and cable path are at least partly functional.</li><li>If necessary, test the long USB cable with another known-good USB device, then test the camera using another known-good USB-A to USB-C lead.</li><li>If the camera is detected but images remain grey, inspect the Motion log and camera-device path.</li></ol></div></details>
-<details class="faq"><summary>The camera ring light does not turn on or flickers briefly</summary><div class="faq-content"><p>The ring light is powered by separate wires, not by the camera USB cable.</p><ol><li>Set OFF OFF and inspect the red/black or brown/blue light wires in the electronics-box screw terminals.</li><li>Gently tug each wire to confirm it is clamped.</li><li>Inspect the cable along its whole route for animal bites, crushing or water damage.</li><li>If the conductors are secure at the box but the light still fails, a break or solder fault inside the camera housing may require substantial disassembly and soldering.</li><li>Do not continue a survey with failed illumination unless the study protocol explicitly allows it.</li></ol></div></details>
-<details class="faq"><summary>The LepiLED attractive UV light does not turn on</summary><div class="faq-content"><ol><li>Set the relay briefly to ON ON and check whether the timer output light is on.</li><li>Check the LepiLED cable gland is tight and dry.</li><li>With power isolated, verify the blue/black neutral wire and brown/red positive wire are firmly clamped to their intended terminals.</li><li>Inspect the external light and cable for bites, impact or water ingress.</li><li>If other loads work and the LepiLED does not, record voltage at the light output only if trained to do so.</li><li>Return to AUTO mode after testing.</li></ol></div></details>
-<details class="faq"><summary>No images are taken, even though the Pi, lights and SSD appear on</summary><div class="faq-content"><ol><li>Confirm the camera is detected with <code>ls /dev/video0</code>.</li><li>Confirm the SSD and mount point with <code>lsblk</code>.</li><li>Start image capture with <code>sudo motion</code>.</li><li>Inspect the image folder and the Motion log.</li></ol><div class="cmd"><code>ls /media/pi/PiImages</code><button class="copy">Copy</button></div><div class="cmd"><code>tail -n 100 /var/log/motion/motion.log</code><button class="copy">Copy</button></div><ol start="5"><li>If hardware checks pass but capture never starts, replace the AMI software microSD card with a known-good approved image.</li></ol></div></details>
-<details class="faq"><summary>Motion detection does not trigger when I wave in front of the board</summary><div class="faq-content"><p>Most AMIs are intended to take pictures at fixed intervals. Many do not use motion-triggered capture because pixel-change detection can generate an unmanageably large number of images, especially in the tropics.</p><ol><li>Confirm the study protocol. Do not enable motion detection unless it is required.</li><li>For normal fixed-interval operation, verify the configured snapshot interval instead.</li><li>If motion capture is explicitly required, check Motion configuration and logs with technical support.</li></ol></div></details>
-<details class="faq"><summary>Images are blurry, poorly coloured or inconsistently focussed</summary><div class="faq-content"><ol><li>Place text and several colours on the landing board at the normal focal distance.</li><li>Allow several images after startup. The first few can be blurry while settings take effect.</li><li>Inspect focus, colour, exposure, evenness of illumination and timestamp.</li><li>Only change camera settings if test images are inadequate; AMIs with different camera/light combinations may legitimately have different settings.</li><li>Open the settings script:</li></ol><div class="cmd"><code>sudo nano /home/pi/scripts/setCamera.sh</code><button class="copy">Copy</button></div><ol start="6"><li>Record original values before changing anything, adjust one parameter at a time, restart capture and compare images.</li></ol></div></details>
-</section>
-<section class="group"><h2>SSD, image storage and missing data</h2>
-<details class="faq"><summary>The SSD is empty or no new photographs appear</summary><div class="faq-content"><ol><li>Turn OFF OFF before reseating the SSD.</li><li>Try a blue USB port and another known-good USB cable/port.</li><li>Connect by SSH and run:</li></ol><div class="cmd"><code>lsblk</code><button class="copy">Copy</button></div><p>Look for a drive such as <code>sda</code>, commonly around 500 GB, mounted at <code>/media/pi/PiImages</code>.</p><ol start="4"><li>Check the directory with <code>ls /media/pi/PiImages</code>.</li><li>Connect the SSD to a laptop and verify it can be read and its volume label is <b>PiImages</b>.</li><li>If it is not detected, substitute a known-good SSD or cable.</li><li>Never remove or insert an SSD while the Pi is running.</li></ol></div></details>
-<details class="faq"><summary>Images were saved to the microSD card instead of the SSD</summary><div class="faq-content"><div class="stop"><b>Protect data first:</b> do not delete anything until image files have been copied and opened successfully on another computer.</div><ol><li>Stop capture: <code>sudo pkill motion</code>.</li><li>Inspect <code>/media/pi/PiImages</code> and determine whether the SSD is actually mounted there. A directory existing by itself does not prove which device supplies it.</li><li>Use <code>lsblk</code> to verify the mount point.</li><li>If files are on the Pi's card, copy them to the laptop:</li></ol><div class="cmd"><code>scp -r pi@raspberrypi.local:/media/pi/PiImages C:/Users/YourUsername/Documents/</code><button class="copy">Copy</button></div><ol start="5"><li>Open several copied files and confirm the backup.</li><li>Only then remove an incorrect local directory if a technician has confirmed the diagnosis.</li><li>Power down, connect the correctly labelled SSD, power up and verify the mount with <code>lsblk</code>.</li></ol><p><span class="review">Review</span> Earlier manual wording about the existence of this path was disputed. The mount output, not path existence alone, must be used.</p></div></details>
-<details class="faq"><summary>How do I copy the Motion log to a Windows laptop?</summary><div class="faq-content"><p>Use the command matching your terminal.</p><h3>Command Prompt</h3><div class="cmd"><code>scp pi@raspberrypi.local:/var/log/motion/motion.log C:/Users/YourUsername/Downloads/</code><button class="copy">Copy</button></div><h3>PowerShell</h3><div class="cmd"><code>scp pi@raspberrypi.local:/var/log/motion/motion.log "C:\Users\YourUsername\Downloads\"</code><button class="copy">Copy</button></div><p>Replace <code>YourUsername</code>. If the file does not exist, first verify the software image and log location.</p></div></details>
-<details class="faq"><summary>The AMI stops taking images part-way through the night</summary><div class="faq-content"><ol><li>Check whether the whole system lost power: compare the final image time with timer schedule and battery state.</li><li>Check free SSD space and whether the SSD remained mounted.</li><li>Inspect <code>/var/log/motion/motion.log</code> around the final image time.</li><li>Check for intermittent camera disconnects and loose USB cables.</li><li>Check UPS/watchdog shutdowns, low main-battery voltage and solar charging.</li><li>Substitute known-good SSD, camera cable or software microSD one at a time.</li><li>Do not assume the cause from the symptom alone. Similar cases were associated with power, storage and software issues.</li></ol></div></details>
-</section>
-<section class="group"><h2>Time, RTC and timer schedule</h2>
-<details class="faq"><summary>Image timestamps are wrong</summary><div class="faq-content"><ol><li>Connect over SSH and check:</li></ol><div class="cmd"><code>timedatectl</code><button class="copy">Copy</button></div><ol start="2"><li>Set the correct region-based time zone if required, then set the system date and time using the approved Linux method.</li><li>Once system time is correct, write it to the hardware clock:</li></ol><div class="cmd"><code>sudo hwclock -w</code><button class="copy">Copy</button></div><ol start="4"><li>Read it back:</li></ol><div class="cmd"><code>sudo hwclock -r</code><button class="copy">Copy</button></div><ol start="5"><li>Power down for several minutes, restart and check whether time was retained. If not, reseat the RTC and replace its CR1220 coin cell.</li><li>Also set the separate timer relay clock. The Pi RTC and timer relay are independent.</li></ol></div></details>
-<details class="faq"><summary>The RTC board has come loose</summary><div class="faq-content"><ol><li>Turn OFF OFF and disconnect main power.</li><li>Remove the watchdog's cylindrical battery only if necessary for access, noting polarity.</li><li>Fit the small blue RTC board onto the six raised pins at the far left of the header, matching the known-good orientation.</li><li>Do not offset the six-pin connector.</li><li>Reinstall the coin cell and any removed battery with correct polarity.</li><li>Boot, set time, run <code>sudo hwclock -w</code>, then test time retention.</li></ol><div class="stop"><b>Stop:</b> if pins are bent, the RTC becomes hot, or attaching it prevents the Pi powering up.</div></div></details>
-<details class="faq"><summary>The timer relay displays bL0C and buttons do not work</summary><div class="faq-content"><p>The keypad lock is active.</p><ol><li>Press the <b>clock</b> and <b>PR</b> keys simultaneously for at least three seconds.</li><li>Look for <b>ULoC</b> on the display.</li><li>Check the relay clock and programmed ON/OFF events after unlocking.</li></ol></div></details>
-<details class="faq"><summary>How do I set a basic overnight schedule?</summary><div class="faq-content"><ol><li>Hold <b>Clock</b> and use <b>D+</b>, <b>H+</b> and <b>M+</b> to set current day, hour and minute.</li><li>Press <b>PR</b> to programme ON. Select survey days with D+, then set hour and minute.</li><li>Press PR again for OFF. If operation crosses midnight, the OFF day is the following day. For ON Monday/Wednesday/Friday, OFF is Tuesday/Thursday/Saturday.</li><li>Press Clock to return.</li><li>Leave the system in AUTO mode.</li></ol><p>A schedule used in some projects is 18:30 to 04:00 on alternate nights. It is not universal. Start after proper darkness and stop before sunrise to avoid exposing resting insects to birds. Adjust for local latitude, season and study design. <span class="review">Review</span></p></div></details>
-<details class="faq"><summary>What image interval should I use?</summary><div class="faq-content"><p>Fixed-interval capture is normal. One-minute intervals have been used for large AMIs. Ten-second capture can create excessive data, and motion capture can be substantially more intensive.</p><ul><li>Follow the protocol for your project and region.</li><li>Estimate storage and upload workload before shortening the interval.</li><li>After changing it, inspect timestamps across a short test sequence.</li></ul><p><span class="review">Review</span> Confirm the current approved project interval before deployment.</p></div></details>
-</section>
-<section class="group"><h2>Bluetooth app and field configuration</h2>
-<details class="faq"><summary>The AMI does not appear in the Bluetooth app</summary><div class="faq-content"><ol><li>Confirm this AMI has a Bluetooth-enabled software image and hardware configuration. Not every historical AMI does.</li><li>Confirm the Pi is powered and has completed booting.</li><li>Move within a few metres, enable Bluetooth, use a compatible browser/device and rescan.</li><li>If Ethernet works but Bluetooth does not, suspect an old or incorrect microSD image.</li><li>If neither works, troubleshoot power and boot before app connectivity.</li></ol><p>The Bluetooth app cannot connect to an unpowered Pi.</p></div></details>
-<details class="faq"><summary>How can I use the Bluetooth app to obtain the camera log?</summary><div class="faq-content"><ol><li>Power the AMI and connect to it in the approved AMI Bluetooth app.</li><li>Open the verbose or diagnostics section.</li><li>Scroll to the camera/Motion log control and download the log.</li><li>Save the file with the AMI ID, site and date.</li><li>If the control is absent, the software image may be older. Use SSH/SCP or fit an approved updated microSD card.</li></ol><p><span class="review">Review</span> App layout can vary by image version.</p></div></details>
-</section>
-<section class="group"><h2>Water, wildlife and environmental damage</h2>
-<details class="faq"><summary>There is water, condensation, rust or mould inside a box</summary><div class="faq-content"><div class="stop"><b>Do not power wet electronics.</b> Disconnect batteries, move the unit to a dry controlled workspace and document the condition.</div><ol><li>Photograph water tracks, corrosion and cable-gland condition.</li><li>Remove standing water and allow thorough drying.</li><li>Inspect Pi, microSD, watchdog, 18650 cell, RTC, timer, fuses and cable connections for corrosion.</li><li>Replace visibly damaged cells. Do not recharge swollen, rusty or leaking lithium-ion cells.</li><li>Test Pi and watchdog separately with a power bank only after fully dry.</li><li>Replace desiccant and correct the failed seal or gland before redeployment.</li></ol><p>Water damage can create multiple simultaneous faults. Replacing a complete electronics box may be more reliable than piecemeal field repair.</p></div></details>
-<details class="faq"><summary>Ants or other insects are nesting in the system</summary><div class="faq-content"><ol><li>Power down and disconnect batteries.</li><li>Move the unit away from sensitive habitat before cleaning, following local biosecurity rules.</li><li>Remove nesting material without spraying chemicals onto electronics.</li><li>Inspect glands, lid seals and cable entries for gaps.</li><li>Check wiring and battery terminals for damage or conductive debris.</li><li>Replace seals/desiccant and monitor after redeployment.</li></ol></div></details>
-<details class="faq"><summary>Cables show animal bite marks or physical damage</summary><div class="faq-content"><ol><li>Do not energise a cable with exposed conductors.</li><li>Photograph and label both ends.</li><li>Replace the complete cable where practical rather than taping a field splice.</li><li>For the camera cable, test camera and cable separately.</li><li>For light wiring, note that conductors may be soldered inside the housing and repair may require disassembly.</li><li>Add mechanical protection or reroute cables before redeployment.</li></ol></div></details>
-<details class="faq"><summary>The white landing board is mouldy, dirty or damaged</summary><div class="faq-content"><ol><li>Clean with water and a non-abrasive cloth.</li><li>Remove grass and other obstructions visible in photographs.</li><li>Replace a board that cannot be cleaned or held flat.</li><li>Use a consistent white, matte replacement of similar dimensions. Avoid glossy or strongly textured material.</li><li>Record the change because board material can affect image consistency and potentially insect response.</li></ol><p><span class="review">Review</span> The effect of alternative board materials or paint on attraction and image analysis was not established in the source discussions.</p></div></details>
-</section>
-<section class="group"><h2>Pre-deployment and escalation</h2>
-<details class="faq"><summary>What complete test should I run before returning an AMI to the field?</summary><div class="faq-content"><ol><li>Visual inspection: dry, sealed, no corrosion, cables secure.</li><li>Battery and solar: correct polarity, matched charge, green/expected controller status.</li><li>Timer: correct local time, schedule and AUTO state.</li><li>Pi: boots, stable LEDs, SSH or app access.</li><li>Watchdog: slow normal flash and safe shutdown when main power is removed.</li><li>RTC: correct time retained over a power-off test.</li><li>Camera: detected, test images clear and correctly coloured.</li><li>Lights: LepiLED and ring light stable.</li><li>SSD: detected, labelled PiImages, mounted at <code>/media/pi/PiImages</code>.</li><li>Capture: several correctly timed images stored on SSD.</li><li>Data: copy and open sample images on another computer.</li><li>Return relay to AUTO and close all glands and lids.</li></ol></div></details>
-<details class="faq"><summary>What information should I collect before asking for technical help?</summary><div class="faq-content"><ul><li>AMI serial number, manufacturing year and site</li><li>Clear overview photos of battery box and electronics box</li><li>Close-ups of all terminal wiring, fuses and cable glands</li><li>Battery voltages and SunSaver indicator states</li><li>Timer display and state</li><li>Pi and watchdog LED videos showing repeated patterns</li><li>Outputs from <code>timedatectl</code>, <code>lsblk</code>, <code>ls /dev/video0</code> and <code>ls -l /dev/v4l/by-id/</code></li><li>Motion log and exact timestamp of the last good image</li><li>What was changed immediately before failure</li><li>Whether known-good parts have been substituted, one at a time</li></ul></div></details>
-<details class="faq"><summary>When should I stop field troubleshooting and replace a component or electronics box?</summary><div class="faq-content"><ul><li>Visible water damage, corrosion, overheating or burnt wiring</li><li>Repeated fuse failure</li><li>Incorrect polarity or suspected direct 12 V exposure to 5 V electronics</li><li>Pi fails from a known-good supply and card</li><li>Watchdog fails its separate power test</li><li>Camera is not recognised with a known-good cable</li><li>Ring-light fault requires soldering inside the housing</li><li>Several faults coexist and repeated field visits cost more than a replacement box</li></ul><p>Keep failed assemblies as labelled spares only after the fault is understood. Combining working parts from two failed units can be reasonable in a controlled workshop.</p></div></details>
-</section>
+              <p>Press <b>MAN(-)</b> repeatedly to cycle states. Do not leave a deployed system in ON ON unless
+                continuous
+                operation is intentional.</p>
+            </div>
+          </details>
         </section>
-      </div>
-    </main>
-    <footer><div class="wrap">AMI-System Deployment Guide</div></footer>
-      <script>
-      (() => {
-        const input = document.querySelector("#faq-search");
-        const status = document.querySelector("#faq-status");
-        const topics = [...document.querySelectorAll("#troubleshooting .faq")];
-        const groups = [...document.querySelectorAll("#troubleshooting .group")];
-        const filter = () => {
-          const query = input.value.trim().toLowerCase();
-          let matches = 0;
-          topics.forEach((topic) => {
-            const visible = !query || topic.textContent.toLowerCase().includes(query);
-            topic.classList.toggle("faq-hidden", !visible);
-            if (visible) matches += 1;
-          });
-          groups.forEach((group) => {
-            group.classList.toggle("faq-hidden", !group.querySelector(".faq:not(.faq-hidden)"));
-          });
-          status.textContent = query
-            ? `${matches} matching topic${matches === 1 ? "" : "s"} for "${input.value}".`
-            : "Showing all troubleshooting topics.";
-        };
-        input.addEventListener("input", filter);
-        document.querySelector("#faq-expand").addEventListener("click", () => {
-          topics.filter((topic) => !topic.classList.contains("faq-hidden")).forEach((topic) => {
-            topic.open = true;
-          });
+        <section class="group">
+          <h2>Power, batteries, solar and fuses</h2>
+          <details class="faq">
+            <summary>Nothing turns on: no timer light, no LepiLED and no Raspberry Pi lights</summary>
+            <div class="faq-content">
+              <h3>Likely causes</h3>
+              <ul>
+                <li>Disconnected or exhausted main batteries</li>
+                <li>Open, missing or blown output fuse</li>
+                <li>Loose battery, solar-controller or load wiring</li>
+                <li>Timer relay not supplying the electronics box</li>
+              </ul>
+              <h3>Steps</h3>
+              <ol>
+                <li>Set the relay to OFF OFF.</li>
+                <li>Check red battery leads are on positive terminals and black leads on negative terminals. Tighten
+                  with the
+                  appropriate socket.</li>
+                <li>Check the beige/brown Output 1+ fuse “door” is fully closed and contains an intact fuse. Check the
+                  inline
+                  fuse in the red battery cable.</li>
+                <li>Read the SunSaver indicators. No battery light can mean the battery is not connected; red indicates
+                  low or
+                  empty battery. A red solar indicator indicates a solar-side error.</li>
+                <li>With a two-lead multimeter in DC voltage mode, measure progressively from battery terminals,
+                  controller
+                  battery input, controller load output, timer output and electronics-box input. The first point where
+                  voltage
+                  disappears isolates the faulty section.</li>
+                <li>Do not use a non-contact AC detector pen. The AMI uses low-voltage direct current and such a pen may
+                  not
+                  detect it.</li>
+              </ol>
+              <div class="stop"><b>Stop:</b> if polarity is unclear, wires are burnt, or a fuse blows again after
+                replacement.
+                Repeated fuse failure indicates an unresolved fault.</div>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>The solar charger says “charging”, but the batteries stay empty</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Clean leaves, dirt and grime from both solar panels.</li>
+                <li>Check for dense shade and seasonal changes in the sun path. A location that is bright enough to see
+                  may
+                  still be far too shaded for useful charging.</li>
+                <li>Confirm both panels and their parallel connectors are intact and the positive and negative leads
+                  reach the
+                  correct solar terminals.</li>
+                <li>Check battery voltage. Around 12 V can indicate a deeply depleted nominal 12 V lead-acid battery;
+                  while
+                  charging, a full battery may show around 14 V.</li>
+                <li>If batteries have remained fully discharged for a long period, their capacity may have deteriorated.
+                  Charge
+                  and capacity-test them off-site, or substitute known-good matched batteries.</li>
+                <li>For reliable operation, relocate panels to a sunnier position if cleaning and wiring checks do not
+                  restore
+                  charging.</li>
+              </ol>
+              <p><span class="review">Review</span> Exact voltage interpretation depends on battery chemistry, load and
+                charging
+                state.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>Can I deploy with one car battery? What battery type should I use?</summary>
+            <div class="faq-content">
+              <ul>
+                <li>One nominal 12 V battery can be adequate for a short bench test, but is not the preferred field
+                  arrangement
+                  for repeated overnight operation.</li>
+                <li>Marine, leisure, camping or deep-cycle AGM lead-acid batteries tolerate repeated charge and
+                  discharge better
+                  than ordinary starter batteries.</li>
+                <li>The manual recommends two fully charged 12 V batteries, typically around 120 Ah each.</li>
+                <li>If charging one battery off-site, charge the paired battery to a similar state before reconnecting.
+                  A large
+                  state-of-charge difference can cause a high equalisation current and may blow a fuse.</li>
+                <li>Use a charger suitable for the actual battery chemistry and rating.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>The timer relay flickers or the whole system starts and immediately dies</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Suspect very low main-battery voltage first. Check both batteries and the SunSaver battery
+                  indicator.</li>
+                <li>Check that the load fuse holder is closed and cables cannot move in their terminals.</li>
+                <li>Check the black and red input wires between the lower terminal area and the watchdog/UPS.</li>
+                <li>Power the Raspberry Pi and watchdog separately from a suitable USB power bank only as a brief
+                  isolation
+                  test. If each works alone, suspect the 12 V to 5 V power path or its cable.</li>
+                <li>If a watchdog has a temperature probe, overheating is possible but was considered an unusual cause.
+                  Allow
+                  the enclosure and probe to cool before retesting.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>A fuse is blown, missing, or its brown/beige holder is broken</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Turn the relay OFF OFF and disconnect battery power.</li>
+                <li>Open the fuse holder and inspect the fuse. An inline fuse has failed if its internal U-shaped
+                  conductor is
+                  broken.</li>
+                <li>Replace only with the same known type and rating.</li>
+                <li>If the DIN-rail holder itself is broken, some boxes contain an unused spare holder labelled for
+                  another
+                  output. Swap only if you are competent and preserve polarity and terminal positions.</li>
+                <li>After reconnection, power up briefly and watch for heating or immediate fuse failure.</li>
+              </ol>
+            </div>
+          </details>
+        </section>
+        <section class="group">
+          <h2>Raspberry Pi, watchdog and connections</h2>
+          <details class="faq">
+            <summary>The Raspberry Pi has no lights, but the LepiLED or ring light works</summary>
+            <div class="faq-content">
+              <h3>Isolation test</h3>
+              <ol>
+                <li>Confirm the timer relay red output light is on. If it is off, troubleshoot the battery box and relay
+                  first.
+                </li>
+                <li>Inspect the 12 V to 5 V step-down cable and connections to the watchdog/UPS.</li>
+                <li>With all main power isolated, briefly power the Pi by its normal USB power input from a suitable
+                  power bank.
+                  If its LEDs remain off, suspect the Pi.</li>
+                <li>Briefly power the watchdog/UPS by its supported USB input. If its LED remains off, suspect the
+                  watchdog.
+                </li>
+                <li>If Pi and watchdog each work separately, suspect the step-down cable or power-path wiring.</li>
+                <li>If a second AMI is available, swapping one known-good component at a time can isolate the fault.
+                  Label
+                  everything and never swap multiple parts simultaneously.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>How do I interpret the watchdog/UPS green LED?</summary>
+            <div class="faq-content">
+              <ul>
+                <li><b>About once per second:</b> normal self-test indication.</li>
+                <li><b>Rapidly, about five times per second:</b> hardware error.</li>
+                <li><b>No flashing:</b> no power, powered down state, or fundamental fault.</li>
+                <li><b>Solid:</b> can indicate the watchdog has reset the Pi.</li>
+              </ul>
+              <p>The LED pattern is diagnostic evidence, not absolute proof. A cable that appears intact can still have
+                no
+                electrical continuity.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>The watchdog turns the Raspberry Pi off shortly after startup</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Check the main battery supply reaches the watchdog continuously.</li>
+                <li>Check and, if necessary, charge or substitute the 18650 backup cell.</li>
+                <li>Inspect the step-down cable for broken continuity, even if it looks undamaged.</li>
+                <li>Check the watchdog LED pattern.</li>
+                <li>If the unit has a temperature sensor and has been heated by direct sun, cool it and retest.</li>
+              </ol>
+              <p>The watchdog is intended to shut down the Pi safely when main power disappears or its backup battery
+                becomes
+                too low.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>The Raspberry Pi red LED flashes or shows an unusual blink pattern</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Record a clear video long enough to identify the repeated pattern.</li>
+                <li>Check whether the microSD card is fully inserted.</li>
+                <li>Try a known-good AMI microSD card or re-image a spare card with the approved AMI operating-system
+                  image.
+                </li>
+                <li>If the behaviour changes when the RTC is attached, stop and check whether “RTC” truly means the
+                  small blue
+                  clock board. A shorted accessory can suppress power.</li>
+                <li>If the Pi still shows a fault using a known-good power supply and microSD card, the Pi itself may
+                  require
+                  replacement.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>No HDMI picture appears on the monitor</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Do not assume the Pi has failed. Some AMIs repeatedly failed to display over HDMI while otherwise
+                  working.
+                </li>
+                <li>Connect the HDMI lead before powering the Pi.</li>
+                <li>Check the Pi power LED and microSD card.</li>
+                <li>Prefer Ethernet and SSH for configuration.</li>
+                <li>Low supply voltage can affect peripherals such as HDMI before the rest of the system stops.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>How do I connect by Ethernet and SSH?</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Connect an Ethernet cable between the AMI Pi and laptop.</li>
+                <li>Turn the AMI to ON ON and wait for the Pi to boot.</li>
+                <li>Open Command Prompt, PowerShell or Terminal.</li>
+              </ol>
+              <div class="cmd"><code>ssh pi@raspberrypi.local</code><button class="copy">Copy</button></div>
+              <ol start="4">
+                <li>Accept the host prompt if shown.</li>
+                <li>Enter the AMI password supplied with the unit. No characters will appear while typing.</li>
+              </ol>
+              <p>If you typed <code>raspberry.local</code>, correct it to <code>raspberrypi.local</code>. If the host
+                still
+                cannot be resolved, check Pi power and the Ethernet connection. Organisational network restrictions may
+                also
+                interfere.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>How do I replace or upgrade the Raspberry Pi OS microSD card?</summary>
+            <div class="faq-content">
+              <div class="stop"><b>Important:</b> use only an approved AMI image intended for this hardware version.
+                Keep the
+                original card labelled and untouched as a rollback.</div>
+              <ol>
+                <li>Set the timer relay to OFF OFF and wait until all Pi activity has stopped.</li>
+                <li>Remove the microSD card from the Pi.</li>
+                <li>Insert the prepared replacement card.</li>
+                <li>Turn the system on and allow extra time for the first boot.</li>
+                <li>Check SSH or the Bluetooth app, then verify camera, SSD, time zone, RTC and capture interval.</li>
+                <li>Take and inspect test images before deployment.</li>
+              </ol>
+              <p>A replacement software image resolved at least one case where an AMI would not take scheduled
+                photographs.
+                <span class="review">Review</span> Image provenance and version should be confirmed internally.
+              </p>
+            </div>
+          </details>
+        </section>
+        <section class="group">
+          <h2>Camera, ring light and LepiLED</h2>
+          <details class="faq">
+            <summary>Images are grey or the camera says it cannot connect</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Check the camera USB cable at the Pi.</li>
+                <li>Unscrew the black rear cap of the camera housing carefully and check the USB-C end is fully
+                  inserted.</li>
+                <li>Test camera detection:</li>
+              </ol>
+              <div class="cmd"><code>ls /dev/video0</code><button class="copy">Copy</button></div>
+              <div class="cmd"><code>ls -l /dev/v4l/by-id/</code><button class="copy">Copy</button></div>
+              <ul>
+                <li>If the device exists, the Pi detects a camera.</li>
+                <li>If “No such file or directory” appears, suspect the cable, connector or camera.</li>
+              </ul>
+              <ol start="4">
+                <li>Plug the camera USB lead into a laptop. If the laptop recognises a Logitech camera, the camera and
+                  cable
+                  path are at least partly functional.</li>
+                <li>If necessary, test the long USB cable with another known-good USB device, then test the camera using
+                  another
+                  known-good USB-A to USB-C lead.</li>
+                <li>If the camera is detected but images remain grey, inspect the Motion log and camera-device path.
+                </li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>The camera ring light does not turn on or flickers briefly</summary>
+            <div class="faq-content">
+              <p>The ring light is powered by separate wires, not by the camera USB cable.</p>
+              <ol>
+                <li>Set OFF OFF and inspect the red/black or brown/blue light wires in the electronics-box screw
+                  terminals.</li>
+                <li>Gently tug each wire to confirm it is clamped.</li>
+                <li>Inspect the cable along its whole route for animal bites, crushing or water damage.</li>
+                <li>If the conductors are secure at the box but the light still fails, a break or solder fault inside
+                  the camera
+                  housing may require substantial disassembly and soldering.</li>
+                <li>Do not continue a survey with failed illumination unless the study protocol explicitly allows it.
+                </li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>The LepiLED attractive UV light does not turn on</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Set the relay briefly to ON ON and check whether the timer output light is on.</li>
+                <li>Check the LepiLED cable gland is tight and dry.</li>
+                <li>With power isolated, verify the blue/black neutral wire and brown/red positive wire are firmly
+                  clamped to
+                  their intended terminals.</li>
+                <li>Inspect the external light and cable for bites, impact or water ingress.</li>
+                <li>If other loads work and the LepiLED does not, record voltage at the light output only if trained to
+                  do so.
+                </li>
+                <li>Return to AUTO mode after testing.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>No images are taken, even though the Pi, lights and SSD appear on</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Confirm the camera is detected with <code>ls /dev/video0</code>.</li>
+                <li>Confirm the SSD and mount point with <code>lsblk</code>.</li>
+                <li>Start image capture with <code>sudo motion</code>.</li>
+                <li>Inspect the image folder and the Motion log.</li>
+              </ol>
+              <div class="cmd"><code>ls /media/pi/PiImages</code><button class="copy">Copy</button></div>
+              <div class="cmd"><code>tail -n 100 /var/log/motion/motion.log</code><button class="copy">Copy</button>
+              </div>
+              <ol start="5">
+                <li>If hardware checks pass but capture never starts, replace the AMI software microSD card with a
+                  known-good
+                  approved image.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>Motion detection does not trigger when I wave in front of the board</summary>
+            <div class="faq-content">
+              <p>Most AMIs are intended to take pictures at fixed intervals. Many do not use motion-triggered capture
+                because
+                pixel-change detection can generate an unmanageably large number of images, especially in the tropics.
+              </p>
+              <ol>
+                <li>Confirm the study protocol. Do not enable motion detection unless it is required.</li>
+                <li>For normal fixed-interval operation, verify the configured snapshot interval instead.</li>
+                <li>If motion capture is explicitly required, check Motion configuration and logs with technical
+                  support.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>Images are blurry, poorly coloured or inconsistently focussed</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Place text and several colours on the landing board at the normal focal distance.</li>
+                <li>Allow several images after startup. The first few can be blurry while settings take effect.</li>
+                <li>Inspect focus, colour, exposure, evenness of illumination and timestamp.</li>
+                <li>Only change camera settings if test images are inadequate; AMIs with different camera/light
+                  combinations may
+                  legitimately have different settings.</li>
+                <li>Open the settings script:</li>
+              </ol>
+              <div class="cmd"><code>sudo nano /home/pi/scripts/setCamera.sh</code><button class="copy">Copy</button>
+              </div>
+              <ol start="6">
+                <li>Record original values before changing anything, adjust one parameter at a time, restart capture and
+                  compare
+                  images.</li>
+              </ol>
+            </div>
+          </details>
+        </section>
+        <section class="group">
+          <h2>SSD, image storage and missing data</h2>
+          <details class="faq">
+            <summary>The SSD is empty or no new photographs appear</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Turn OFF OFF before reseating the SSD.</li>
+                <li>Try a blue USB port and another known-good USB cable/port.</li>
+                <li>Connect by SSH and run:</li>
+              </ol>
+              <div class="cmd"><code>lsblk</code><button class="copy">Copy</button></div>
+              <p>Look for a drive such as <code>sda</code>, commonly around 500 GB, mounted at
+                <code>/media/pi/PiImages</code>.
+              </p>
+              <ol start="4">
+                <li>Check the directory with <code>ls /media/pi/PiImages</code>.</li>
+                <li>Connect the SSD to a laptop and verify it can be read and its volume label is <b>PiImages</b>.</li>
+                <li>If it is not detected, substitute a known-good SSD or cable.</li>
+                <li>Never remove or insert an SSD while the Pi is running.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>Images were saved to the microSD card instead of the SSD</summary>
+            <div class="faq-content">
+              <div class="stop"><b>Protect data first:</b> do not delete anything until image files have been copied and
+                opened
+                successfully on another computer.</div>
+              <ol>
+                <li>Stop capture: <code>sudo pkill motion</code>.</li>
+                <li>Inspect <code>/media/pi/PiImages</code> and determine whether the SSD is actually mounted there. A
+                  directory
+                  existing by itself does not prove which device supplies it.</li>
+                <li>Use <code>lsblk</code> to verify the mount point.</li>
+                <li>If files are on the Pi's card, copy them to the laptop:</li>
+              </ol>
+              <div class="cmd">
+                <code>scp -r pi@raspberrypi.local:/media/pi/PiImages C:/Users/YourUsername/Documents/</code><button
+                  class="copy">Copy</button>
+              </div>
+              <ol start="5">
+                <li>Open several copied files and confirm the backup.</li>
+                <li>Only then remove an incorrect local directory if a technician has confirmed the diagnosis.</li>
+                <li>Power down, connect the correctly labelled SSD, power up and verify the mount with
+                  <code>lsblk</code>.</li>
+              </ol>
+              <p><span class="review">Review</span> Earlier manual wording about the existence of this path was
+                disputed. The
+                mount output, not path existence alone, must be used.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>How do I copy the Motion log to a Windows laptop?</summary>
+            <div class="faq-content">
+              <p>Use the command matching your terminal.</p>
+              <h3>Command Prompt</h3>
+              <div class="cmd">
+                <code>scp pi@raspberrypi.local:/var/log/motion/motion.log C:/Users/YourUsername/Downloads/</code><button
+                  class="copy">Copy</button>
+              </div>
+              <h3>PowerShell</h3>
+              <div class="cmd">
+                <code>scp pi@raspberrypi.local:/var/log/motion/motion.log "C:\Users\YourUsername\Downloads\"</code><button
+                  class="copy">Copy</button>
+              </div>
+              <p>Replace <code>YourUsername</code>. If the file does not exist, first verify the software image and log
+                location.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>The AMI stops taking images part-way through the night</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Check whether the whole system lost power: compare the final image time with timer schedule and
+                  battery
+                  state.</li>
+                <li>Check free SSD space and whether the SSD remained mounted.</li>
+                <li>Inspect <code>/var/log/motion/motion.log</code> around the final image time.</li>
+                <li>Check for intermittent camera disconnects and loose USB cables.</li>
+                <li>Check UPS/watchdog shutdowns, low main-battery voltage and solar charging.</li>
+                <li>Substitute known-good SSD, camera cable or software microSD one at a time.</li>
+                <li>Do not assume the cause from the symptom alone. Similar cases were associated with power, storage
+                  and
+                  software issues.</li>
+              </ol>
+            </div>
+          </details>
+        </section>
+        <section class="group">
+          <h2>Time, RTC and timer schedule</h2>
+          <details class="faq">
+            <summary>Image timestamps are wrong</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Connect over SSH and check:</li>
+              </ol>
+              <div class="cmd"><code>timedatectl</code><button class="copy">Copy</button></div>
+              <ol start="2">
+                <li>Set the correct region-based time zone if required, then set the system date and time using the
+                  approved
+                  Linux method.</li>
+                <li>Once system time is correct, write it to the hardware clock:</li>
+              </ol>
+              <div class="cmd"><code>sudo hwclock -w</code><button class="copy">Copy</button></div>
+              <ol start="4">
+                <li>Read it back:</li>
+              </ol>
+              <div class="cmd"><code>sudo hwclock -r</code><button class="copy">Copy</button></div>
+              <ol start="5">
+                <li>Power down for several minutes, restart and check whether time was retained. If not, reseat the RTC
+                  and
+                  replace its CR1220 coin cell.</li>
+                <li>Also set the separate timer relay clock. The Pi RTC and timer relay are independent.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>The RTC board has come loose</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Turn OFF OFF and disconnect main power.</li>
+                <li>Remove the watchdog's cylindrical battery only if necessary for access, noting polarity.</li>
+                <li>Fit the small blue RTC board onto the six raised pins at the far left of the header, matching the
+                  known-good
+                  orientation.</li>
+                <li>Do not offset the six-pin connector.</li>
+                <li>Reinstall the coin cell and any removed battery with correct polarity.</li>
+                <li>Boot, set time, run <code>sudo hwclock -w</code>, then test time retention.</li>
+              </ol>
+              <div class="stop"><b>Stop:</b> if pins are bent, the RTC becomes hot, or attaching it prevents the Pi
+                powering up.
+              </div>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>The timer relay displays bL0C and buttons do not work</summary>
+            <div class="faq-content">
+              <p>The keypad lock is active.</p>
+              <ol>
+                <li>Press the <b>clock</b> and <b>PR</b> keys simultaneously for at least three seconds.</li>
+                <li>Look for <b>ULoC</b> on the display.</li>
+                <li>Check the relay clock and programmed ON/OFF events after unlocking.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>How do I set a basic overnight schedule?</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Hold <b>Clock</b> and use <b>D+</b>, <b>H+</b> and <b>M+</b> to set current day, hour and minute.
+                </li>
+                <li>Press <b>PR</b> to programme ON. Select survey days with D+, then set hour and minute.</li>
+                <li>Press PR again for OFF. If operation crosses midnight, the OFF day is the following day. For ON
+                  Monday/Wednesday/Friday, OFF is Tuesday/Thursday/Saturday.</li>
+                <li>Press Clock to return.</li>
+                <li>Leave the system in AUTO mode.</li>
+              </ol>
+              <p>A schedule used in some projects is 18:30 to 04:00 on alternate nights. It is not universal. Start
+                after proper
+                darkness and stop before sunrise to avoid exposing resting insects to birds. Adjust for local latitude,
+                season
+                and study design. <span class="review">Review</span></p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>What image interval should I use?</summary>
+            <div class="faq-content">
+              <p>Fixed-interval capture is normal. One-minute intervals have been used for large AMIs. Ten-second
+                capture can
+                create excessive data, and motion capture can be substantially more intensive.</p>
+              <ul>
+                <li>Follow the protocol for your project and region.</li>
+                <li>Estimate storage and upload workload before shortening the interval.</li>
+                <li>After changing it, inspect timestamps across a short test sequence.</li>
+              </ul>
+              <p><span class="review">Review</span> Confirm the current approved project interval before deployment.</p>
+            </div>
+          </details>
+        </section>
+        <section class="group">
+          <h2>Bluetooth app and field configuration</h2>
+          <details class="faq">
+            <summary>The AMI does not appear in the Bluetooth app</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Confirm this AMI has a Bluetooth-enabled software image and hardware configuration. Not every
+                  historical AMI
+                  does.</li>
+                <li>Confirm the Pi is powered and has completed booting.</li>
+                <li>Move within a few metres, enable Bluetooth, use a compatible browser/device and rescan.</li>
+                <li>If Ethernet works but Bluetooth does not, suspect an old or incorrect microSD image.</li>
+                <li>If neither works, troubleshoot power and boot before app connectivity.</li>
+              </ol>
+              <p>The Bluetooth app cannot connect to an unpowered Pi.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>How can I use the Bluetooth app to obtain the camera log?</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Power the AMI and connect to it in the approved AMI Bluetooth app.</li>
+                <li>Open the verbose or diagnostics section.</li>
+                <li>Scroll to the camera/Motion log control and download the log.</li>
+                <li>Save the file with the AMI ID, site and date.</li>
+                <li>If the control is absent, the software image may be older. Use SSH/SCP or fit an approved updated
+                  microSD
+                  card.</li>
+              </ol>
+              <p><span class="review">Review</span> App layout can vary by image version.</p>
+            </div>
+          </details>
+        </section>
+        <section class="group">
+          <h2>Water, wildlife and environmental damage</h2>
+          <details class="faq">
+            <summary>There is water, condensation, rust or mould inside a box</summary>
+            <div class="faq-content">
+              <div class="stop"><b>Do not power wet electronics.</b> Disconnect batteries, move the unit to a dry
+                controlled
+                workspace and document the condition.</div>
+              <ol>
+                <li>Photograph water tracks, corrosion and cable-gland condition.</li>
+                <li>Remove standing water and allow thorough drying.</li>
+                <li>Inspect Pi, microSD, watchdog, 18650 cell, RTC, timer, fuses and cable connections for corrosion.
+                </li>
+                <li>Replace visibly damaged cells. Do not recharge swollen, rusty or leaking lithium-ion cells.</li>
+                <li>Test Pi and watchdog separately with a power bank only after fully dry.</li>
+                <li>Replace desiccant and correct the failed seal or gland before redeployment.</li>
+              </ol>
+              <p>Water damage can create multiple simultaneous faults. Replacing a complete electronics box may be more
+                reliable
+                than piecemeal field repair.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>Ants or other insects are nesting in the system</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Power down and disconnect batteries.</li>
+                <li>Move the unit away from sensitive habitat before cleaning, following local biosecurity rules.</li>
+                <li>Remove nesting material without spraying chemicals onto electronics.</li>
+                <li>Inspect glands, lid seals and cable entries for gaps.</li>
+                <li>Check wiring and battery terminals for damage or conductive debris.</li>
+                <li>Replace seals/desiccant and monitor after redeployment.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>Cables show animal bite marks or physical damage</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Do not energise a cable with exposed conductors.</li>
+                <li>Photograph and label both ends.</li>
+                <li>Replace the complete cable where practical rather than taping a field splice.</li>
+                <li>For the camera cable, test camera and cable separately.</li>
+                <li>For light wiring, note that conductors may be soldered inside the housing and repair may require
+                  disassembly.</li>
+                <li>Add mechanical protection or reroute cables before redeployment.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>The white landing board is mouldy, dirty or damaged</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Clean with water and a non-abrasive cloth.</li>
+                <li>Remove grass and other obstructions visible in photographs.</li>
+                <li>Replace a board that cannot be cleaned or held flat.</li>
+                <li>Use a consistent white, matte replacement of similar dimensions. Avoid glossy or strongly textured
+                  material.
+                </li>
+                <li>Record the change because board material can affect image consistency and potentially insect
+                  response.</li>
+              </ol>
+              <p><span class="review">Review</span> The effect of alternative board materials or paint on attraction and
+                image
+                analysis was not established in the source discussions.</p>
+            </div>
+          </details>
+        </section>
+        <section class="group">
+          <h2>Pre-deployment and escalation</h2>
+          <details class="faq">
+            <summary>What complete test should I run before returning an AMI to the field?</summary>
+            <div class="faq-content">
+              <ol>
+                <li>Visual inspection: dry, sealed, no corrosion, cables secure.</li>
+                <li>Battery and solar: correct polarity, matched charge, green/expected controller status.</li>
+                <li>Timer: correct local time, schedule and AUTO state.</li>
+                <li>Pi: boots, stable LEDs, SSH or app access.</li>
+                <li>Watchdog: slow normal flash and safe shutdown when main power is removed.</li>
+                <li>RTC: correct time retained over a power-off test.</li>
+                <li>Camera: detected, test images clear and correctly coloured.</li>
+                <li>Lights: LepiLED and ring light stable.</li>
+                <li>SSD: detected, labelled PiImages, mounted at <code>/media/pi/PiImages</code>.</li>
+                <li>Capture: several correctly timed images stored on SSD.</li>
+                <li>Data: copy and open sample images on another computer.</li>
+                <li>Return relay to AUTO and close all glands and lids.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>What information should I collect before asking for technical help?</summary>
+            <div class="faq-content">
+              <ul>
+                <li>AMI serial number, manufacturing year and site</li>
+                <li>Clear overview photos of battery box and electronics box</li>
+                <li>Close-ups of all terminal wiring, fuses and cable glands</li>
+                <li>Battery voltages and SunSaver indicator states</li>
+                <li>Timer display and state</li>
+                <li>Pi and watchdog LED videos showing repeated patterns</li>
+                <li>Outputs from <code>timedatectl</code>, <code>lsblk</code>, <code>ls /dev/video0</code> and
+                  <code>ls -l /dev/v4l/by-id/</code>
+                </li>
+                <li>Motion log and exact timestamp of the last good image</li>
+                <li>What was changed immediately before failure</li>
+                <li>Whether known-good parts have been substituted, one at a time</li>
+              </ul>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>When should I stop field troubleshooting and replace a component or electronics box?</summary>
+            <div class="faq-content">
+              <ul>
+                <li>Visible water damage, corrosion, overheating or burnt wiring</li>
+                <li>Repeated fuse failure</li>
+                <li>Incorrect polarity or suspected direct 12 V exposure to 5 V electronics</li>
+                <li>Pi fails from a known-good supply and card</li>
+                <li>Watchdog fails its separate power test</li>
+                <li>Camera is not recognised with a known-good cable</li>
+                <li>Ring-light fault requires soldering inside the housing</li>
+                <li>Several faults coexist and repeated field visits cost more than a replacement box</li>
+              </ul>
+              <p>Keep failed assemblies as labelled spares only after the fault is understood. Combining working parts
+                from two
+                failed units can be reasonable in a controlled workshop.</p>
+            </div>
+          </details>
+        </section>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap">AMI-System Deployment Guide</div>
+  </footer>
+  <script>
+    (() => {
+      const input = document.querySelector("#faq-search");
+      const status = document.querySelector("#faq-status");
+      const topics = [...document.querySelectorAll("#troubleshooting .faq")];
+      const groups = [...document.querySelectorAll("#troubleshooting .group")];
+      const filter = () => {
+        const query = input.value.trim().toLowerCase();
+        let matches = 0;
+        topics.forEach((topic) => {
+          const visible = !query || topic.textContent.toLowerCase().includes(query);
+          topic.classList.toggle("faq-hidden", !visible);
+          if (visible) matches += 1;
         });
-        document.querySelector("#faq-collapse").addEventListener("click", () => {
-          topics.forEach((topic) => {
-            topic.open = false;
-          });
+        groups.forEach((group) => {
+          group.classList.toggle("faq-hidden", !group.querySelector(".faq:not(.faq-hidden)"));
         });
-        document.querySelectorAll("#troubleshooting .copy").forEach((button) => {
-          button.addEventListener("click", async () => {
-            const original = button.textContent;
-            await navigator.clipboard.writeText(button.previousElementSibling.textContent);
-            button.textContent = "Copied";
-            setTimeout(() => { button.textContent = original; }, 1200);
-          });
+        status.textContent = query
+          ? `${matches} matching topic${matches === 1 ? "" : "s"} for "${input.value}".`
+          : "Showing all troubleshooting topics.";
+      };
+      input.addEventListener("input", filter);
+      document.querySelector("#faq-expand").addEventListener("click", () => {
+        topics.filter((topic) => !topic.classList.contains("faq-hidden")).forEach((topic) => {
+          topic.open = true;
         });
-      })();
-    </script>  </body>
+      });
+      document.querySelector("#faq-collapse").addEventListener("click", () => {
+        topics.forEach((topic) => {
+          topic.open = false;
+        });
+      });
+      document.querySelectorAll("#troubleshooting .copy").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const original = button.textContent;
+          await navigator.clipboard.writeText(button.previousElementSibling.textContent);
+          button.textContent = "Copied";
+          setTimeout(() => { button.textContent = original; }, 1200);
+        });
+      });
+    })();
+  </script>
+</body>
+
 </html>

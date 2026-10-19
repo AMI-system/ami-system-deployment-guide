@@ -507,7 +507,7 @@ footer {
 }
 .faq-controls {
   display: grid;
-  grid-template-columns: auto auto minmax(220px, 1fr);
+  grid-template-columns: minmax(220px, 1fr) auto auto;
   gap: 9px;
   margin: 1rem 0 0.5rem;
 }
