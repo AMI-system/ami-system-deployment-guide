@@ -345,7 +345,7 @@
         </ol>
         <p><b>Note:</b> When the AMI-System
           is in the field, set it to <code>AUTO OFF</code>, so that it
-          follows the program. When it turns on at the set times, it will
+          follows the programme. When it turns on at the set times, it will
           read <code>AUTO ON</code>. Therefore, if you are deploying the
           AMI-System when it is scheduled to be on, you will be setting it
           to <code>AUTO ON</code> (there will be no option for
@@ -466,7 +466,7 @@
             should include:
             <ol type="i">
               <li>SSD,</li>
-              <li>MicroSD card inserted into the left of theRaspberry Pi,</li>
+              <li>MicroSD card inserted into the left of the Raspberry Pi,</li>
               <li>Watchdog/UPS battery (18650 lithium-ion battery), and</li>
               <li>RTC battery (CR1220 button battery)</li>
             </ol>
@@ -558,7 +558,7 @@
             Clear an area large enough to contain the solar panels and AMI-System.
           </li>
           <li>
-            Lay down the matting and pin it down, use a hammer if needed.
+            Lay down the matting and pin it down; use a hammer if needed.
           </li>
           <li>[Add own instructions for solar rigging set up]</li>
         </ul>
@@ -704,7 +704,7 @@
               <li>Check that the LepiLED/UV-light comes on.</li>
               <li>Use the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank"
                   rel="noopener noreferrer">AMI Bluetooth App</a>
-                on an Android phone to check if camera and SSD are functioning correctly, time and timezone of the
+                on an Android phone to check if the camera and SSD are functioning correctly, and the time and timezone of the
                 AMI-System are correct, and the AMI-System is taking pictures.</li>
               <li>Turn the timer relay back to <code>AUTO OFF</code>.</li>
             </ol>
@@ -862,7 +862,7 @@
         <h3 class="subsubsection" id="7-1-1-power">Power</h3>
         <p>
           If the Raspberry Pi is not turning on and the timer relay light is
-          not on, there might be a problem with the power source, connection
+          not on, there might be a problem with the power source, connection,
           or fuse.
         </p>
         <ul class="manual-list">
@@ -960,12 +960,12 @@
               </div>
               <h3>Steps</h3>
               <ol>
-                <li>Look for water, corrosion, loose plugs, chewed cables, insects, mould or burnt components. Do not
+                <li>Look for water, corrosion, loose plugs, chewed cables, insects, mould, or burnt components. Do not
                   power
                   visibly wet or damaged electronics.</li>
                 <li>Set the timer relay temporarily to <b>ON ON</b>. Note whether its red output light, the LepiLED/UV-light,
                   camera
-                  ring, watchdog/UPS LED and Raspberry Pi LEDs operate.</li>
+                  ring, watchdog/UPS LED, and Raspberry Pi LEDs operate.</li>
                 <li>Record exactly what works. A component-by-component record is more useful than “the AMI is broken”.
                 </li>
                 <li>After testing, return the timer to <b>AUTO OFF</b>, or <b>AUTO ON</b> if currently inside the
@@ -978,7 +978,7 @@
             </div>
           </details>
           <details class="faq">
-            <summary>What do OFF OFF, ON ON, AUTO OFF and AUTO ON mean?</summary>
+            <summary>What do OFF OFF, ON ON, AUTO OFF, and AUTO ON mean?</summary>
             <div class="faq-content">
               <ul>
                 <li><b>OFF OFF:</b> manually forced off. Use before handling SSDs or wiring.</li>
@@ -993,7 +993,7 @@
           </details>
         </section>
         <section class="group">
-          <h2>Power, batteries, solar and fuses</h2>
+          <h2>Power, batteries, solar, and fuses</h2>
           <details class="faq">
             <summary>Nothing turns on: no timer light, no LepiLED/UV-light, and no Raspberry Pi lights</summary>
             <div class="faq-content">
@@ -1018,7 +1018,7 @@
                   empty battery. A red solar indicator indicates a solar-side error.</li>
                 <li>With a two-lead multimeter in DC voltage mode, measure progressively from battery terminals,
                   controller
-                  battery input, controller load output, timer output and electronics-box input. The first point where
+                  battery input, controller load output, timer output, and electronics-box input. The first point where
                   voltage
                   disappears isolates the faulty section.</li>
                 <li>Do not use a non-contact AC detector pen. The AMI-System uses low-voltage direct current and such a pen may
@@ -1034,7 +1034,7 @@
             <summary>The solar charger says “charging”, but the batteries stay empty</summary>
             <div class="faq-content">
               <ol>
-                <li>Clean leaves, dirt and grime from both solar panels.</li>
+                <li>Clean leaves, dirt, and grime from both solar panels.</li>
                 <li>Check for dense shade and seasonal changes in the sun path. A location that is bright enough to see
                   may
                   still be far too shaded for useful charging.</li>
@@ -1096,7 +1096,7 @@
             <div class="faq-content">
               <ol>
                 <li>Turn the relay OFF OFF and disconnect battery power.</li>
-                <li>Open the fuse holders and inspect the fuse. You can test a cylindircal fuse from the brown/beige holder with a multimeter in resistance/continuity mode.
+                <li>Open the fuse holders and inspect the fuse. You can test a cylindrical fuse from the brown/beige holder with a multimeter in resistance/continuity mode.
                   A battery inline fuse has failed if its internal U-shaped
                   conductor is
                   broken.</li>
@@ -1200,7 +1200,7 @@
               <ol>
                 <li>Connect an Ethernet cable between the AMI-System Pi and laptop.</li>
                 <li>Turn the AMI-System to ON ON and wait for the Pi to boot.</li>
-                <li>Open Command Prompt, PowerShell or Terminal.</li>
+                <li>Open Command Prompt, PowerShell, or Terminal.</li>
               </ol>
               <div class="cmd"><code>ssh pi@raspberrypi.local</code><button class="copy">Copy</button></div>
               <ol start="4">
@@ -1246,7 +1246,7 @@
               <div class="cmd"><code>ls -l /dev/v4l/by-id/</code><button class="copy">Copy</button></div>
               <ul>
                 <li>If the device exists, the Pi detects a camera.</li>
-                <li>If the AMI Bleutooth App says "No Camera" or “No such file or directory” appears on the command line, suspect the cable, connector, or camera.</li>
+                <li>If the AMI Bluetooth App says "No Camera" or “No such file or directory” appears on the command line, suspect the cable, connector, or camera.</li>
               </ul>
               <ol start="4">
                 <li>Plug the camera USB lead into a laptop. If the laptop recognises a Logitech camera, the camera and
@@ -1394,7 +1394,7 @@
               <ol start="5">
                 <li>Open several copied files and confirm the backup.</li>
                 <li>Only then remove an incorrect local directory if a technician has confirmed the diagnosis.</li>
-                <li>Power down, connect the correctly labelled SSD, power up and verify the mount with
+                <li>Power down, connect the correctly labelled SSD, power up, and verify the mount with
                   <code>lsblk</code>.</li>
               </ol>
               <p><span class="review">Review</span> Earlier manual wording about the existence of this path was
@@ -1430,7 +1430,7 @@
                 <li>Check free SSD space and whether the SSD remained mounted.</li>
                 <li>Inspect <code>/var/log/motion/motion.log</code> around the final image time (downloadable from the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or using an ethernet cable and SSH).</li>
                 <li>Check for intermittent camera disconnects and loose USB cables.</li>
-                <li>Check UPS/watchdog shutdowns, low main-battery voltage and solar charging.</li>
+                <li>Check UPS/watchdog shutdowns, low main-battery voltage, and solar charging.</li>
                 <li>Substitute known-good SSD, camera cable, or software microSD one at a time.</li>
                 <li>Do not assume the cause from the symptom alone. Similar cases were associated with power, storage,
                   and
@@ -1460,7 +1460,7 @@
               </ol>
               <div class="cmd"><code>sudo hwclock -r</code><button class="copy">Copy</button></div>
               <ol start="5">
-                <li> After confirming the time is correct in the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or the command line, power down for several minutes, restart and check whether time was retained. If not, reseat the RTC
+                <li> After confirming the time is correct in the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth App</a> or the command line, power down for several minutes, restart, and check whether time was retained. If not, reseat the RTC
                   and
                   replace its CR1220 coin cell.</li>
                 <li>Also set the separate <a href="https://docs.rs-online.com/8558/0900766b815859bb.pdf" target="_blank" rel="noopener noreferrer">timer relay clock</a>. The Pi RTC and timer relay are independent.</li>
@@ -1500,7 +1500,7 @@
             <summary>How do I set a basic overnight schedule?</summary>
             <div class="faq-content">
               <ol>
-                <li>Hold <b>Clock</b> and use <b>D+</b>, <b>H+</b> and <b>M+</b> to set current day, hour and minute.
+                <li>Hold <b>Clock</b> and use <b>D+</b>, <b>H+</b>, and <b>M+</b> to set current day, hour, and minute.
                 </li>
                 <li>Press <b>PR</b> to programme ON. Select survey days with D+, then set hour and minute using the <a href="https://docs.rs-online.com/8558/0900766b815859bb.pdf" target="_blank" rel="noopener noreferrer">relay instructions</a>.</li>
                 <li>Press PR again for OFF. If operation crosses midnight, the OFF day is the following day. For ON
@@ -1540,7 +1540,7 @@
                   historical AMI-System
                   does.</li>
                 <li>Confirm the Pi is powered and has completed booting.</li>
-                <li>Move within a few metres, enable Bluetooth, use a compatible browser/device and rescan.</li>
+                <li>Move within a few metres, enable Bluetooth, use a compatible browser/device, and rescan.</li>
                 <li>If Ethernet works but Bluetooth does not, suspect an old or incorrect microSD image.</li>
                 <li>If neither works, troubleshoot power and boot before app connectivity.</li>
               </ol>
@@ -1554,7 +1554,7 @@
                 <li>Power the AMI-System and connect to it in the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">AMI Bluetooth app</a>.</li>
                 <li>Open the verbose or diagnostics section.</li>
                 <li>Scroll to the camera/Motion log control and download the log.</li>
-                <li>Save the file with the AMI-System ID, site and date.</li>
+                <li>Save the file with the AMI-System ID, site, and date.</li>
                 <li>If the <a href="https://ami-system.github.io/ami-app-bluetooth-lite/" target="_blank" rel="noopener noreferrer">Bluetooth app</a> is not working, the software image may be older. Use SSH/SCP or fit an approved updated
                   microSD
                   card.</li>
@@ -1571,7 +1571,7 @@
                 controlled
                 workspace and document the condition.</div>
               <ol>
-                <li>Photograph water tracks, corrosion and cable-gland condition.</li>
+                <li>Photograph water tracks, corrosion, and cable-gland condition.</li>
                 <li>Remove standing water and allow thorough drying.</li>
                 <li>Inspect Pi, microSD, watchdog, 18650 cell, RTC, timer, fuses, and cable connections for corrosion.
                 </li>
@@ -1635,11 +1635,11 @@
               <ol>
                 <li>Visual inspection: dry, sealed, no corrosion, cables secure.</li>
                 <li>Battery and solar: correct polarity, matched charge, green/expected controller status.</li>
-                <li>Timer: correct local time, schedule and AUTO state.</li>
+                <li>Timer: correct local time, schedule, and AUTO state.</li>
                 <li>Pi: boots, stable LEDs, SSH or app access.</li>
                 <li>Watchdog: slow normal flash and safe shutdown when main power is removed.</li>
                 <li>RTC: correct time retained over a power-off test.</li>
-                <li>Camera: detected, test images clear and correctly coloured.</li>
+                <li>Camera: detected, test images clear, and correctly coloured.</li>
                 <li>Lights: LepiLED/UV-light and ring light stable.</li>
                 <li>SSD: detected, labelled PiImages, mounted at <code>/media/pi/PiImages</code>.</li>
                 <li>Capture: several correctly timed images stored on SSD.</li>
@@ -1652,9 +1652,9 @@
             <summary>What information should I collect before asking for technical help?</summary>
             <div class="faq-content">
               <ul>
-                <li>AMI-System serial number, manufacturing year and site</li>
+                <li>AMI-System serial number, manufacturing year, and site</li>
                 <li>Clear overview photos of battery box and electronics box</li>
-                <li>Close-ups of all terminal wiring, fuses and cable glands</li>
+                <li>Close-ups of all terminal wiring, fuses, and cable glands</li>
                 <li>Battery voltages and SunSaver indicator states</li>
                 <li>Timer display and state</li>
                 <li>Pi and watchdog LED videos showing repeated patterns</li>
